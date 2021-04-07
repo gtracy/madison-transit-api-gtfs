@@ -1,0 +1,29 @@
+{
+  "name": "madison-transit-api-node",
+  "version": "1.0.0",
+  "description": "API for Madison Metro",
+  "main": "lib/app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gtracy/madison-transit-api-node.git"
+  },
+  "author": "Greg Tracy",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gtracy/madison-transit-api-node/issues"
+  },
+  "homepage": "https://github.com/gtracy/madison-transit-api-node#readme",
+  "dependencies": {
+    "aws-serverless-express": "^3.3.5",
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "gtfs-realtime-bindings": "0.0.5",
+    "logme": "^0.4.0",
+    "pug": "^2.0.3",
+    "request": "^2.88.0",
+    "underscore": "^1.9.1"
+  }
+}
