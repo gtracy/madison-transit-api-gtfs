@@ -16,7 +16,7 @@ const Routes = require('../routes');
 
     // default values for file input and output
     let default_input = './gtfs/routes.txt';
-    let default_output = './utils/routes.json';
+    let default_output = './lib/routes.json';
     console.log("\ntransform the GTFS routes file into a json object for deployment.");
     console.log("  - prompt defaults will work just fine \n  - script assumes you are running this from the project's root directory\n");
     

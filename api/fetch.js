@@ -5,7 +5,7 @@ const moment = require('moment-timezone');
 const got = require('got');
 const {performance} = require('perf_hooks');
 const GtfsRealtimeBindings = require('gtfs-realtime-bindings');
-const routes = require('../routes');
+const routes = require('../lib/routes');
 
 const METRO_GTFS_ENDPOINT = 'http://transitdata.cityofmadison.com/TripUpdate/TripUpdates.pb';
 

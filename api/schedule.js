@@ -4,8 +4,8 @@ const moment = require('moment-timezone');
 const _ = require('underscore');
 
 const fetch = require('./fetch');
-const Routes = require('../routes');
-const GTFSTrips = require('../trips');
+const Routes = require('../lib/routes');
+const GTFSTrips = require('../lib/trips');
 
 module.exports = async function(app) {
 
@@ -23,7 +23,7 @@ module.exports = async function(app) {
 
         // inspect results and build the payload
         json_result.status = "0";
-        json_result.timestamp = moment().tz("America/Chicago").format("h:mA");
+        json_result.timestamp = moment().tz("America/Chicago").format("h:mmA");
         json_result.stop = {'stopID' : stop_id,'route':[]};
         json_result.cached = false;
 
