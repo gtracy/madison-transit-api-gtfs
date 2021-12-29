@@ -17,11 +17,7 @@ const CsvReadableStream = require('csv-reader');
 
 let config = require('../config');
 let AWS = require('aws-sdk');
-//AWS.config.update({region: config.aws.region});
-AWS.config.update({
-    region: "local",
-    endpoint: "http://localhost:8000"
-});
+AWS.config.update(config.getAWSConfig())
 // Create DynamoDB document client
 let dynamoClient = new AWS.DynamoDB.DocumentClient({apiVersion: '2012-08-10'});
 

@@ -12,13 +12,8 @@ function Trips() {
     const TABLE_NAME = 'Trips_gtfs';
 
     // Create an Amazon DynamoDB service client object.
-    //AWS.config.update({region: config.aws.region});
-    AWS.config.update({
-        region: "local",
-        endpoint: "http://localhost:8000"
-    });
+    AWS.config.update(config.getAWSConfig());
     let ddb = new AWS.DynamoDB({apiVersion: '2012-08-10'});
-    //let docClient = new AWS.DynamoDB.DocumentClient({apiVersion: '2012-08-10'});
 
     // fetch Trip details by tripId
     //    trip_ids is an array of GTFS trip id strings
