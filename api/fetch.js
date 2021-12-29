@@ -1,6 +1,7 @@
 'use strict';
 
 const _ = require('underscore');
+const moment = require('moment-timezone');
 const got = require('got');
 const {performance} = require('perf_hooks');
 const GtfsRealtimeBindings = require('gtfs-realtime-bindings');
@@ -31,6 +32,8 @@ module.exports.fetch_stop = async function(stop_id, route_id) {
         var endTime = performance.now();
         console.log(`Fetch+parse took ${endTime - startTime} milliseconds`);
 
+        // parse the real-time results and do some transformations 
+        // so the data is easier to consume
         trips.timestamp = feed.header.timestamp;
         feed.entity.forEach((entity) => {
             if (entity.tripUpdate) {
@@ -52,17 +55,15 @@ module.exports.fetch_stop = async function(stop_id, route_id) {
                 }
             }
         });
-        var sorted_trips = _.sortBy(trips, (s) => {
-            return s.stop.departure.time.low;
-        });
-        sorted_trips.forEach( (s) => {
-          console.log(s.stop.stopId,s.routeId,s.stop.departure.time.low,new Date(s.stop.departure.time.low))
+        // proactively sort the trips by departure times
+        var sorted_trips = _.sortBy(trips, (t) => {
+            return t.stop.departure.time.low;
         });
         return sorted_trips;
   
     } catch (error) {
         console.log(error.message);
-        return undefined;
+        return [];
     }
 
 }
