@@ -55,9 +55,19 @@ module.exports.fetch_stop = async function(stop_id, route_id) {
                 }
             }
         });
-        // proactively sort the trips by departure times
+        // proactively sort the trips by departure times, and
+        // perform some subtle tranformations to make the object
+        // more usable. 
         var sorted_trips = _.sortBy(trips, (t) => {
-            return t.stop.departure.time.low;
+            if( t.stop.departure ) {
+                return t.stop.departure.time.low;
+            } else if( t.stop.arrival ) {
+                return t.stop.arrival.time.low;
+            } else {
+                console.log('total fail consuming this StopTimeUpdate');
+                console.dir(t);
+                return 9999;
+            }
         });
         return sorted_trips;
   

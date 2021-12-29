@@ -1,14 +1,16 @@
 'use strict';
 
-let _ = require('underscore');
+const _ = require('underscore');
+const moment = require('moment-timezone');
+const config = require('./config');
 let AWS = require('aws-sdk');
-let config = require('./config');
 
-
-// sort key : trip_id
-
+//
+// overloaded object that encapsulates TripUpdate details from the real-time
+// GTFS feed as well as an interface to our local datastore for fixed 
+// trip data. 
+//
 function Trips() {
-
     const TABLE_NAME = 'Trips_gtfs';
 
     // Create an Amazon DynamoDB service client object.
@@ -54,7 +56,37 @@ function Trips() {
 
         }
     }
+    this.computeArrivalTime = (trip) => {
+        // dates and timezones suck
+        // note that the epoch times in the GTFS data are in seconds
+        let arrival_time;
+        if( trip.stop.departure ) {
+            return moment.tz(new Date(trip.stop.departure.time.low * 1000),'America/Chicago').format("h:mmA");
+        } else if( trip.stop.arrival ) {
+            return moment.tz(new Date(trip.stop.arrival.time.low * 1000),'America/Chicago').format("h:mmA");
+        } else {
+            return "0:00am";
+        }
+    
+        const minutes = Math.round((trip.stop.departure.time.low - trip.feed_time.low) / 60);
+    
+    }
 
+    this.computeTimeDelta = (trip) => {
+
+        // note that the epoch times in the GTFS data are in seconds
+        let arrival_time;
+        if( trip.stop.departure ) {
+            return Math.round((trip.stop.departure.time.low - trip.feed_time.low) / 60);
+        } else if( trip.stop.arrival ) {
+            return Math.round((trip.stop.arrival.time.low - trip.feed_time.low) / 60);
+        } else {
+            return -999;
+        }
+    
+    }
+    
+    
 }
 module.exports = Trips;
 
