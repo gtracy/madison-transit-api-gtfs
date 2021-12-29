@@ -1,12 +1,34 @@
+'use strict';
+
 const _ = require('underscore');
+const fs = require("fs");
+const csvToJson = require('convert-csv-to-json');
 
+const gtfs_routes = require('./utils/routes.json');
 
-// map GTFS code to human route
-// map human route to GTFS code
-// get route service name
-// get all route details
 function _Routes() {
 
+    // utility function that transforms and shrink a GTFS Routes 
+    // file into a JSON object this class will query for route details
+    this.transformGTFSFile = (gtfs_input_file,json_output_file) => {
+        //
+        let json = csvToJson.fieldDelimiter(',').getJsonFromCsv(gtfs_input_file);
+        console.log('total routes : '+json.length);
+        console.log('sample route transformed : ');
+        console.dir(json[0]);
+        let json_small = _.map(json, (obj) => {
+            return ({
+                'route_id' : obj.route_id,
+                'route_short_name' : obj.route_short_name,
+                'route_service_name' : obj.route_service_name,
+                'bikes_allowed' : obj.bikes_allowed
+            });
+        });
+        console.dir(json_small[0]);
+        fs.writeFile(json_output_file, JSON.stringify(json_small), (error) => {
+            if (error) throw error;
+        });
+    }
 
 }
 
@@ -55,5 +77,3 @@ _Routes.prototype.getDestination = (service_name) => {
 // instantiate the singleton
 var routes = new _Routes();
 module.exports = routes;
-
-const gtfs_routes = [{"route_id":"9898","route_short_name":"01","route_service_name":"OLD UNIV:CAP SQR","bikes_allowed":"1"},{"route_id":"9899","route_short_name":"02","route_service_name":"WEST TP:NORTH TP","bikes_allowed":"1"},{"route_id":"9900","route_short_name":"03","route_service_name":"WEST TP:EAST TP","bikes_allowed":"1"},{"route_id":"9901","route_short_name":"04","route_service_name":"SOUTH TP:NORTH TP","bikes_allowed":"1"},{"route_id":"9902","route_short_name":"05","route_service_name":"SOUTH TP:EAST TP","bikes_allowed":"1"},{"route_id":"9903","route_short_name":"06","route_service_name":"E TOWNE:WEST TP","bikes_allowed":"1"},{"route_id":"9904","route_short_name":"07","route_service_name":"WEST TP:EAST TP","bikes_allowed":"1"},{"route_id":"9905","route_short_name":"08","route_service_name":"SPRNG HB:CAP SQR","bikes_allowed":"1"},{"route_id":"9906","route_short_name":"10","route_service_name":"UNIV ROW:UNION CS","bikes_allowed":"1"},{"route_id":"9907","route_short_name":"11","route_service_name":"DUTCH ML:WEST TP","bikes_allowed":"1"},{"route_id":"9908","route_short_name":"12","route_service_name":"DUTCH ML:WEST TP","bikes_allowed":"1"},{"route_id":"9909","route_short_name":"13","route_service_name":"U CAMPUS:SOUTH TP","bikes_allowed":"1"},{"route_id":"9910","route_short_name":"14","route_service_name":"WEXFD RG:ETP/SQR","bikes_allowed":"1"},{"route_id":"9911","route_short_name":"15","route_service_name":"HIGH PT:EAST TP","bikes_allowed":"1"},{"route_id":"9912","route_short_name":"16","route_service_name":"SOUTH TP:EAST TP","bikes_allowed":"1"},{"route_id":"9913","route_short_name":"17","route_service_name":"NORTH TP:EAST TP","bikes_allowed":"1"},{"route_id":"9914","route_short_name":"18","route_service_name":"WEST TP:SOUTH TP","bikes_allowed":"1"},{"route_id":"9915","route_short_name":"19","route_service_name":"DUNNS MARSH:CAP SQR","bikes_allowed":"1"},{"route_id":"9916","route_short_name":"20","route_service_name":"E TOWNE:NORTH TP","bikes_allowed":"1"},{"route_id":"9917","route_short_name":"21","route_service_name":"LAKEVIEW:NORTH TP","bikes_allowed":"1"},{"route_id":"9918","route_short_name":"22","route_service_name":"MENDOTA:NORTH TP","bikes_allowed":"1"},{"route_id":"9919","route_short_name":"23","route_service_name":"S PRAIRIE:CAP SQR","bikes_allowed":"1"},{"route_id":"9920","route_short_name":"25","route_service_name":"AMERICAN:CAP SQR","bikes_allowed":"1"},{"route_id":"9921","route_short_name":"26","route_service_name":"AMERICAN:E TOWNE","bikes_allowed":"1"},{"route_id":"9922","route_short_name":"27","route_service_name":"U CAMPUS:NORTH TP","bikes_allowed":"1"},{"route_id":"9923","route_short_name":"28","route_service_name":"NORTH TP:WEST TP","bikes_allowed":"1"},{"route_id":"9924","route_short_name":"29","route_service_name":"SCHOOL:BREESE","bikes_allowed":"1"},{"route_id":"9925","route_short_name":"30","route_service_name":"E TOWNE:EAST TP","bikes_allowed":"1"},{"route_id":"9926","route_short_name":"31","route_service_name":"MARSH RD:EAST TP","bikes_allowed":"1"},{"route_id":"9927","route_short_name":"32","route_service_name":"ACEWOOD-THOMPSON:ETP","bikes_allowed":"1"},{"route_id":"9928","route_short_name":"33","route_service_name":"SPRECHER:ETP","bikes_allowed":"1"},{"route_id":"9929","route_short_name":"34","route_service_name":"MATC:EAST TP","bikes_allowed":"1"},{"route_id":"9930","route_short_name":"35","route_service_name":"ATLAS-ACEWOOD:ETP","bikes_allowed":"1"},{"route_id":"9931","route_short_name":"36","route_service_name":"E SPRINGS:E TOWNE","bikes_allowed":"1"},{"route_id":"9932","route_short_name":"37","route_service_name":"SHEBOYGN:PFLAUM","bikes_allowed":"1"},{"route_id":"9933","route_short_name":"38","route_service_name":"UNIV ROW:PFLAUM","bikes_allowed":"1"},{"route_id":"9934","route_short_name":"39","route_service_name":"WORLD DY:EAST TP","bikes_allowed":"1"},{"route_id":"9935","route_short_name":"40","route_service_name":"GRNDVIEW/TODD:STP","bikes_allowed":"1"},{"route_id":"9936","route_short_name":"44","route_service_name":"U CAMPUS:SOUTH TP","bikes_allowed":"1"},{"route_id":"9937","route_short_name":"47","route_service_name":"ARBOR HL:CAP SQR","bikes_allowed":"1"},{"route_id":"9938","route_short_name":"48","route_service_name":"U CAMPUS:SOUTH TP","bikes_allowed":"1"},{"route_id":"9939","route_short_name":"49","route_service_name":"LACY-HATCHERY:SOUTH TP","bikes_allowed":"1"},{"route_id":"9940","route_short_name":"50","route_service_name":"RAYMOND:WEST TP","bikes_allowed":"1"},{"route_id":"9941","route_short_name":"51","route_service_name":"MUIR FLD:WEST TP","bikes_allowed":"1"},{"route_id":"9942","route_short_name":"52","route_service_name":"ORCHARD PT:WEST TP","bikes_allowed":"1"},{"route_id":"9943","route_short_name":"55","route_service_name":"VERONA:WEST TP","bikes_allowed":"1"},{"route_id":"9944","route_short_name":"56","route_service_name":"MC KEE:NORTH TP/WTP","bikes_allowed":"1"},{"route_id":"9945","route_short_name":"57","route_service_name":"MC KEE:NORTH TP/WTP","bikes_allowed":"1"},{"route_id":"9946","route_short_name":"58","route_service_name":"GRNTREE:CAP SQR","bikes_allowed":"1"},{"route_id":"9947","route_short_name":"59","route_service_name":"FITCHBURG:WEST TP","bikes_allowed":"1"},{"route_id":"9948","route_short_name":"63","route_service_name":"PR TOWN:WEST TP","bikes_allowed":"1"},{"route_id":"9949","route_short_name":"67","route_service_name":"W TOWNE:WEST TP","bikes_allowed":"1"},{"route_id":"9950","route_short_name":"68","route_service_name":"PR TOWN:WEST TP","bikes_allowed":"1"},{"route_id":"9951","route_short_name":"70","route_service_name":"MIDDLTON:CAP SQR","bikes_allowed":"1"},{"route_id":"9952","route_short_name":"71","route_service_name":"MIDDLTON:CAP SQR","bikes_allowed":"1"},{"route_id":"9953","route_short_name":"72","route_service_name":"MIDDLTON:CAP SQR","bikes_allowed":"1"},{"route_id":"9954","route_short_name":"73","route_service_name":"MIDDLTON:WEST TP","bikes_allowed":"1"},{"route_id":"9955","route_short_name":"75","route_service_name":"VERONA:CAP SQR","bikes_allowed":"1"},{"route_id":"9956","route_short_name":"78","route_service_name":"MIDDLTON:WEST TP","bikes_allowed":"1"},{"route_id":"9957","route_short_name":"80","route_service_name":"UW CAMPUS:UNION","bikes_allowed":"1"},{"route_id":"9958","route_short_name":"81","route_service_name":"JOHNSON/W WASH:UNION","bikes_allowed":"1"},{"route_id":"9959","route_short_name":"82","route_service_name":"OBSRVTRY/BREESE:UNION","bikes_allowed":"1"},{"route_id":"9960","route_short_name":"84","route_service_name":"EAGLE HTS:UW CAMPUS","bikes_allowed":"1"}]

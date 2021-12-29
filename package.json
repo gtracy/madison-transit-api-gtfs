@@ -4,7 +4,8 @@
   "description": "API for Madison Metro",
   "main": "lib/app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "route-import" : "node utils/route_import.js"
   },
   "repository": {
     "type": "git",
@@ -33,6 +34,7 @@
     "underscore": "^1.13.1"
   },
   "devDependencies": {
-    "csv-reader": "^1.0.8"
+    "csv-reader": "^1.0.8",
+    "prompt-sync": "^4.2.0"
   }
 }

@@ -1,43 +1,33 @@
 'use strict';
 
-const fs = require("fs");
-const _ = require('underscore');
-const csvToJson = require('convert-csv-to-json');
-const readline = require("readline");
+const prompt = require('prompt-sync')({sigint: true});
+const Routes = require('../routes');
 
-var inputCSVFile = 'routes.txt';
-var outputJSONFile = 'routes.json';
+//
+// warning : this won't work with nodemon due to a known bug in prompt-sync
+//   https://github.com/heapwolf/prompt-sync/issues/50
+//
+//
+//  usage : node utils/route_import.js
+//
+//      - designed to take the prompt defaults and work just fine.
+//
+(async () => {
 
-const rl = readline.createInterface({
-    input: process.stdin,
-    output: process.stdout
-});
+    // default values for file input and output
+    let default_input = './gtfs/routes.txt';
+    let default_output = './utils/routes.json';
+    console.log("\ntransform the GTFS routes file into a json object for deployment.");
+    console.log("  - prompt defaults will work just fine \n  - script assumes you are running this from the project's root directory\n");
+    
+    var inputGTFSFile = prompt("GTFS file input ["+default_input+"] : ",default_input);
+    var outputJSONFile = prompt("JSON file output ["+default_output+"] : ",default_output);
+    console.log(`\nreading GTFS data from ${inputGTFSFile}`);
+    console.log(`exporting JSON to ${outputJSONFile}\n`);
 
-rl.question("What is your name ? ", function(name) {
-    rl.question("Where do you live ? ", function(country) {
-        console.log(`${name}, is a citizen of ${country}`);
-        rl.close();
-    });
-});
+    await Routes.transformGTFSFile(inputGTFSFile,outputJSONFile);
+    console.log("\nall finished with ingestion task!\n");
 
-rl.on("close", function() {
-    console.log("\nBYE BYE !!!");
-    process.exit(0);
-});
+})();
 
-//csvToJson.fieldDelimiter(',').generateJsonFileFromCsv(inputCSVName,outputJSONName);
-let json = csvToJson.fieldDelimiter(',').getJsonFromCsv(inputCSVFile);
-console.dir(json.length);
-console.dir(json[0]);
-let json_small = _.map(json, (obj) => {
-    return ({
-        'route_id' : obj.route_id,
-        'route_short_name' : obj.route_short_name,
-        'route_service_name' : obj.route_service_name,
-        'bikes_allowed' : obj.bikes_allowed
-    });
-});
-console.dir(json_small[0]);
-fs.writeFile(outputJSONFile, JSON.stringify(json_small), (error) => {
-    if (error) throw error;
-});
+
