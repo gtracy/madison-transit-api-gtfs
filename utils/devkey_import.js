@@ -62,10 +62,10 @@ console.dir(config.getAWSConfig());
                 console.error("... table " + params.TableName + " already exists");
             }
         } else {
-            console.log("Created table. Table description JSON:", JSON.stringify(data, null, 2));
+            console.log("Created table. Table description JSON: ", JSON.stringify(data, null, 2));
         }
 
-        var input_file = prompt("\nGTFS file input (not required): ");
+        var input_file = prompt("Dev key file input (not required): ");
         if( input_file ) {
             console.log(`\n... importing devkey data from ${input_file}`);
 
