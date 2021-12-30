@@ -1,17 +1,64 @@
 'use strict';
 
+let _ = require('underscore');
+let AWS = require('aws-sdk');
+let config = require('../config');
 
+AWS.config.update(config.getAWSConfig());
+let ddb = new AWS.DynamoDB({apiVersion: '2012-08-10'});
+
+const TABLE_NAME = 'DeveloperKeys';
+
+//
+// we have a dynamo table that stores all valid developer keys
+// we need to cash these at some point. in the mean time, the MVP
+// will simply grab the frequently used keys from an environment 
+// variable
+//
 module.exports.validateDevKey = async function(req,res,next) {
 
         const dev_key = req.query.devKey;
 
         console.log('validating devkey: ' + dev_key);
         if( !dev_key ) {
-            console.dir('missing devkey in the request');
-            next("Missing devKey in request");
+            return next("Missing devKey in request");
         } else {
-            console.dir('dev key valid!');
-            next();
+
+            try {
+                // hacky cache : do a lookup on the local devkey object
+                let env_key_list = [];
+                if( process.env.DEV_KEYS ) {
+                    console.log(process.env.DEV_KEYS);
+                    env_key_list = process.env.DEV_KEYS.split(',');
+                }
+
+                if( _.find(env_key_list, (key) => {
+                          return key === dev_key;
+                   })) {
+                    console.log('found devKey in the local cache');
+                    next();
+                } else {
+                    // lookup in dynamo next
+                    let params = {
+                        TableName: TABLE_NAME,
+                        Key : {
+                            developerKey: {S : dev_key}
+                        }
+                    };
+                    let aws_result = await ddb.getItem(params).promise();
+
+                    if( aws_result.Item) {
+                        console.log('dev key valid!');
+                        next();
+                    } else {
+                        console.log('failed to lookup devKey');
+                        next('Invalid devKey in request');
+                    }
+
+                }
+            } catch(err) {
+                next(err);
+            }
         }
 
 }
