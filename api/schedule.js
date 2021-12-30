@@ -4,17 +4,18 @@ const moment = require('moment-timezone');
 const _ = require('underscore');
 
 const fetch = require('./fetch');
+const devkey = require('./devkey');
 const Routes = require('../lib/routes');
 const Trips = require('../lib/trips');
 
+
 module.exports = async function(app) {
 
-    app.get('/v1/getarrivals', async (req,res) => {
+    app.get('/v1/getarrivals', devkey.validateDevKey, async (req,res) => {
         var json_result = {};
         var gtfs_trips = new Trips();
 
         // snag the API query details
-        const dev_key = req.query.devKey;
         const stop_id = req.query.stopID;
         const route_id = req.query.routeID;
 
