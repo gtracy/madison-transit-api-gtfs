@@ -7,7 +7,11 @@ module.exports = {
     },
 
     getEnv : function getEnv() {
-        return process.env.NODE_ENV
+        if( process.env.NODE_ENV === 'prod' ) {
+            return process.env.NODE_ENV;
+        } else {
+            return 'dev';
+        }
     },
 
     getAWSConfig : function getAWSConfig() {
