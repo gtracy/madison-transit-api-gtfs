@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "route-import" : "node utils/route_import.js",
-    "trip-import"  : "node utils/trip_import.js"
+    "trip-import"  : "node utils/trip_import.js",
+    "devkey-import" : "node utils/devkey_import.js"
   },
   "repository": {
     "type": "git",
