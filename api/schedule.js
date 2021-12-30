@@ -5,13 +5,13 @@ const _ = require('underscore');
 
 const fetch = require('./fetch');
 const Routes = require('../lib/routes');
-const GTFSTrips = require('../lib/trips');
+const Trips = require('../lib/trips');
 
 module.exports = async function(app) {
 
     app.get('/v1/getarrivals', async (req,res) => {
         var json_result = {};
-        var gtfs_trips = new GTFSTrips();
+        var gtfs_trips = new Trips();
 
         // snag the API query details
         const dev_key = req.query.devKey;
@@ -29,15 +29,23 @@ module.exports = async function(app) {
 
         if( trips && trips.length > 0 ) {
 
-            // fetch a list of destinations for the trips
+            // fetch a list of GTFS trip details found in dynamo. 
+            // this is batch read with all tripIds
             let trip_id_list = _.map(trips, (trip) => {
                 return trip.tripId;
             });
             const trip_details = await gtfs_trips.fetchById(trip_id_list);
 
-            //await trips.forEach(async (trip) => { 
+            // join the trip details (dyanmo) with the real-time GTFS trip data
+            // then package up the json payload
             for( let i=0; i < trips.length; i++ ) {
                 let trip = trips[i];
+
+                // matchup the trip_id we are looping on with the details we found earlier
+                let details = _.find(trip_details, (details) => {
+                    return details.trip_id == trip.tripId;
+                });
+                let destination = details.trip_headsign;
 
                 // dates and timezones suck
                 // note that the epoch times in the GTFS data are in seconds
@@ -46,7 +54,7 @@ module.exports = async function(app) {
 
                     json_result.stop.route.push({
                         'routeID' : Routes.fetchBy_gtfs_id(trip.routeId).route_short_name,
-                        'destination' : trip_details[i].trip_headsign,
+                        'destination' : destination,
                         'minutes' : minutes,
                         'arrivalTime' : arrival_time,
                         'vehicleID' : trip.vehicle.label,
