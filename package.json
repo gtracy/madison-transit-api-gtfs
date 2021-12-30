@@ -5,7 +5,8 @@
   "main": "lib/app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "route-import" : "node utils/route_import.js"
+    "route-import" : "node utils/route_import.js",
+    "trip-import"  : "node utils/trip_import.js"
   },
   "repository": {
     "type": "git",
