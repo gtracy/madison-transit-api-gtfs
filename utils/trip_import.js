@@ -83,6 +83,11 @@ console.dir(config.getAWSConfig());
                     console.log('... awaiting write to DynamoDB\n')
                     await Promise.all(promises);
                 }
+
+                // flush any remnents
+                if (write_bucket.length > 0) {
+                    await saveToDynamoDB(write_bucket);
+                }
                 console.log('No more rows!');
             })
             .on('error', (err) => {

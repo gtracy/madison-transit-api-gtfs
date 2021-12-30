@@ -37,11 +37,9 @@ console.dir(config.getAWSConfig());
         TableName : TABLE_NAME,
         KeySchema: [       
             { AttributeName: "developerKey", KeyType: "HASH"},
-            { AttributeName: "developerEmail", KeyType: "RANGE"}
         ],
         AttributeDefinitions: [       
             { AttributeName: "developerKey", AttributeType: "S" },
-            { AttributeName: "developerEmail", AttributeType: "S"}
         ],
         ProvisionedThroughput: {       
             ReadCapacityUnits: 10, 
@@ -81,6 +79,11 @@ console.dir(config.getAWSConfig());
                         console.log('... awaiting write to DynamoDB\n')
                         await Promise.all(promises);
                     }
+
+                    // flush any remnents
+                    if (write_bucket.length > 0) {
+                        await saveToDynamoDB(write_bucket);
+                    }
                     console.log('No more rows!');
                 })
                 .on('error', (err) => {
@@ -93,15 +96,14 @@ console.dir(config.getAWSConfig());
                     row.dateAdded = date_added[0];
 
                     // push in new table row
-                    console.log('push in new Dynamo row for batch write');
-                    console.dir(row);
+                    //console.dir(row);
                     write_bucket.push(row);
 
                     // if it is valid, push it into our write bucket
                     if (write_bucket.length % batch_size === 0) {
+                        csvStream.pause();
                         console.log(`    batch ${batch_num}`)
 
-                        csvStream.pause();
                         promises.push(saveToDynamoDB(write_bucket));
                         if (promises.length % concurrentRequests === 0) {
                             console.log('... awaiting write requests to DynamoDB\n');
