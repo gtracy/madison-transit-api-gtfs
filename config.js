@@ -17,7 +17,7 @@ module.exports = {
     getAWSConfig : function getAWSConfig() {
         if( process.env.NODE_ENV === 'prod' ) {
             return {
-                region : 'us-west-2',
+                region : 'us-east-2',
                 access_id : process.env.AWS_ACCESS_ID,
                 access_secret : process.env.AWS_ACCESS_SECRET
             }

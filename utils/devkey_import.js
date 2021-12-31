@@ -43,15 +43,15 @@ console.dir(config.getAWSConfig());
         ],
         ProvisionedThroughput: {       
             ReadCapacityUnits: 10, 
-            WriteCapacityUnits: 10
+            WriteCapacityUnits: concurrentRequests
         }
     };
     
     console.log("\ningest an existing dev key list into DynamoDB (not required).");
     console.log("... create the table if it doesn't already exist");
-    let aws_result = await ddb.createTable(params, function(err, data) {
+    let aws_result = await ddb.createTable(params, async function(err, data) {
         if (err) {
-            if( !(err.code === "ResourceInUseException" && err.message === "Cannot create preexisting table") ) {
+            if( !(err.code === "ResourceInUseException") ) {
                 // totally fine if the table already exists. 
                 // otherwise, exit.
                 console.dir(err);
@@ -61,6 +61,8 @@ console.dir(config.getAWSConfig());
             }
         } else {
             console.log("Created table. Table description JSON: ", JSON.stringify(data, null, 2));
+            console.log("... take a quick break, and give AWS a chance to create the table ...");
+            await new Promise(r => setTimeout(r, 5000));
         }
 
         var input_file = prompt("Dev key file input (not required): ");
@@ -82,6 +84,7 @@ console.dir(config.getAWSConfig());
 
                     // flush any remnents
                     if (write_bucket.length > 0) {
+                        console.log('... found sme remnents. saving these now.');
                         await saveToDynamoDB(write_bucket);
                     }
                     console.log('No more rows!');
