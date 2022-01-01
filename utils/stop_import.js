@@ -1,53 +1,48 @@
 'use strict';
 
 //
-// this script is designed to read in a GTFS text file for Trips
+// this script is designed to read in a GTFS text file for Stops
 // and populate a DynamoDB table with the items.
 //
-// > npm run trip-import
+// > npm run stops-import
 //
 // prompt the user for:
-//   - File to import (default to trips.txt)
+//   - File to import (default to stops.txt)
 //
-let config = require('../config');
 let gtfs = require('./gtfs');
-let Trips = require('../lib/trips');
+let config = require('../config');
 
 let AWS = require('aws-sdk');
 AWS.config.update(config.getAWSConfig())
-
 console.log("\nAWS config :");
 console.dir(config.getAWSConfig());
 
 (async () => {
 
-    let trips = new Trips();
-    const TABLE_NAME = trips.getTableName();
+    const TABLE_NAME = "Stops_gtfs";
 
     // let's make sure the table has been created
-    let table_params = {
+    var params = {
         TableName : TABLE_NAME,
         KeySchema: [       
-            { AttributeName: "trip_id", KeyType: "HASH"},  
+            { AttributeName: "stop_id", KeyType: "HASH"},
         ],
         AttributeDefinitions: [       
-            { AttributeName: "trip_id", AttributeType: "S" }
+            { AttributeName: "stop_id", AttributeType: "S" },
         ],
         ProvisionedThroughput: {       
             ReadCapacityUnits: 10, 
             WriteCapacityUnits: 25
         }
     };
-
+    
     // import the GTFS file into our new table
     try{
-        await gtfs.gtfsToDynamo(AWS,"gtfs/trips.txt",TABLE_NAME,table_params);
+        await gtfs.gtfsToDynamo(AWS,"gtfs/stops.txt",TABLE_NAME,params);
     } catch(err) {
         console.log('import failed!');
         console.log(err);
         process.exit(-1);
     }
-    console.log("\nall done.\n");
-
 
 })();
