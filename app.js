@@ -7,6 +7,7 @@ const app = express();
 // API endpoint registration
 require('./api/schedule')(app);
 require('./api/stops')(app);
+require('./api/parking')(app);
 
 // API backstop
 app.get('*', function(req,res) {
