@@ -7,6 +7,11 @@ const app = express();
 // API endpoint registration
 require('./api/schedule')(app);
 
+// API backstop
+app.get('*', function(req,res) {
+    res.send('hello',200);
+});
+
 // error handler
 app.use(function (err, req, res, next) {
     console.log('something went sideways and we are failing');
