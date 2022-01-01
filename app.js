@@ -6,10 +6,11 @@ const app = express();
 
 // API endpoint registration
 require('./api/schedule')(app);
+require('./api/stops')(app);
 
 // API backstop
 app.get('*', function(req,res) {
-    res.send('hello',200);
+    res.status(200).send("hello");
 });
 
 // error handler

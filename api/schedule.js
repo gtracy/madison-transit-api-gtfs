@@ -20,7 +20,7 @@ module.exports = async function(app) {
         const route_id = req.query.routeID;
 
         // go grab the real-time Metro data
-        const trips = await fetch.fetch_stop(stop_id,route_id);
+        const trips = await fetch.fetch_trips(stop_id,route_id);
 
         // inspect results and build the payload
         json_result.status = "0";

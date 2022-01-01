@@ -16,9 +16,9 @@ const METRO_GTFS_ENDPOINT = 'http://transitdata.cityofmadison.com/TripUpdate/Tri
 // route_id is not required. when used, the trip details are
 // filtered to only include the respective route.
 //
-module.exports.fetch_stop = async function(stop_id, route_id) {
-    var trips = [];
-    var route = {};
+module.exports.fetch_trips = async (stop_id, route_id) => {
+    let trips = [];
+    let route = {};
 
     // map the user friendly route_id to a GTFS routeId
     if( route_id ) {
@@ -26,10 +26,10 @@ module.exports.fetch_stop = async function(stop_id, route_id) {
     }
 
     try {
-        var startTime = performance.now();
+        let startTime = performance.now();
         const response = await got(METRO_GTFS_ENDPOINT,{responseType:'buffer'});
-        var feed = GtfsRealtimeBindings.transit_realtime.FeedMessage.decode(response.body);
-        var endTime = performance.now();
+        let feed = GtfsRealtimeBindings.transit_realtime.FeedMessage.decode(response.body);
+        let endTime = performance.now();
         console.log(`Fetch+parse took ${endTime - startTime} milliseconds`);
 
         // parse the real-time results and do some transformations 
@@ -77,3 +77,4 @@ module.exports.fetch_stop = async function(stop_id, route_id) {
     }
 
 }
+

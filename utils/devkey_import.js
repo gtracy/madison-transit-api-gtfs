@@ -20,11 +20,6 @@ console.dir(config.getAWSConfig());
 (async () => {
 
     const TABLE_NAME = "DeveloperKeys";
-    const batch_size = 25;
-    let batch_num = 1;
-    let write_bucket = [];
-    let promises = [];
-    const concurrentRequests = 25;
 
     // let's make sure the table has been created
     var params = {
@@ -37,7 +32,7 @@ console.dir(config.getAWSConfig());
         ],
         ProvisionedThroughput: {       
             ReadCapacityUnits: 10, 
-            WriteCapacityUnits: concurrentRequests
+            WriteCapacityUnits: 25
         }
     };
     
