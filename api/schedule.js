@@ -35,7 +35,11 @@ module.exports = async function(app) {
             let trip_id_list = _.map(trips, (trip) => {
                 return trip.tripId;
             });
-            const trip_details = await gtfs_trips.fetchById(trip_id_list);
+            // remove duplicates caused by multiple buses on the same trip
+            let unique_trip_id_list = trip_id_list.filter((value,index,self) => {
+                return self.indexOf(value) === index;
+            });
+            const trip_details = await gtfs_trips.fetchById(unique_trip_id_list);
 
             // join the trip details (dyanmo) with the real-time GTFS trip data
             // then package up the json payload
@@ -59,7 +63,7 @@ module.exports = async function(app) {
                         'minutes' : minutes,
                         'arrivalTime' : arrival_time,
                         'vehicleID' : trip.vehicle.label,
-                        'bikesAllowed' : trip_details[i].bikes_allowed
+                        'bikesAllowed' : details.bikes_allowed
                     });
             };
         }
