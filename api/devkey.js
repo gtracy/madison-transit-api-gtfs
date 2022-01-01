@@ -17,11 +17,11 @@ const TABLE_NAME = 'DeveloperKeys';
 //
 module.exports.validateDevKey = async function(req,res,next) {
 
-        const dev_key = req.query.devKey;
+        const dev_key = req.query.key;
 
-        console.log('validating devkey: ' + dev_key);
+        console.log('validating dev key: ' + dev_key);
         if( !dev_key ) {
-            return next("Missing devKey in request");
+            return next('Missing dev key (?key=) in request');
         } else {
 
             try {
