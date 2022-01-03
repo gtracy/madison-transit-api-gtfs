@@ -2,7 +2,15 @@
 
 const config = require('./config');
 const express = require('express');
+const cors = require('cors');
+
 const app = express();
+app.use(cors({
+    origin: '*',
+    methods: 'GET',
+    allowedHeaders: 'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token',
+    preflightContinue: true
+}));
 
 // API endpoint registration
 require('./api/schedule')(app);
