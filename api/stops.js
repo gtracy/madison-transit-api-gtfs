@@ -22,18 +22,22 @@ module.exports = async function(app) {
         // snag the API query details
         const stop_id = req.query.stopID;
 
-        // go grab the stop data
-        const stop_data = await gtfs_stop.fetchById(stop_id);
-
-        // inspect results and build the payload
         json_result.status = "0";
         json_result.timestamp = moment().tz("America/Chicago").format("h:mmA");
         json_result.stopID = stop_id;
-        json_result.intersection = stop_data.stop_name;
-        json_result.latitude = parseFloat(stop_data.stop_lat);
-        json_result.longitude = parseFloat(stop_data.stop_lon);
 
-        console.log('/v1/getstoplocation ' + json_result.stopID);
+        // go grab the stop data
+        const stop_data = await gtfs_stop.fetchById(stop_id);
+        if( stop_data ) {
+            // inspect results and build the payload
+            json_result.intersection = stop_data.stop_name;
+            json_result.latitude = parseFloat(stop_data.stop_lat);
+            json_result.longitude = parseFloat(stop_data.stop_lon);
+        } else {
+            json_result.status = "-1";
+            json_result.message = "invalid stopID";
+        }
+        console.log('/v1/getstoplocation ' + stop_id);
         res.json(json_result);
     });
 
