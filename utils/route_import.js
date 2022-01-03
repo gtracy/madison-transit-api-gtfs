@@ -1,7 +1,7 @@
 'use strict';
 
 const prompt = require('prompt-sync')({sigint: true});
-const Routes = require('../routes');
+const Routes = require('../lib/routes');
 
 //
 // warning : this won't work with nodemon due to a known bug in prompt-sync
