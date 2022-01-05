@@ -38,8 +38,8 @@ module.exports.fetch_trips = async (stop_id, route_id) => {
         feed.entity.forEach((entity) => {
             if (entity.tripUpdate) {
                 if( !route_id || route.route_id == entity.tripUpdate.trip.routeId ) {
-                    entity.tripUpdate.stopTimeUpdate.forEach((stop) => {    
-                        if( stop.stopId === stop_id ) {
+                    entity.tripUpdate.stopTimeUpdate.forEach((stop) => {  
+                        if( stop.stopId === parseInt(stop_id).toString() ) { // shaves leading zeros
                             trips.push({
                                 'feed_time' : feed.header.timestamp,
                                 'stop'    : stop,
