@@ -59,6 +59,7 @@ module.exports = async function(app) {
                     const arrival_time = gtfs_trips.computeArrivalTime(trip);
                     const minutes = gtfs_trips.computeTimeDelta(trip);
 
+                    if( minutes >= 0 ) {
                         json_result.stop.route.push({
                             'routeID' : Routes.fetchBy_gtfs_id(trip.routeId).route_short_name,
                             'destination' : destination,
@@ -67,6 +68,7 @@ module.exports = async function(app) {
                             'vehicleID' : trip.vehicle.label,
                             'bikesAllowed' : details.bikes_allowed
                         });
+                    }
                 }
             } else {
                 json_result.status = "-1";
