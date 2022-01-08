@@ -51,7 +51,7 @@ module.exports.validateDevKey = async function(req,res,next) {
                         console.log('dev key valid!');
                         next();
                     } else {
-                        console.log('failed to lookup devKey');
+                        console.log('failed to lookup devKey '+dev_key);
                         next('Invalid devKey in request');
                     }
 

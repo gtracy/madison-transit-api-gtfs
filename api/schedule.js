@@ -5,13 +5,14 @@ const _ = require('underscore');
 
 const fetch = require('./fetch');
 const devkey = require('./devkey');
+const utils = require('./utils');
 const Routes = require('../lib/routes');
 const Trips = require('../lib/trips');
 
 
 module.exports = async function(app) {
 
-    app.get('/v1/getarrivals', devkey.validateDevKey, async (req,res) => {
+    app.get('/v1/getarrivals', utils.afterHours, devkey.validateDevKey, async (req,res) => {
         var json_result = {};
         var gtfs_trips = new Trips();
 
