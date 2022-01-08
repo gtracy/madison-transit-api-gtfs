@@ -41,4 +41,19 @@ module.exports = async function(app) {
         res.json(json_result);
     });
 
+    app.get('/v1/getstops',  (req,res) => {
+        res.json({
+            status : 0,
+            description : "this endpoint has been deprecated"
+        });
+    });
+
+    app.get('/v1/getnearbystops',  (req,res) => {
+        res.json({
+            status : 0,
+            description : "this endpoint has been deprecated"
+        });
+    });
+
+
 }
