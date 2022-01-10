@@ -19,7 +19,7 @@ module.exports.validateDevKey = async function(req,res,next) {
 
         const dev_key = req.query.key;
 
-        console.log('validating dev key: ' + dev_key);
+        req.log.debug('validating dev key: ' + dev_key);
         if( !dev_key ) {
             return next('Missing dev key (?key=) in request');
         } else {
@@ -28,14 +28,14 @@ module.exports.validateDevKey = async function(req,res,next) {
                 // hacky cache : do a lookup on the local devkey object
                 let env_key_list = [];
                 if( process.env.DEV_KEYS ) {
-                    console.log(process.env.DEV_KEYS);
+                    req.log.debug(process.env.DEV_KEYS);
                     env_key_list = process.env.DEV_KEYS.split(',');
                 }
 
                 if( _.find(env_key_list, (key) => {
                           return key === dev_key;
                    })) {
-                    console.log('found devKey in the local cache');
+                    req.log.debug('found devKey in the local cache');
                     next();
                 } else {
                     // lookup in dynamo next
@@ -48,10 +48,10 @@ module.exports.validateDevKey = async function(req,res,next) {
                     let aws_result = await ddb.getItem(params).promise();
 
                     if( aws_result.Item) {
-                        console.log('dev key valid!');
+                        req.log.debug('dev key valid!');
                         next();
                     } else {
-                        console.log('failed to lookup devKey '+dev_key);
+                        req.log.error('failed to lookup devKey '+dev_key);
                         next('Invalid devKey in request');
                     }
 

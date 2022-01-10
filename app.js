@@ -3,8 +3,10 @@
 const config = require('./config');
 const express = require('express');
 const cors = require('cors');
+const pino = require('pino-http')(config.getLogConfig());
 
 const app = express();
+app.use(pino);
 app.use(cors({
     origin: '*',
     methods: 'GET',
@@ -19,14 +21,17 @@ require('./api/parking')(app);
 
 // API backstop
 app.get('*', function(req,res) {
-    res.status(200).send("hello");
+    res.json({
+        "status": -1,
+        "description": 'unsupported endpoint'
+    });
 });
 
 // error handler
 app.use(function (err, req, res, next) {
-    console.log('something went sideways and we are failing');
-    console.log(err);
-    res.send({
+    req.log.error('something went sideways and we are failing');
+    req.log.info(err);
+    res.json({
         "status": -1,
         "description": err
     });

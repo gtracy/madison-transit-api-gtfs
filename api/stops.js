@@ -37,7 +37,7 @@ module.exports = async function(app) {
             json_result.status = "-1";
             json_result.message = "invalid stopID";
         }
-        console.log('/v1/getstoplocation ' + stop_id);
+        req.log.debug('/v1/getstoplocation ' + stop_id);
         res.json(json_result);
     });
 

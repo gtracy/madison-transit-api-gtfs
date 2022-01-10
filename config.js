@@ -13,6 +13,20 @@ module.exports = {
             return 'dev';
         }
     },
+    
+    getLogConfig : function getLogConfig() {
+        let level = 'info';
+        if( process.env.LOG_LEVEL ) {
+            level = process.env.LOG_LEVEL;
+        } else if( module.exports.getEnv() === 'dev' ) {
+            level = 'debug';
+        }
+
+        return({
+            level: level,
+
+        });
+    },
 
     getAWSConfig : function getAWSConfig() {
         if( process.env.NODE_ENV === 'prod' ) {

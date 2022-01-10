@@ -77,7 +77,7 @@ module.exports = async function(app) {
             }
         }
 
-        console.log('/v1/getarrivals ' + json_result.stop.stopID);
+        req.log.debug('/v1/getarrivals ' + json_result.stop.stopID);
         res.json(json_result);
     });
 

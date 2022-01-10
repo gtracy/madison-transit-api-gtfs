@@ -34,6 +34,8 @@
     "moment-timezone": "^0.5.34",
     "nodemon": "^2.0.15",
     "perf_hooks": "0.0.1",
+    "pino": "^7.6.2",
+    "pino-http": "^6.5.0",
     "pug": "^3.0.2",
     "underscore": "^1.13.1"
   },
