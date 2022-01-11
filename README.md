@@ -73,4 +73,5 @@ The server supports a few different command-line parameters.
 * `NODE_ENV` can be be `dev` or `prod` or omitted. Check config.js for value behavior. 
 * `AWS_ACCESS_ID` and `AWS_ACCESS_SECRET` are optional unless your NODE_ENV is prod.
 * `DEV_KEYS` is optional and can be a list of developer keys. It's a simple way to avoid Dynamo lookups for common dev keys. i.e. `DEV_KEYS=test,kiosk,george`
+* `LOG_LEVEL` can be any level from (pino logging)[https://getpino.io/#/] such as `debug`, `info` or `error`. It's not required. We default to info in prod and debug in dev.
 

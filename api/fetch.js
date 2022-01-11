@@ -5,6 +5,9 @@ const moment = require('moment-timezone');
 const got = require('got');
 const {performance} = require('perf_hooks');
 const GtfsRealtimeBindings = require('gtfs-realtime-bindings');
+
+const config = require('../config');
+const logger = require('pino')(config.getLogConfig());
 const routes = require('../lib/routes');
 
 const METRO_GTFS_ENDPOINT = 'http://transitdata.cityofmadison.com/TripUpdate/TripUpdates.pb';
@@ -30,7 +33,7 @@ module.exports.fetch_trips = async (stop_id, route_id) => {
         const response = await got(METRO_GTFS_ENDPOINT,{responseType:'buffer'});
         let feed = GtfsRealtimeBindings.transit_realtime.FeedMessage.decode(response.body);
         let endTime = performance.now();
-        console.log(`Fetch+parse took ${endTime - startTime} milliseconds`);
+        logger.info(`Fetch+parse took ${endTime - startTime} milliseconds`);
 
         // parse the real-time results and do some transformations 
         // so the data is easier to consume
@@ -64,15 +67,14 @@ module.exports.fetch_trips = async (stop_id, route_id) => {
             } else if( t.stop.arrival ) {
                 return t.stop.arrival.time.low;
             } else {
-                console.log('total fail consuming this StopTimeUpdate');
-                console.dir(t);
+                logger.error('total fail consuming this StopTimeUpdate. Unable to parse the stop time',t.stop);
                 return 9999;
             }
         });
         return sorted_trips;
   
     } catch (error) {
-        console.log(error.message);
+        logger.error(error);
         return [];
     }
 
