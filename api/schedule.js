@@ -12,7 +12,7 @@ const Trips = require('../lib/trips');
 
 module.exports = async function(app) {
 
-    app.get('/v1/getarrivals', utils.afterHours, devkey.validateDevKey, async (req,res) => {
+    app.get('/v1/getarrivals', utils.afterHours, devkey.validateDevKey, utils.logRequest, async (req,res) => {
         var json_result = {};
         var gtfs_trips = new Trips();
 

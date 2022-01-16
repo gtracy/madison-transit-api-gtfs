@@ -99,6 +99,7 @@ dist
 
 # DynamoDB Local files
 .dynamodb/
+aws/docker/shared-local-instance.db
 
 # TernJS port file
 .tern-port
