@@ -1,4 +1,4 @@
-let AWS = require('aws-sdk');
+'use script';
 
 module.exports = {
 

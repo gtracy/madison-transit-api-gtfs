@@ -5,10 +5,9 @@ const Fs = require('fs');
 const CsvReadableStream = require('csv-reader');
 const {performance} = require('perf_hooks');
 
-const NODE_API_URL = "https://3h77hmceh0.execute-api.us-east-2.amazonaws.com/prod/v1/getArrivals";
+const NODE_API_URL = "https://gtfs.smsmybus.com/v1/getArrivals";
 const OLD_API_URL = "https://api.smsmybus.com/v1/getarrivals";
 const DEV_KEYS = ["nomar","wisc81jw","willycoop","taylorhall-wisc","rwf34e9a","b24jk9a4","mfoolskiosk"];
-const STOP_IDS = ["1100","2388","178","2192","1131","6698","1823","7328","1585","225","593","2978","234","6388","2643","809","898","568","1855","8173","336","1831"];
 
 // record the results
 console.log('api,execution,key,stopID,status,routeCount');
@@ -42,16 +41,16 @@ console.log('api,execution,key,stopID,status,routeCount');
             // call the old python implementation
             // note that thie old implementation is dated and does not support all of 
             // the stop IDs found in the up to date GTFS file. ignore these errors.`
-            req_url = OLD_API_URL + "?key=" + devkey + "&stopID=" + stopID;
-            startTime = performance.now();
-            response = await got(req_url,{responseType:'json'});
-            if( response.body.status < 0 ) {
-                // this API version should never, ever fail for these stopID
-                console.log('old,0,'+devkey+','+stopID+',-1,0');
-            } else {
-                endTime = performance.now();
-                console.log(`old,${endTime - startTime},${devkey},${stopID},${response.body.status},${response.body.stop.route.length}`);
-            }
+            // req_url = OLD_API_URL + "?key=" + devkey + "&stopID=" + stopID;
+            // startTime = performance.now();
+            // response = await got(req_url,{responseType:'json'});
+            // if( response.body.status < 0 ) {
+            //     // this API version should never, ever fail for these stopID
+            //     console.log('old,0,'+devkey+','+stopID+',-1,0');
+            // } else {
+            //     endTime = performance.now();
+            //     console.log(`old,${endTime - startTime},${devkey},${stopID},${response.body.status},${response.body.stop.route.length}`);
+            // }
 
         }
     } catch (err) {

@@ -41,6 +41,6 @@
   },
   "devDependencies": {
     "csv-reader": "^1.0.8",
-    "prompt-sync": "^4.2.0"
+    "prompt-sync": "^4.1.6"
   }
 }
