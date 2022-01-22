@@ -1,6 +1,7 @@
 'use strict';
 
 let AWS = require('aws-sdk');
+const moment = require('moment-timezone');
 
 const config = require('../config');
 const logger = require('pino')(config.getLogConfig());
@@ -27,6 +28,10 @@ module.exports.push = async (endpoint,url,devkey,stopid) => {
             "request_url": {
                 DataType: "String",
                 StringValue: url
+            },
+            "timestamp": {
+                DataType: "String",
+                StringValue: moment().tz("America/Chicago").format()
             }
         },
         MessageBody: "New API request",
@@ -36,6 +41,7 @@ module.exports.push = async (endpoint,url,devkey,stopid) => {
     try {
         let result = await sqs.sendMessage(params).promise();
         logger.info({MessageId:result.MessageId}, "queue.push() success");
+        logger.debug(params);
     } catch(err) {
         logger.error(err,"queue.push() exception");
         // just swallow the error. there is no functional impact
