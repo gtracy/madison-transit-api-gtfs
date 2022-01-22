@@ -1,4 +1,4 @@
-let AWS = require('aws-sdk');
+'use script';
 
 module.exports = {
 
@@ -11,6 +11,14 @@ module.exports = {
             return process.env.NODE_ENV;
         } else {
             return 'dev';
+        }
+    },
+
+    getQueue : function getQueue() {
+        if( module.exports.getEnv() === 'dev' ) {
+            return 'https://sqs.us-east-2.amazonaws.com/315817266687/smb-api-requests-test';
+        } else {
+            return 'https://sqs.us-east-2.amazonaws.com/315817266687/smb-api-requests';
         }
     },
     
