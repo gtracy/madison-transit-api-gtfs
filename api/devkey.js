@@ -19,9 +19,12 @@ module.exports.validateDevKey = async function(req,res,next) {
 
         const dev_key = req.query.key.toLowerCase();
 
-        req.log.debug('validating dev key: ' + dev_key);
+        // just kill all 'kiosk' requests because there's an API
+        // abuser out there and i don't want to waste compute cycles
+        if( dev_key === 'kiosk' ) return next({msg:'Invalid dev key in request'});
+
         if( !dev_key ) {
-            return next('Missing dev key (?key=) in request');
+            return next({msg:'Missing dev key (?key=) in request'});
         } else {
 
             try {
@@ -36,7 +39,7 @@ module.exports.validateDevKey = async function(req,res,next) {
                           return key === dev_key;
                    })) {
                     req.log.debug('found devKey in the local cache');
-                    next();
+                    return next();
                 } else {
                     // lookup in dynamo next
                     let params = {
@@ -49,10 +52,10 @@ module.exports.validateDevKey = async function(req,res,next) {
 
                     if( aws_result.Item) {
                         req.log.debug('dev key valid!');
-                        next();
+                        return next();
                     } else {
-                        req.log.error('failed to lookup devKey '+dev_key);
-                        next('Invalid devKey in request');
+                        req.log.debug('failed to lookup devKey '+dev_key);
+                        return next({msg:'Invalid dev key in request'});
                     }
 
                 }

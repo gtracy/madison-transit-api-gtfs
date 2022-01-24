@@ -29,8 +29,6 @@ app.get('*', function(req,res) {
 
 // error handler
 app.use(function (err, req, res, next) {
-    req.log.error('something went sideways and we are failing');
-    req.log.info(err);
     res.json({
         "status": -1,
         "description": err
