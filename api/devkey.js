@@ -17,7 +17,7 @@ const TABLE_NAME = 'DeveloperKeys';
 //
 module.exports.validateDevKey = async function(req,res,next) {
 
-        const dev_key = req.query.key;
+        const dev_key = req.query.key.toLowerCase();
 
         req.log.debug('validating dev key: ' + dev_key);
         if( !dev_key ) {
