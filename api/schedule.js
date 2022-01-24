@@ -53,7 +53,12 @@ module.exports = async function(app) {
                     let details = _.find(trip_details, (details) => {
                         return details.trip_id == trip.tripId;
                     });
-                    let destination = details.trip_headsign;
+                    let destination = 'unknown';
+                    if( details ) {
+                        destination = details.trip_headsign;
+                    } else {
+                        req.log.error({trips:unique_trip_id_list},'mismatched trip IDs');
+                    }
 
                     // dates and timezones suck
                     // note that the epoch times in the GTFS data are in seconds

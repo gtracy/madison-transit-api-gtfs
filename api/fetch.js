@@ -33,7 +33,7 @@ module.exports.fetch_trips = async (stop_id, route_id) => {
         const response = await got(METRO_GTFS_ENDPOINT,{responseType:'buffer'});
         let feed = GtfsRealtimeBindings.transit_realtime.FeedMessage.decode(response.body);
         let endTime = performance.now();
-        logger.info(`Fetch+parse took ${endTime - startTime} milliseconds`);
+        logger.info({fetch_time:(endTime-startTime)},`Fetch+parse took ${endTime - startTime} milliseconds`);
 
         // parse the real-time results and do some transformations 
         // so the data is easier to consume
