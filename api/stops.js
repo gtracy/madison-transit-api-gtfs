@@ -2,6 +2,7 @@
 
 const moment = require('moment-timezone');
 const devkey = require('./devkey');
+const utils = require('./utils');
 const Stop = require('../lib/stops');
 
 
@@ -15,7 +16,7 @@ module.exports = async function(app) {
     //     "latitude" : "43.0937715",
     //     "longitude" : "-89.3467281",
     // }
-    app.get('/v1/getstoplocation', devkey.validateDevKey, async (req,res) => {
+    app.get('/v1/getstoplocation', utils.afterHours, devkey.validateDevKey, utils.logRequest, async (req,res) => {
         var json_result = {};
         var gtfs_stop = new Stop();
 
