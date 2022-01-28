@@ -16,6 +16,7 @@ app.use(cors({
 
 // API endpoint registration
 require('./api/schedule')(app);
+require('./api/vehicles')(app);
 require('./api/stops')(app);
 require('./api/parking')(app);
 

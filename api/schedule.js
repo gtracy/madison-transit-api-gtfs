@@ -40,7 +40,7 @@ module.exports = async function(app) {
             let unique_trip_id_list = trip_id_list.filter((value,index,self) => {
                 return self.indexOf(value) === index;
             });
-            const trip_details = await gtfs_trips.fetchById(unique_trip_id_list);
+            const trip_details = await gtfs_trips.batchFetchById(unique_trip_id_list);
             
             // bail if there were no results
             if( trip_details.length > 0 ) {

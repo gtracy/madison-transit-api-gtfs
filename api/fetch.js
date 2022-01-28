@@ -10,7 +10,8 @@ const config = require('../config');
 const logger = require('pino')(config.getLogConfig());
 const routes = require('../lib/routes');
 
-const METRO_GTFS_ENDPOINT = 'http://transitdata.cityofmadison.com/TripUpdate/TripUpdates.pb';
+const METRO_TRIP_ENDPOINT = 'http://transitdata.cityofmadison.com/TripUpdate/TripUpdates.pb';
+const METRO_VEHICLE_ENDPOINT = 'http://transitdata.cityofmadison.com/Vehicle/VehiclePositions.json';
 
 //
 // returns a list of trip details, where every trip describes the
@@ -30,7 +31,7 @@ module.exports.fetch_trips = async (stop_id, route_id) => {
 
     try {
         let startTime = performance.now();
-        const response = await got(METRO_GTFS_ENDPOINT,{responseType:'buffer'});
+        const response = await got(METRO_TRIP_ENDPOINT,{responseType:'buffer'});
         let feed = GtfsRealtimeBindings.transit_realtime.FeedMessage.decode(response.body);
         let endTime = performance.now();
         logger.info({fetch_time:(endTime-startTime)},`Fetch+parse took ${endTime - startTime} milliseconds`);
@@ -80,3 +81,20 @@ module.exports.fetch_trips = async (stop_id, route_id) => {
 
 }
 
+// 
+// returns a list of vehicles that are active in the system.
+//
+// we fetch directly from the live vehicle endpoint
+//
+module.exports.fetch_vehicles = async () => {
+    let vehicles = [];
+
+    const response = await got(METRO_VEHICLE_ENDPOINT,{responseType:'json'});
+    if( response.body && response.body.entity ) {
+        return response.body.entity;
+    } else {
+        logger.error(response,'failed to fetch live vehicle data');
+        return [];
+    }
+
+}
