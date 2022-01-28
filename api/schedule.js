@@ -67,7 +67,7 @@ module.exports = async function(app) {
 
                     const route = Routes.fetchBy_gtfs_id(trip.routeId);
                     if( !route ) {
-                        req.log_error(trip,'missing route details for '+trip.routeId);
+                        req.log.error(trip,'missing route details for '+trip.routeId);
                     } else {
                         if( minutes >= 0 ) {
                             json_result.stop.route.push({
