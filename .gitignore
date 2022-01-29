@@ -97,9 +97,10 @@ dist
 # FuseBox cache
 .fusebox/
 
-# DynamoDB Local files
+# AWS Local files
 .dynamodb/
 aws/docker/shared-local-instance.db
+function.zip
 
 # TernJS port file
 .tern-port
