@@ -5,6 +5,12 @@ const express = require('express');
 const cors = require('cors');
 const pino = require('pino-http')(config.getLogConfig());
 
+// request logger
+let logger = (req,res,next) => {
+    req.log.info(req,'new request');
+    next();
+}
+
 const app = express();
 app.use(pino);
 app.use(cors({
@@ -13,6 +19,7 @@ app.use(cors({
     allowedHeaders: 'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token',
     preflightContinue: true
 }));
+app.use(logger);
 
 // API endpoint registration
 require('./api/schedule')(app);
