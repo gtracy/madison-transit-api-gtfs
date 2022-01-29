@@ -9,6 +9,7 @@ const GtfsRealtimeBindings = require('gtfs-realtime-bindings');
 const config = require('../config');
 const logger = require('pino')(config.getLogConfig());
 const routes = require('../lib/routes');
+const utils = require('./utils');
 
 const METRO_TRIP_ENDPOINT = 'http://transitdata.cityofmadison.com/TripUpdate/TripUpdates.pb';
 const METRO_VEHICLE_ENDPOINT = 'http://transitdata.cityofmadison.com/Vehicle/VehiclePositions.json';
@@ -50,8 +51,8 @@ module.exports.fetch_trips = async (stop_id, route_id) => {
                                 'routeId' : entity.tripUpdate.trip.routeId,
                                 'tripId'  : entity.tripUpdate.trip.tripId,
                                 'vehicle' : {
-                                    'id'    : entity.tripUpdate.vehicle.id,
-                                    'label' : entity.tripUpdate.vehicle.label
+                                    'id'    : utils.getValue(entity.tripUpdate.vehicle,"id",true),
+                                    'label' : utils.getValue(entity.tripUpdate.vehicle,"label",true)
                                 }
                             });
                         }

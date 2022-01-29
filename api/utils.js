@@ -26,3 +26,20 @@ module.exports.logRequest = async (req,res,next) => {
     await queue.push(req.path, req.originalUrl, req.query.key, req.query.stopID);
     next();
 }
+
+// wrapper to avoid missing properties in the GTFS feeds
+//   obj - parent object
+//   property - value to return
+//   string - boolean indicating whether we want to return a string value
+//
+module.exports.getValue = (obj,property,string) => {
+    if( obj === undefined ) {
+        if( string ) {
+            return 'unknown';
+        } else {
+            return undefined;
+        }
+    } else {
+        return obj[property];
+    }
+}

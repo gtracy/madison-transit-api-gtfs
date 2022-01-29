@@ -67,7 +67,7 @@ module.exports = async function(app) {
 
                     const route = Routes.fetchBy_gtfs_id(trip.routeId);
                     if( !route ) {
-                        req.log.error(trip,'missing route details for '+trip.routeId);
+                        req.log.error(trip,'missing route details');
                     } else {
                         if( minutes >= 0 ) {
                             json_result.stop.route.push({
@@ -75,7 +75,7 @@ module.exports = async function(app) {
                                 'destination' : destination,
                                 'minutes' : minutes,
                                 'arrivalTime' : arrival_time,
-                                'vehicleID' : trip.vehicle.label,
+                                'vehicleID' : utils.getValue(trip.vehicle,"label",true),
                                 'bikesAllowed' : details.bikes_allowed
                             });
                         }
