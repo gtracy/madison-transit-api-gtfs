@@ -56,8 +56,6 @@ module.exports = async function(app) {
                     let destination = 'unknown';
                     if( details ) {
                         destination = details.trip_headsign;
-                    } else {
-                        req.log.error({trips:unique_trip_id_list},'mismatched trip IDs');
                     }
 
                     // dates and timezones suck
