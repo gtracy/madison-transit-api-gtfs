@@ -1,6 +1,8 @@
 'use strict';
 
 const moment = require('moment-timezone');
+const config = require('../config');
+const logger = require('pino')(config.getLogConfig());
 const queue = require('../aws/queue');
 
 // ignore any request between midnight and 5am
@@ -34,6 +36,9 @@ module.exports.logRequest = async (req,res,next) => {
 //
 module.exports.getValue = (obj,property,string) => {
     if( obj === undefined ) {
+        // logging an error since we really never want these to happen.
+        // lets figure out why they are happening.
+        logger.error({obj:obj,property:property},'missing feed property');
         if( string ) {
             return 'unknown';
         } else {
