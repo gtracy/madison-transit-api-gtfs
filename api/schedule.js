@@ -3,11 +3,13 @@
 const moment = require('moment-timezone');
 const _ = require('underscore');
 
+const config = require('../config');
 const fetch = require('./fetch');
 const devkey = require('./devkey');
 const utils = require('./utils');
 const Routes = require('../lib/routes');
 const Trips = require('../lib/trips');
+const logger = require('pino')(config.getLogConfig());
 
 
 module.exports = async function(app) {
@@ -64,20 +66,25 @@ module.exports = async function(app) {
                     const minutes = gtfs_trips.computeTimeDelta(trip);
 
                     const route = Routes.fetchBy_gtfs_id(trip.routeId);
-                    if( !route ) {
-                        req.log.error(trip,'missing route details');
+                    let route_short_name = 'unknown';
+                    if( route ) {
+                        route_short_name = route.route_short_name;
                     } else {
-                        if( minutes >= 0 ) {
-                            json_result.stop.route.push({
-                                'routeID' : route.route_short_name,
-                                'destination' : destination,
-                                'minutes' : minutes,
-                                'arrivalTime' : arrival_time,
-                                'vehicleID' : utils.getValue(trip.vehicle,"label",true),
-                                'bikesAllowed' : details.bikes_allowed
-                            });
-                        }
+                        logger.error({trip_id:trip.tripId,route_id:trip.routeId},'missing route details');
                     }
+
+                    // pack the trip details into the request payload
+                    if( minutes >= 0 ) {
+                        json_result.stop.route.push({
+                            'routeID' : route_short_name,
+                            'destination' : destination,
+                            'minutes' : minutes,
+                            'arrivalTime' : arrival_time,
+                            'vehicleID' : utils.getValue(trip.vehicle,"label",true),
+                            'bikesAllowed' : details.bikes_allowed
+                        });
+                    }
+
                 }
             } else {
                 json_result.status = "-1";
@@ -85,7 +92,7 @@ module.exports = async function(app) {
             }
         }
 
-        req.log.debug('/v1/getarrivals ' + json_result.stop.stopID);
+        logger.debug(json_result,'/v1/getarrivals ');
         res.json(json_result);
     });
 
