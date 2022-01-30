@@ -1,5 +1,6 @@
 'use strict';
 
+const uuid = require('uuid');
 let AWS = require('aws-sdk');
 const moment = require('moment-timezone');
 
@@ -13,6 +14,10 @@ module.exports.push = async (endpoint,url,devkey,stopid) => {
 
     var params = {
         MessageAttributes: {
+            "id": {
+                DataType: "String",
+                StringValue: uuid.v1()
+            },
             "api": {
                 DataType: "String",
                 StringValue: endpoint

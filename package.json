@@ -1,6 +1,6 @@
 {
   "name": "madison-transit-api-node",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "API for Madison Metro",
   "main": "lib/app.js",
   "scripts": {
@@ -8,7 +8,8 @@
     "route-import": "node utils/route_import.js",
     "trip-import": "node utils/trip_import.js",
     "stop-import": "node utils/stop_import.js",
-    "devkey-import": "node utils/devkey_import.js"
+    "devkey-import": "node utils/devkey_import.js",
+    "request-log-create": "node utils/request_log_create.js"
   },
   "repository": {
     "type": "git",
@@ -37,7 +38,8 @@
     "pino": "^7.6.2",
     "pino-http": "^6.5.0",
     "pug": "^3.0.2",
-    "underscore": "^1.13.1"
+    "underscore": "^1.13.1",
+    "uuid": "^8.3.2"
   },
   "devDependencies": {
     "csv-reader": "^1.0.8",
