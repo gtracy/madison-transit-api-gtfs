@@ -5,6 +5,9 @@ const devkey = require('./devkey');
 const utils = require('./utils');
 const Stop = require('../lib/stops');
 
+const config = require('../config');
+const logger = require('pino')(config.getLogConfig());
+
 
 module.exports = async function(app) {
 
@@ -38,7 +41,7 @@ module.exports = async function(app) {
             json_result.status = "-1";
             json_result.message = "invalid stopID";
         }
-        req.log.debug('/v1/getstoplocation ' + stop_id);
+        logger.debug(json_result,'/v1/getstoplocation ');
         res.json(json_result);
     });
 

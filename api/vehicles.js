@@ -9,35 +9,10 @@ const utils = require('./utils');
 const Routes = require('../lib/routes');
 const Trips = require('../lib/trips');
 
-// {
-//     "status" : "0",
-//     "count" : "3",
-//     "routeID" : "07",
-//     "timestamp" : "1/15/2012 10:13:44 AM",
-//     "vehicles" : [
-//       {
-//         "lat": "43.0863712",
-//         "lon": "-89.3601702",
-//         "direction": "WTP",
-//         "nextStop": "Jenifer & Ingersoll",
-//         "vehicleID": "943",
-//         "wifiAccess": false,
-//         "bikeRack": false,
-//         "wheelChairLift": false,
-//         "wheelChairAccessible": false
-//       },
-//       {
-//         "lat": "43.0535659",
-//         "lon": "-89.4430852",
-//         "direction": "WTP",
-//         "nextStop": "West Transfer Point",
-//         "vehicleID": "937"
-//         "wifiAccess": false,
-//         "bikeRack": false,
-//         "wheelChairLift": false,
-//         "wheelChairAccessible": false
-//       },
-// }
+const config = require('../config');
+const logger = require('pino')(config.getLogConfig());
+
+
 module.exports = async function(app) {
 
     app.get('/v1/getvehicles', utils.afterHours, devkey.validateDevKey, /*utils.logRequest,*/ async (req,res) => {
@@ -74,7 +49,7 @@ module.exports = async function(app) {
                         const trip_details = await gtfs_trips.fetchById(v.vehicle.trip.trip_id);
                         let trip_direction = 'unknown';
                         if( !trip_details ) {
-                            req.log.error({trip_id:v.vehicle.trip.trip_id},"failed to lookup trip details");
+                            logger.error({trip_id:v.vehicle.trip.trip_id},"failed to lookup trip details");
                         } else {
                             trip_direction = trip_details.trip_headsign;
 
@@ -91,14 +66,14 @@ module.exports = async function(app) {
                             });
                         }
                     } catch(err) {
-                        req.log.error(err,'vehicle trip lookup failed');
+                        logger.error(err,'vehicle trip lookup failed');
                         json_result.status = -1;
                     }
                 }
             }
         }
 
-        req.log.debug('/v1/getvehicles ' + json_result.routeID);
+        logger.debug(json_result, '/v1/getvehicles');
         res.json(json_result);
     });
 

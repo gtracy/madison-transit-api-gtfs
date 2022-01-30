@@ -3,6 +3,7 @@
 let _ = require('underscore');
 let AWS = require('aws-sdk');
 let config = require('../config');
+const logger = require('pino')(config.getLogConfig());
 
 AWS.config.update(config.getAWSConfig());
 let ddb = new AWS.DynamoDB({apiVersion: '2012-08-10'});
@@ -31,14 +32,14 @@ module.exports.validateDevKey = async function(req,res,next) {
                 // hacky cache : do a lookup on the local devkey object
                 let env_key_list = [];
                 if( process.env.DEV_KEYS ) {
-                    req.log.debug(process.env.DEV_KEYS);
+                    logger.debug(process.env.DEV_KEYS);
                     env_key_list = process.env.DEV_KEYS.split(',');
                 }
 
                 if( _.find(env_key_list, (key) => {
                           return key === dev_key;
                    })) {
-                    req.log.debug('found devKey in the local cache');
+                    logger.debug('found devKey in the local cache');
                     return next();
                 } else {
                     // lookup in dynamo next
@@ -51,10 +52,10 @@ module.exports.validateDevKey = async function(req,res,next) {
                     let aws_result = await ddb.getItem(params).promise();
 
                     if( aws_result.Item) {
-                        req.log.debug('dev key valid!');
+                        logger.debug('dev key valid!');
                         return next();
                     } else {
-                        req.log.debug('failed to lookup devKey '+dev_key);
+                        logger.info('failed to lookup devKey '+dev_key);
                         return next({msg:'Invalid dev key in request'});
                     }
 

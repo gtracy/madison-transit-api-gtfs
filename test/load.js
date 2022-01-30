@@ -5,7 +5,8 @@ const Fs = require('fs');
 const CsvReadableStream = require('csv-reader');
 const {performance} = require('perf_hooks');
 
-const NODE_API_URL = "https://gtfs.smsmybus.com/v1/getArrivals";
+//const GTFS_API_URL_BASE = "https://api.smsmybus.com/v1/";
+const GTFS_API_URL_BASE = "http://localhost:3300/v1/";
 const OLD_API_URL = "https://api.smsmybus.com/v1/getarrivals";
 const DEV_KEYS = ["nomar","wisc81jw","willycoop","taylorhall-wisc","rwf34e9a","b24jk9a4","mfoolskiosk"];
 
@@ -26,8 +27,8 @@ console.log('api,execution,key,stopID,status,routeCount');
             const devkey = DEV_KEYS[Math.floor(Math.random()*DEV_KEYS.length)];
             const stopID = stop_ids[i];//STOP_IDS[Math.floor(Math.random()*STOP_IDS.length)];
 
-            // call the new node implementation
-            req_url = NODE_API_URL + "?key=" + devkey + "&stopID=" + stopID;
+            // call the new node implementation - getarrivals
+            req_url = GTFS_API_URL_BASE + "getarrivals" + "?key=" + devkey + "&stopID=" + stopID;
             startTime = performance.now();
             response = await got(req_url,{responseType:'json'});
             if( response.body.status < 0 ) {
@@ -35,9 +36,21 @@ console.log('api,execution,key,stopID,status,routeCount');
                 console.log('node,0,'+devkey+','+stopID+',-1,0');
             } else {
                 endTime = performance.now();
-                console.log(`node,${endTime - startTime},${devkey},${stopID},${response.body.status},${response.body.stop.route.length}`);
+                console.log(`node,getarrivals,${endTime - startTime},${devkey},${stopID},${response.body.status},${response.body.stop.route.length}`);
             }
 
+            // call the new node implementation - getstoplocation
+            req_url = GTFS_API_URL_BASE + "getstoplocation" + "?key=" + devkey + "&stopID=" + stopID;
+            startTime = performance.now();
+            response = await got(req_url,{responseType:'json'});
+            if( response.body.status < 0 ) {
+                // this API version should never, ever fail for these stopID
+                console.log('node,0,'+devkey+','+stopID+',-1,0');
+            } else {
+                endTime = performance.now();
+                console.log(`node,getstoplocation,${endTime - startTime},${devkey},${stopID},${response.body.status}`);
+            }
+            
             // call the old python implementation
             // note that thie old implementation is dated and does not support all of 
             // the stop IDs found in the up to date GTFS file. ignore these errors.`
