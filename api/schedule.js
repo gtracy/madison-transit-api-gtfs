@@ -15,8 +15,9 @@ const logger = require('pino')(config.getLogConfig());
 module.exports = async function(app) {
 
     app.get('/v1/getarrivals', utils.afterHours, devkey.validateDevKey, utils.logRequest, async (req,res) => {
-        var json_result = {};
-        var gtfs_trips = new Trips();
+        let json_result = {};
+        let gtfs_trips = new Trips();
+        let route = undefined;
 
         // snag the API query details
         const stop_id = req.query.stopID;
@@ -51,27 +52,27 @@ module.exports = async function(app) {
                 for( let i=0; i < trips.length; i++ ) {
                     let trip = trips[i];
 
-                    // matchup the trip_id we are looping on with the details we found earlier
+                    // matchup the trip_id we are looping on with the GTFS details
                     let details = _.find(trip_details, (details) => {
                         return details.trip_id == trip.tripId;
                     });
                     let destination = 'unknown';
+                    let bikes_allowed = 'unknown';
                     if( details ) {
                         destination = details.trip_headsign;
+                        bikes_allowed = details.bikes_allowed;
+                    }
+
+                    route = Routes.fetchBy_gtfs_id(trip.routeId);
+                    let route_short_name = 'unknown';
+                    if( route ) {
+                        route_short_name = route.route_short_name;
                     }
 
                     // dates and timezones suck
                     // note that the epoch times in the GTFS data are in seconds
                     const arrival_time = gtfs_trips.computeArrivalTime(trip);
                     const minutes = gtfs_trips.computeTimeDelta(trip);
-
-                    const route = Routes.fetchBy_gtfs_id(trip.routeId);
-                    let route_short_name = 'unknown';
-                    if( route ) {
-                        route_short_name = route.route_short_name;
-                    } else {
-                        logger.error({trip_id:trip.tripId,route_id:trip.routeId},'missing route details');
-                    }
 
                     // pack the trip details into the request payload
                     if( minutes >= 0 ) {
@@ -81,7 +82,7 @@ module.exports = async function(app) {
                             'minutes' : minutes,
                             'arrivalTime' : arrival_time,
                             'vehicleID' : utils.getValue(trip.vehicle,"label",true),
-                            'bikesAllowed' : details.bikes_allowed
+                            'bikesAllowed' : bikes_allowed
                         });
                     }
 
