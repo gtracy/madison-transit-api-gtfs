@@ -4,6 +4,8 @@ const config = require('./config');
 const express = require('express');
 const cors = require('cors');
 const pino = require('pino-http')(config.getLogConfig());
+const favicon = require('serve-favicon')
+const path = require('path');
 
 // request logger
 let logger = (req,res,next) => {
@@ -20,6 +22,8 @@ app.use(cors({
     preflightContinue: true
 }));
 app.use(logger);
+app.use(express.static('public'));
+app.use(favicon(path.join(__dirname, 'public/img', 'favicon.ico')))
 
 // API endpoint registration
 require('./api/schedule')(app);
