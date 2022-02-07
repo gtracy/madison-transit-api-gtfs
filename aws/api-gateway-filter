@@ -1,0 +1,22 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Principal": "*",
+            "Action": "execute-api:Invoke",
+            "Resource": "arn:aws:execute-api:us-east-2:315817266687:3h77hmceh0/*"
+        },
+        {
+            "Effect": "Deny",
+            "Principal": "*",
+            "Action": "execute-api:Invoke",
+            "Resource": "arn:aws:execute-api:us-east-2:315817266687:3h77hmceh0/*",
+            "Condition": {
+                "StringEqualsIfExists": {
+                    "aws:Referer": "https://announcements.nursing.wisc.edu/"
+                }
+            }
+        }
+    ]
+}
