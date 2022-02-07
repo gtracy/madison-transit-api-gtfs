@@ -1,5 +1,5 @@
 # Madison Transit API
-Node implementation for a Madison Transit API
+GTFS implementation for a Madison Transit API
 
 This implementation is a replacement to the [legacy web scraping solution](https://github.com/gtracy/madison-transit-api/), and is built on top of the GTFS data feeds from Madison Metro. It's still a bit hacky, however. One of the goals of the projects was to drop in a new, robust solution without changing the API definition. I wanted the implementation to go live without requiring any changes by the various apps. 
 
