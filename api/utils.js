@@ -5,6 +5,25 @@ const config = require('../config');
 const logger = require('pino')(config.getLogConfig());
 const queue = require('../aws/queue');
 
+// ignore requests with missing query parameters
+module.exports.validateRequest = (req,res,next) => {
+
+    if( !req.query.key ) {
+        res.json({
+            status: "-1",
+            description: "missing developer key in request (?key=)"
+        });
+    } else if( !req.query.stopID ) {
+        res.json({
+            status: "-1",
+            description: "missing stopID in request (?stopID=)"
+        });
+    } else {
+        next();
+    }
+
+}
+
 // ignore any request between midnight and 5am
 module.exports.afterHours = (req,res,next) => {
 

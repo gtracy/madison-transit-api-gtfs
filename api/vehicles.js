@@ -15,7 +15,7 @@ const logger = require('pino')(config.getLogConfig());
 
 module.exports = async function(app) {
 
-    app.get('/v1/getvehicles', utils.afterHours, devkey.validateDevKey, /*utils.logRequest,*/ async (req,res) => {
+    app.get('/v1/getvehicles', utils.afterHours, devkey.validateDevKey, async (req,res) => {
         var json_result = {};
         var gtfs_trips = new Trips();
 
