@@ -54,11 +54,3 @@ module.exports.push = async (endpoint,url,devkey,stopid) => {
 
 }
 
-// lambda handler function to receive queue messages
-exports.handler = async function(event, context) {
-    event.Records.forEach(record => {
-      const { body } = record;
-      logger.info(body);
-    });
-    return {};
-}

@@ -9,7 +9,7 @@ const path = require('path');
 
 // request logger
 let logger = (req,res,next) => {
-    req.log.info(req,'new request');
+    req.log.info(req.url,'new request');
     next();
 }
 
@@ -32,7 +32,7 @@ require('./api/stops')(app);
 require('./api/parking')(app);
 
 // API backstop
-app.get('*', function(req,res) {
+app.get('*', (req,res) => {
     res.json({
         "status": -1,
         "description": 'unsupported endpoint'
@@ -40,7 +40,7 @@ app.get('*', function(req,res) {
 });
 
 // error handler
-app.use(function (err, req, res, next) {
+app.use( (err, req, res, next) => {
     res.json({
         "status": -1,
         "description": err
