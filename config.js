@@ -49,5 +49,13 @@ module.exports = {
                 endpoint : 'http://localhost:8000'
             }
         }
+    },
+
+    requestLogEnabled : function requestLogEnabled() {
+        if( process.env.REQUEST_LOG === 'true' ) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }

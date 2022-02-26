@@ -44,8 +44,12 @@ module.exports.afterHours = (req,res,next) => {
 
 // log all API requests
 module.exports.logRequest = async (req,res,next) => {
-    await queue.push(req.path, req.originalUrl, req.query.key, req.query.stopID);
-    next();
+    if( config.requestLogEnabled() ) {
+        await queue.push(req.path, req.originalUrl, req.query.key, req.query.stopID);
+        next();
+    } else {
+        next();
+    }
 }
 
 // wrapper to avoid missing properties in the GTFS feeds
@@ -54,7 +58,7 @@ module.exports.logRequest = async (req,res,next) => {
 //   string - boolean indicating whether we want to return a string value
 //
 module.exports.getValue = (obj,property,string) => {
-    if( obj === undefined ) {
+    if( !obj ) {
         // logging an error since we really never want these to happen.
         // lets figure out why they are happening.
         logger.error({obj:obj,property:property},'missing feed property');
