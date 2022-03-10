@@ -453,9 +453,9 @@ stop_id,stop_code,stop_name,stop_desc,stop_lat,stop_lon,agency_id,jurisdiction_i
 1996,1996,E Gorham & N Livingston (WB),This stop (#1996) is westbound on the 800 block of Gorham St (E) nearside Livingston St (N),43.084003,-89.378804,MMT,CMAD,0,,3,270,1,E Gorham,800,N Livingston
 2007,2007,Observatory & Walnut (EB),This stop (#2007) is eastbound on the 2299 block of Observatory Dr farside Walnut St,43.076436,-89.424388,MMT,UWIS,0,,1,90,1,Observatory,2299,Walnut
 2014,2014,Lake Mendota & Lot R (SB),This stop (#2014) is southbound on the 2601 block of Lake Mendota Dr adjacent 800 Block (lot R),43.089239,-89.43376,MMT,UWIS,0,,2,180,1,Lake Mendota,2601,Lot R
-2018,2018,Eagle Heights & Lot E (WB),This stop (#2018) is westbound on the 300 block of Eagle Heights Dr adjacent 300 Block (lot E),43.086293,-89.435043,MMT,PRIV,0,,2,270,1,Eagle Heights,300,Lot E
+2018,2018,Eagle Heights & Lot E (WB),This stop (#2018) is westbound on the 300 block of Eagle Heights Dr adjacent 300 Block (lot E),43.086293,-89.435043,MMT,UWIS,0,,2,270,1,Eagle Heights,300,Lot E
 2023,2023,Marsh & Highland (EB),This stop (#2023) is eastbound on the 898 block of Marsh Dr farside Highland Ave,43.0788,-89.429795,MMT,UWIS,0,,1,90,1,Marsh,898,Highland
-2026,2026,Eagle Heights & Lot F (WB),This stop (#2026) is westbound on the 400 block of Eagle Heights Dr adjacent 400 Block (lot F),43.086248,-89.436661,MMT,PRIV,0,,2,270,1,Eagle Heights,400,Lot F
+2026,2026,Eagle Heights & Lot F (WB),This stop (#2026) is westbound on the 400 block of Eagle Heights Dr adjacent 400 Block (lot F),43.086248,-89.436661,MMT,UWIS,0,,2,270,1,Eagle Heights,400,Lot F
 2027,2027,University Bay & Lot 60 (NB),This stop (#2027) is northbound on the 1413 block of University Bay Dr adjacent Lot 60 Parking,43.080259,-89.428067,MMT,UWIS,0,,2,0,1,University Bay,1413,Lot 60
 2034,2034,Lake Mendota & Eagle Heights (SB),This stop (#2034) is southbound on the 2401 block of Lake Mendota Dr nearside Eagle Heights Dr,43.086445,-89.433772,MMT,UWIS,0,,3,180,1,Lake Mendota,2401,Eagle Heights
 2039,2039,Lake Mendota & Lot N (NB),This stop (#2039) is northbound on the 2799 block of Lake Mendota Dr adjacent 600 Block (lot N),43.089158,-89.438057,MMT,UWIS,0,,2,0,1,Lake Mendota,2799,Lot N
@@ -463,11 +463,11 @@ stop_id,stop_code,stop_name,stop_desc,stop_lat,stop_lon,agency_id,jurisdiction_i
 2048,2048,Lake Mendota & University Bay (SB),This stop (#2048) is southbound on the 1501 block of Lake Mendota Dr nearside University Bay Dr,43.084386,-89.433784,MMT,UWIS,0,,3,180,1,Lake Mendota,1501,University Bay
 2050,2050,University Bay & Lot 76 (SB),This stop (#2050) is southbound on the 1412 block of University Bay Dr adjacent Lot 76 Ramp,43.080886,-89.428351,MMT,UWIS,0,,2,180,1,University Bay,1412,Lot 76
 2053,2053,Walnut & Observatory (NB),This stop (#2053) is northbound on the 701 block of Walnut St farside Observatory Dr,43.077045,-89.424906,MMT,UWIS,0,,1,0,1,Walnut,701,Observatory
-2054,2054,Eagle Heights & Lot M (WB),This stop (#2054) is westbound on the 500 block of Eagle Heights Dr adjacent 500 Block (lot M),43.086668,-89.441612,MMT,PRIV,0,,2,270,1,Eagle Heights,500,Lot M
+2054,2054,Eagle Heights & Lot M (WB),This stop (#2054) is westbound on the 500 block of Eagle Heights Dr adjacent 500 Block (lot M),43.086668,-89.441612,MMT,UWIS,0,,2,270,1,Eagle Heights,500,Lot M
 2061,2061,Lake Mendota & Lot P (NB),This stop (#2061) is northbound on the 2701 block of Lake Mendota Dr adjacent 700 Block (lot P),43.089784,-89.437007,MMT,UWIS,0,,2,0,1,Lake Mendota,2701,Lot P
 2071,2071,Lake Mendota & Lot Q (NB),This stop (#2071) is northbound on the 2699 block of Lake Mendota Dr adjacent 800 Block (lot Q),43.090501,-89.435587,MMT,UWIS,0,,2,0,1,Lake Mendota,2699,Lot Q
 2076,2076,Marsh & Lot 76 (WB),This stop (#2076) is westbound on the 851 block of Marsh Dr adjacent Lot 76 Ramp,43.079006,-89.429203,MMT,UWIS,0,,2,270,1,Marsh,851,Lot 76
-2082,2082,Eagle Heights & Shelter (WB),This stop (#2082) is westbound on the 450 block of Eagle Heights Dr adjacent Brown Shelter,43.086328,-89.438587,MMT,PRIV,0,,2,270,1,Eagle Heights,450,Shelter
+2082,2082,Eagle Heights & Shelter (WB),This stop (#2082) is westbound on the 450 block of Eagle Heights Dr adjacent Brown Shelter,43.086328,-89.438587,MMT,UWIS,0,,2,270,1,Eagle Heights,450,Shelter
 2088,2088,Observatory & Walnut (WB),This stop (#2088) is westbound on the 2300 block of Observatory Dr farside Walnut St,43.076759,-89.42577,MMT,UWIS,0,,1,270,1,Observatory,2300,Walnut
 2091,2091,Observatory & Highland (EB),This stop (#2091) is eastbound on the 2499 block of Observatory Dr farside Highland Ave,43.076973,-89.428499,MMT,UWIS,0,,1,90,1,Observatory,2499,Highland
 2094,2094,Walnut & Observatory (SB),This stop (#2094) is southbound on the 698 block of Walnut St farside Observatory Dr,43.076141,-89.425239,MMT,UWIS,0,,1,180,1,Walnut,698,Observatory
@@ -603,7 +603,7 @@ stop_id,stop_code,stop_name,stop_desc,stop_lat,stop_lon,agency_id,jurisdiction_i
 2465,2465,University & University Bay (EB),This stop (#2465) is eastbound on the 2701 block of University Ave nearside University Bay Dr,43.073365,-89.433955,MMT,CMAD,0,,3,90,1,University,2701,University Bay
 2470,2470,Speedway & Glenway (WB),This stop (#2470) is westbound on the 3798 block of Speedway Rd nearside Glenway St,43.061037,-89.438532,MMT,CMAD,0,,3,270,1,Speedway,3798,Glenway
 2472,2472,Mineral Point & Robin (WB),This stop (#2472) is westbound on the 4600 block of Mineral Point Rd farside Robin Pkwy,43.060962,-89.454466,MMT,CMAD,0,,1,270,1,Mineral Point,4600,Robin
-2473,2473,Highland & Waisman (NB),This stop (#2473) is northbound on the 1501 block of Highland Ave opposite Waisman Center,43.07811,-89.433141,MMT,PRIV,0,,4,0,1,Highland,1501,Waisman
+2473,2473,Highland & Waisman (NB),This stop (#2473) is northbound on the 1501 block of Highland Ave opposite Waisman Center,43.07811,-89.433141,MMT,VSHO,0,,4,0,1,Highland,1501,Waisman
 2476,2476,S Midvale & Tokay (SB),This stop (#2476) is southbound on the 600 block of Midvale Blvd (S) farside Tokay Blvd,43.053237,-89.451365,MMT,CMAD,0,,1,180,1,S Midvale,600,Tokay
 2477,2477,Regent & Eau Claire (EB),This stop (#2477) is eastbound on the 4999 block of Regent St farside Eau Claire Ave (S),43.068964,-89.462851,MMT,CMAD,0,,1,90,1,Regent,4999,Eau Claire
 2487,2487,Regent & Meadow (EB),This stop (#2487) is eastbound on the 4333 block of Regent St nearside Meadow Ln (S),43.067982,-89.450063,MMT,CMAD,0,,3,90,1,Regent,4333,Meadow
@@ -687,7 +687,7 @@ stop_id,stop_code,stop_name,stop_desc,stop_lat,stop_lon,agency_id,jurisdiction_i
 2753,2753,Monroe & Chapman (EB),This stop (#2753) is eastbound on the 3099 block of Monroe St farside Chapman St,43.055128,-89.431743,MMT,CMAD,0,,1,90,1,Monroe,3099,Chapman
 2755,2755,University & N Blackhawk (EB),This stop (#2755) is eastbound on the 3501 block of University Ave nearside Blackhawk Ave (N),43.075091,-89.446856,MMT,CMAD,0,,3,90,1,University,3501,N Blackhawk
 2762,2762,Regent & N Owen (WB),This stop (#2762) is westbound on the 4298 block of Regent St nearside Owen Dr (N),43.068171,-89.447236,MMT,CMAD,0,,3,270,0,Regent,4298,N Owen
-2770,2770,Highland & Waisman (SB),This stop (#2770) is southbound on the 1500 block of Highland Ave adjacent Waisman Center,43.078226,-89.433511,MMT,PRIV,0,,2,180,1,Highland,1500,Waisman
+2770,2770,Highland & Waisman (SB),This stop (#2770) is southbound on the 1500 block of Highland Ave adjacent Waisman Center,43.078226,-89.433511,MMT,VSHO,0,,2,180,1,Highland,1500,Waisman
 2773,2773,Regent & Vista (EB),This stop (#2773) is eastbound on the 2299 block of Regent St farside Vista Rd,43.067824,-89.426054,MMT,CMAD,0,,1,90,1,Regent,2299,Vista
 2775,2775,Bluff & N Blackhawk (EB),This stop (#2775) is eastbound on the 3499 block of Bluff St farside Blackhawk Ave (N),43.069379,-89.445953,MMT,CMAD,0,,1,90,0,Bluff,3499,N Blackhawk
 2778,2778,Odana & S Whitney (WB),This stop (#2778) is westbound on the 5500 block of Odana Rd farside Whitney Way (S),43.050105,-89.474009,MMT,CMAD,0,,1,270,1,Odana,5500,S Whitney
@@ -889,7 +889,7 @@ stop_id,stop_code,stop_name,stop_desc,stop_lat,stop_lon,agency_id,jurisdiction_i
 4379,4379,Fitchrona & Mckee (NB),This stop (#4379) is northbound on the 3000 block of Fitchrona Rd farside Mckee Rd,43.016057,-89.480533,MMT,CFIT,0,,1,0,1,Fitchrona,3000,Mckee
 4382,4382,Nakoma & Huron (WB),This stop (#4382) is westbound on the 3798 block of Nakoma Rd farside Huron Hl,43.048243,-89.439035,MMT,CMAD,0,,1,270,0,Nakoma,3798,Huron
 4395,4395,Mickelson & S Fish Hatchery (EB),This stop (#4395) is eastbound on the 2800 block of Mickelson Pkwy nearside Fish Hatchery Rd (S),43.007771,-89.428284,MMT,CFIT,0,,3,90,0,Mickelson,2800,S Fish Hatchery
-4401,4401,Northern Lights & Epic Staff C (SB),This stop (#4401) is southbound on the 2601 block of Northern Lights Blvd adjacent Epic Staff C,42.996855,-89.563863,MMT,PEPC,0,,2,180,1,Northern Lights,2601,Epic Staff C
+4401,4401,Northern Lights & Epic Staff C (SB),This stop (#4401) is southbound on the 2601 block of Northern Lights Blvd adjacent Epic Staff C,42.996855,-89.563863,MMT,PRIV,0,,2,180,1,Northern Lights,2601,Epic Staff C
 4412,4412,Beltline S & Grandview (WB),This stop (#4412) is westbound on the 3398 block of Beltline Frontage (S) nearside Grandview Blvd,43.035263,-89.43311,MMT,TMAD,0,,3,270,0,Beltline S,3398,Grandview
 4415,4415,Stewart & Latham (EB),This stop (#4415) is eastbound on the 1199 block of Stewart St farside Latham Dr,43.030436,-89.402612,MMT,CMAD,0,,1,90,1,Stewart,1199,Latham
 4426,4426,Coho & Beltline S (SB),This stop (#4426) is southbound on the 2800 block of Coho St farside Beltline Frontage (S),43.034377,-89.415121,MMT,CMAD,0,,1,180,1,Coho,2800,Beltline S
