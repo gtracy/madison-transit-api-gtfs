@@ -89,7 +89,8 @@ module.exports = async function(app) {
                 }
             } else {
                 json_result.status = "-1";
-                json_result.message = "invalid stopID";    
+                json_result.message = "missing trip details for this request";
+                logger.error(unique_trip_id_list,"missing trip details");
             }
         }
 
