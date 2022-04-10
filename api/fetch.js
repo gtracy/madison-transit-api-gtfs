@@ -69,7 +69,7 @@ module.exports.fetch_trips = async (stop_id, route_id) => {
             } else if( t.stop.arrival ) {
                 return t.stop.arrival.time.low;
             } else {
-                logger.error('total fail consuming this StopTimeUpdate. Unable to parse the stop time',t.stop);
+                logger.error(t,'total fail consuming this StopTimeUpdate. Unable to parse the stop time',t.stop);
                 return 9999;
             }
         });
