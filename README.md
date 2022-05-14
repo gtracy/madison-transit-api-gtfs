@@ -63,8 +63,8 @@ If you'd like to point to an AWS instance of Dynamo, you can set NODE_ENV=prod w
 ### Deployment
 API server is designed to be deployed on Lambda. Use the aws cli to deploy your zip file. 
 ```
-> zip -r ../function.zip *
-> aws lambda update-function-code --function-name <function-name> --zip-file fileb://../function.zip
+> zip -r function.zip *
+> aws lambda update-function-code --function-name <function-name> --zip-file fileb://function.zip
 ```
 
 #### Configuration
