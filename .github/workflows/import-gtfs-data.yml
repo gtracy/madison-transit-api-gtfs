@@ -10,6 +10,7 @@ jobs:
       - name: Download and unzip Metro Data
         run: |
           wget http://transitdata.cityofmadison.com/GTFS/mmt_gtfs.zip
+          unzip mmt_gtfs.zip -d gtfs/
 
   setup-repo:
     runs-on: ubuntu-latest
