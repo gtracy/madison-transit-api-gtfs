@@ -4,6 +4,13 @@ on:
     branches: 
       - github-actions
 jobs:
+  download-gtfs:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download and unzip Metro Data
+        run: |
+          wget http://transitdata.cityofmadison.com/GTFS/mmt_gtfs.zip
+
   setup-repo:
     runs-on: ubuntu-latest
     steps:
