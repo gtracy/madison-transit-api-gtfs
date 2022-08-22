@@ -1,14 +1,25 @@
 name: Import GTFS Data
-on: [push]
+on:
+  push:
+    branches: 
+      - github-actions
+    paths:
+      - gtfs
+
 jobs:
+  download-gtfs:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download Metro data
+        run: wget http://transitdata.cityofmadison.com/GTFS/mmt_gtfs.zip
+
   setup-repo:
     runs-on: ubuntu-latest
     steps:
-      - name: Check out repo
+      - name: Checkout repo
         uses: actions/checkout@v3
+
       - name: Setup Node environment
         uses: actions/setup-node@v3
         with:
           node-version: '14'
-        - run: npm install
-
