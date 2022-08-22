@@ -28,6 +28,8 @@ npm install
 
 These must be loaded on a fresh install as well as every time Madison Metro changes their system and publishes new GTFS files. The goal is to keep the /gtfs directory in sync with Metro. 
 
+Detailed notes on GTFS file definitons and instructions for data loads can be found in the [README](https://github.com/gtracy/madison-transit-api-gtfs/blob/main/gtfs/README.md) inside of the /gtfs folder.
+
 Scripts are designed to work out of the box with their defaults.  
 
 **Load Trip GTFS data**
