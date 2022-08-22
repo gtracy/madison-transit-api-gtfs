@@ -4,8 +4,13 @@ on:
     branches: 
       - github-actions
     paths:
+<<<<<<< HEAD
       - gtfs
 
+=======
+      - gtfs/*
+      
+>>>>>>> e30bcec1428d5e7390d0daa543d66bc1602e8a33
 jobs:
   download-gtfs:
     runs-on: ubuntu-latest
