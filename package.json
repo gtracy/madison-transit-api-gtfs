@@ -29,7 +29,7 @@
     "cors": "^2.8.5",
     "express": "^4.17.2",
     "got": "^11.8.3",
-    "gtfs-realtime-bindings": "0.0.5",
+    "gtfs-realtime-bindings": "0.0.6",
     "logme": "^0.4.0",
     "moment": "^2.29.2",
     "moment-timezone": "^0.5.34",
