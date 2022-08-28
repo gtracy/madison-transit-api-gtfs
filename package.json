@@ -1,10 +1,11 @@
 {
   "name": "madison-transit-api-node",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "API for Madison Metro",
   "main": "lib/app.js",
   "scripts": {
     "test": "node test/load.js 2>&1 | tee test/load-test-output.txt",
+    "calendar-import": "node utils/calendar_import.js",
     "route-import": "node utils/route_import.js",
     "trip-import": "node utils/trip_import.js",
     "stop-import": "node utils/stop_import.js",
