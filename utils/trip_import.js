@@ -41,13 +41,17 @@ console.dir(config.getAWSConfig());
 
     // import the GTFS file into our new table
     try{
-        await gtfs.gtfsToDynamo(AWS,"gtfs/trips.txt",TABLE_NAME,table_params);
+        let input_file = "gtfs/trips.txt";
+        // test if user is parsing a non-default GTFS file
+        if( process.argv[2] ) {
+            input_file = process.argv[2];
+        }    
+        await gtfs.gtfsToDynamo(AWS,input_file,TABLE_NAME,table_params);
     } catch(err) {
         console.log('import failed!');
         console.log(err);
         process.exit(-1);
     }
-    console.log("\nall done.\n");
 
 
 })();
