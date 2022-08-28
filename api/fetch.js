@@ -1,7 +1,6 @@
 'use strict';
 
 const _ = require('underscore');
-const moment = require('moment-timezone');
 const got = require('got');
 const {performance} = require('perf_hooks');
 const GtfsRealtimeBindings = require('gtfs-realtime-bindings');
