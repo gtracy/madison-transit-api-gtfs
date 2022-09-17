@@ -33,7 +33,7 @@
     "gtfs-realtime-bindings": "0.0.6",
     "logme": "^0.4.0",
     "moment": "^2.29.2",
-    "moment-timezone": "^0.5.34",
+    "moment-timezone": "^0.5.35",
     "nodemon": "^2.0.15",
     "perf_hooks": "0.0.1",
     "pino": "^7.6.2",
