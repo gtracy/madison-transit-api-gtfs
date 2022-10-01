@@ -29,6 +29,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Inspect calendar
+        run: echo "inspect..."
 
   run-imports:
     runs-on: ubuntu-latest
@@ -36,8 +37,8 @@ jobs:
       - name: import routes
         run: npm run route-import
       - name: import trips
-        #run: npm run route-import
+        run: echo "npm run route-import"
       - name: import stops
-        #run: npm run route-import
+        run: echo "npm run route-import"
 
 
