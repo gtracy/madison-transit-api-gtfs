@@ -3,8 +3,8 @@ on:
   push:
     branches: 
       - github-actions
-    paths:
-      - gtfs
+    # paths:
+    #   - gtfs
 jobs:
   download-gtfs:
     runs-on: ubuntu-latest
