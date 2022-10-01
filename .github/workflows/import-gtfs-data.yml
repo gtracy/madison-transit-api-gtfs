@@ -6,14 +6,6 @@ on:
     # paths:
     #   - gtfs
 jobs:
-  download-gtfs:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Download Metro data
-        run: |
-          wget http://transitdata.cityofmadison.com/GTFS/mmt_gtfs.zip
-          unzip mmt_gtfs.zip
-
   setup-repo:
     runs-on: ubuntu-latest
     steps:
@@ -24,3 +16,28 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '14'
+
+  download-gtfs:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download Metro data
+        run: |
+          wget http://transitdata.cityofmadison.com/GTFS/mmt_gtfs.zip
+          unzip mmt_gtfs.zip
+
+  inspect-date:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Inspect calendar
+
+  run-imports:
+    runs-on: ubuntu-latest
+    steps:
+      - name: import routes
+        run: npm run route-import
+      - name: import trips
+        #run: npm run route-import
+      - name: import stops
+        #run: npm run route-import
+
+
