@@ -40,7 +40,9 @@ jobs:
     needs: [setup-repo,download-gtfs]
     steps:
       - name: import routes
-        run: npm run route-import
+        run: |
+          ls -lt
+          npm run route-import
       - name: import trips
         run: echo "npm run route-import"
       - name: import stops
