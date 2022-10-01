@@ -4,19 +4,15 @@ on:
     branches: 
       - github-actions
     paths:
-<<<<<<< HEAD
       - gtfs
-
-=======
-      - gtfs/*
-      
->>>>>>> e30bcec1428d5e7390d0daa543d66bc1602e8a33
 jobs:
   download-gtfs:
     runs-on: ubuntu-latest
     steps:
       - name: Download Metro data
-        run: wget http://transitdata.cityofmadison.com/GTFS/mmt_gtfs.zip
+        run: |
+          wget http://transitdata.cityofmadison.com/GTFS/mmt_gtfs.zip
+          unzip mmt_gtfs.zip
 
   setup-repo:
     runs-on: ubuntu-latest
