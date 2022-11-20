@@ -16,7 +16,7 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '14'
-
+        
       - name: npm install
         run: npm install
 
@@ -37,11 +37,12 @@ jobs:
 
   run-imports:
     runs-on: ubuntu-latest
-    needs: [setup,download-gtfs]
+    needs: [setup-repo,download-gtfs]
     steps:
       - name: import routes
-        run: ls -lt
-        run: npm run route-import
+        run: |
+          ls -lt
+          npm run route-import
       - name: import trips
         run: echo "npm run route-import"
       - name: import stops
