@@ -32,7 +32,6 @@ module.exports = {
 
         return({
             level: level,
-
         });
     },
 
