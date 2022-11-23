@@ -1,7 +1,6 @@
 'use strict';
 
 const _ = require('underscore');
-const moment = require('moment-timezone');
 const got = require('got');
 const {performance} = require('perf_hooks');
 const GtfsRealtimeBindings = require('gtfs-realtime-bindings');
@@ -28,6 +27,12 @@ module.exports.fetch_trips = async (stop_id, route_id) => {
     // map the user friendly route_id to a GTFS routeId
     if( route_id ) {
         route = routes.fetchBy_human_id(route_id);
+        // if the request is asking for a route and 
+        // that route does not exist just bail out.
+        if( !route ) {
+            logger.debug('unable to find requested route '+route_id);
+            return [];
+        }
     }
 
     try {

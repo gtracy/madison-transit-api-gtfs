@@ -41,11 +41,10 @@ module.exports.gtfsToDynamo = async (AWS,gtfs_file,dynamo_table,table_params) =>
             await new Promise(r => setTimeout(r, 5000));
         }
 
-        var input_file = prompt("TFS file input ["+gtfs_file+"] : ",gtfs_file);
-        console.log(`\n... reading GTFS data from ${input_file}`);
+        console.log(`\n... reading GTFS data from ${gtfs_file}`);
         console.log("... this task of writing to Dynamo may take a little while!");
 
-        let inputStream = Fs.createReadStream(input_file, 'utf8');
+        let inputStream = Fs.createReadStream(gtfs_file, 'utf8');
         let csvStream = new CsvReadableStream({ skipHeader: true, asObject: true, trim: true });
         inputStream
             .pipe(csvStream)
@@ -63,7 +62,7 @@ module.exports.gtfsToDynamo = async (AWS,gtfs_file,dynamo_table,table_params) =>
                 console.log('No more rows!');
             })
             .on('error', (err) => {
-                console.error('Failed to read the input file ' + input_file);
+                console.error('Failed to read the input file ' + gtfs_file);
                 console.dir(err);
             })
             .on('data', async function (row) {
