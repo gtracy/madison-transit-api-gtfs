@@ -27,15 +27,15 @@ jobs:
         
       - name: npm install
         run: npm install
+      - name: import routes
+        run: npm run route-import
 
   run-imports:
     runs-on: ubuntu-latest
     needs: [setup-repo]
     steps:
       - name: import routes
-        run: |
-          ls -lt
-          npm run route-import
+        run: npm run route-import
       - name: import trips
         run: echo "npm run route-import"
       - name: import stops
