@@ -22,6 +22,7 @@ The repo contains scripts that automate the process of importing the GTFS files 
 All of these transformation and ingest jobs have scripts defined in package.json
 
 ```
+npm run calendar-import
 npm run trip-import
 npm run stop-import
 npm run route-import
@@ -37,8 +38,7 @@ NODE_ENV=prod npm run trip-import
 As currently designed, the import functions will append new records to Dynamo so old and new GTFS records can co-exist without a problem. The routes.json file that gets generated, however, uses route IDs that reflect the new service. So route lookups can and will fail until Metro flips over to the new schedule. **As a result - and this sucks - you really can't deploy the code with a new lib/routes.json file until after the schedule change.**
 1. Download GTFS zip file from Metro using the link above.
 1. Unzip the GTFS file and move the files into the /gtfs folder of this repo.
-1. Edit the route.txt file to remove the old routes. You'll notice that they are duplicated with different service IDs which denotes the service changes outlines in calendar.txt. Each route can only be listed once when you run the route-import job.
-1. Run all three npm scripts listed above. Specify the correct NODE_ENV based on your goal - "prod" or "dev"
+1. Run all four npm scripts listed above. Specify the correct NODE_ENV based on your goal - "prod" or "dev"
 1. Re-deploy the Lambda function to use the new routes.json
     ```
     > zip -r function.zip *

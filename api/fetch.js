@@ -1,7 +1,6 @@
 'use strict';
 
 const _ = require('underscore');
-const moment = require('moment-timezone');
 const got = require('got');
 const {performance} = require('perf_hooks');
 const GtfsRealtimeBindings = require('gtfs-realtime-bindings');
@@ -28,6 +27,12 @@ module.exports.fetch_trips = async (stop_id, route_id) => {
     // map the user friendly route_id to a GTFS routeId
     if( route_id ) {
         route = routes.fetchBy_human_id(route_id);
+        // if the request is asking for a route and 
+        // that route does not exist just bail out.
+        if( !route ) {
+            logger.debug('unable to find requested route '+route_id);
+            return [];
+        }
     }
 
     try {
@@ -45,15 +50,23 @@ module.exports.fetch_trips = async (stop_id, route_id) => {
                 if( !route_id || route.route_id == entity.tripUpdate.trip.routeId ) {
                     entity.tripUpdate.stopTimeUpdate.forEach((stop) => {  
                         if( stop.stopId === parseInt(stop_id).toString() ) { // shaves leading zeros
+
+                            // sometimes the Metro loses track of its buses and they drop vehicle
+                            // details from the RT feed. monitor for this case
+                            let vehicle = {
+                                'id'    : 'unknown',
+                                'label' : 'unknown'
+                            }
+                            if( entity.tripUpdate.vehicle ) {
+                                vehicle.id = utils.getValue(entity.tripUpdate.vehicle,"id",true),
+                                vehicle.label = utils.getValue(entity.tripUpdate.vehicle,"label",true)
+                            }
                             trips.push({
                                 'feed_time' : feed.header.timestamp,
                                 'stop'    : stop,
                                 'routeId' : entity.tripUpdate.trip.routeId,
                                 'tripId'  : entity.tripUpdate.trip.tripId,
-                                'vehicle' : {
-                                    'id'    : utils.getValue(entity.tripUpdate.vehicle,"id",true),
-                                    'label' : utils.getValue(entity.tripUpdate.vehicle,"label",true)
-                                }
+                                'vehicle' : vehicle
                             });
                         }
                     });
