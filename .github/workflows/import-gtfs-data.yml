@@ -27,19 +27,15 @@ jobs:
         
       - name: npm install
         run: npm install
-      - name: import routes
+      - name: import CALENDAR
+        run: npm run calendar-import
+      - name: import ROUTES
         run: npm run route-import
-
-  run-imports:
-    runs-on: ubuntu-latest
-    needs: [setup-repo]
-    steps:
-      - name: import routes
-        run: npm run route-import
-      - name: import trips
-        run: echo "npm run route-import"
-      - name: import stops
-        run: echo "npm run route-import"
-
-      - run: echo "🍏 This job's status is ${{ job.status }}."
+      - name: import TRIPS
+        run: npm run trip-import
+      - name: import STOPS
+        run: npm run stop-import
+        
+      - name: job status
+        run: echo "🍏 This job's status is ${{ job.status }}."
 
