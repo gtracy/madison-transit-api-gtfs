@@ -9,35 +9,28 @@ jobs:
   setup-repo:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repo
+      - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
+      - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
+      - run: echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
+      - name: Check out repo
         uses: actions/checkout@v3
+      - run: echo "💡 The ${{ github.repository }} repository has been cloned to the runner."
+      - run: echo "🖥️ The workflow is now ready to test your code on the runner."
+      - name: List files in the repository
+        run: |
+          ls ${{ github.workspace }}
 
       - name: Setup Node environment
         uses: actions/setup-node@v3
         with:
-          node-version: '14'
+          node-version: '16'
         
       - name: npm install
         run: npm install
 
-  download-gtfs:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Download Metro data
-        run: |
-          wget http://transitdata.cityofmadison.com/GTFS/mmt_gtfs.zip
-          unzip mmt_gtfs.zip
-
-  inspect-date:
-    runs-on: ubuntu-latest
-    needs: download-gtfs
-    steps:
-      - name: Inspect calendar
-        run: echo "inspect..."
-
   run-imports:
     runs-on: ubuntu-latest
-    needs: [setup-repo,download-gtfs]
+    needs: [setup-repo]
     steps:
       - name: import routes
         run: |
@@ -48,4 +41,5 @@ jobs:
       - name: import stops
         run: echo "npm run route-import"
 
+      - run: echo "🍏 This job's status is ${{ job.status }}."
 
