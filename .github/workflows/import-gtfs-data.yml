@@ -26,18 +26,32 @@ jobs:
         run: npm run calendar-import
       - name: import ROUTES
         run: npm run route-import
-        
+
+      - name: Check for Changes
+        id: check_changes
+        run: |
+          if [ -n "$(git diff --exit-code)" ]; then
+            echo "Files have changed."
+            echo "::set-output name=commit::true"
+          else
+            echo "No changes to commit."
+            echo "::set-output name=commit::false"
+          fi
+
       - name: stage the new changes
+        if: steps.check_changes.outputs.commit == 'true'
         run: |
           git config --global user.email "gtracy@gmail.com"
           git config --global user.name "Greg Tracy (action)"
           git add .
           
       - name: commit changes
+        if: steps.check_changes.outputs.commit == 'true'
         run: |
           git commit -m "updated GTFS artifacts based on new Metro files"
           
       - name: push changes
+        if: steps.check_changes.outputs.commit == 'true'
         uses: ad-m/github-push-action@master
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
