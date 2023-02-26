@@ -32,10 +32,10 @@ jobs:
         run: |
           if [ -n "$(git diff --exit-code)" ]; then
             echo "Files have changed."
-            echo "::set-output name=commit::true"
+            echo "COMMIT=true" >> $GITHUB_ENV
           else
             echo "No changes to commit."
-            echo "::set-output name=commit::false"
+            echo "COMMIT=false" >> $GITHUB_ENV
           fi
 
       - name: stage the new changes
@@ -46,12 +46,12 @@ jobs:
           git add .
           
       - name: commit changes
-        if: steps.check_changes.outputs.commit == 'true'
+        if: env.COMMIT == 'true'
         run: |
           git commit -m "updated GTFS artifacts based on new Metro files"
           
       - name: push changes
-        if: steps.check_changes.outputs.commit == 'true'
+        if: env.COMMIT == 'true'
         uses: ad-m/github-push-action@master
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
