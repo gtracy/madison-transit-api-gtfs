@@ -22,20 +22,17 @@ jobs:
         - name: npm install
           run: npm install
           
-        - name: import new TRIP data
+        - name: set AWS creds
           uses: aws-actions/configure-aws-credentials@v1
           with:
             aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
             aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
             aws-region: ${{ secrets.AWS_DEFAULT_REGION }}
+
+        - name: import new TRIP data
           run: npm run trip-import
           
         - name: import new STOPS data
-          uses: aws-actions/configure-aws-credentials@v1
-          with:
-            aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-            aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-            aws-region: ${{ secrets.AWS_DEFAULT_REGION }}
           run: npm run stop-import
 
   deploy-lambda:
@@ -47,11 +44,13 @@ jobs:
       - name: Build a zip file
         run: zip -r function.zip .
 
-      - name: Deploy to Lambda
+      - name: set AWS creds
         uses: aws-actions/configure-aws-credentials@v1
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ${{ secrets.AWS_DEFAULT_REGION }}
+
+      - name: Deploy to Lambda
         run: aws lambda update-function-code --function-name smb-api --zip-file fileb://function.zip
 
