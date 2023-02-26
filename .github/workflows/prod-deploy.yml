@@ -1,0 +1,56 @@
+on:
+	push:
+		branches:
+			- 'github-actions'
+jobs:
+	update-dynamo-tables:
+    runs-on: ubuntu-latest
+	    if: ${{ contains(github.event.head_commit.modified, 'gtfs/') }}
+	    steps:
+				- run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
+	      - run: echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
+	
+	      - name: Check out repo
+	        uses: actions/checkout@v3
+	
+	      - name: Setup Node environment
+	        uses: actions/setup-node@v3
+	        with:
+	          node-version: '16'
+	        
+	      - name: npm install
+	        run: npm install
+
+				- name: import new TRIP data
+				  uses: aws-actions/configure-aws-credentials@v1
+				  with:
+				    aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+				    aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+				    aws-region: ${{ secrets.AWS_DEFAULT_REGION }}
+					run: npm run trip-import
+
+				- name: import new STOPS data
+				  uses: aws-actions/configure-aws-credentials@v1
+				  with:
+				    aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+				    aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+				    aws-region: ${{ secrets.AWS_DEFAULT_REGION }}
+					run: npm run stop-import
+
+	deploy-lambda:
+    runs-on: ubuntu-latest
+
+	      - name: Check out repo
+	        uses: actions/checkout@v3
+
+				- name: Build a zip file
+					run: zip -r function.zip .
+
+				- name: Deploy to Lambda
+				  uses: aws-actions/configure-aws-credentials@v1
+				  with:
+				    aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+				    aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+				    aws-region: ${{ secrets.AWS_DEFAULT_REGION }}
+					run: aws lambda update-function-code --function-name smb-api --zip-file fileb://function.zip
+
