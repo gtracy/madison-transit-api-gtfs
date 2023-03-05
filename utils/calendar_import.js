@@ -45,8 +45,8 @@ const csvToJson = require('convert-csv-to-json');
     let json_small = _.map(unique_services, (obj) => {
         return ({
             'service_id' : obj.service_id.split('_')[0],
-            'start_date' : moment(obj.start_date).tz("America/Chicago").toDate(),
-            'end_date'   : moment(obj.end_date).tz("America/Chicago").toDate()
+            'start_date' : moment(obj.start_date).utc().startOf("day").tz("America/Chicago").toDate(),
+            'end_date'   : moment(obj.end_date).utc().endOf("day").tz("America/Chicago").toDate()
         });
     });
     console.dir(json_small);
