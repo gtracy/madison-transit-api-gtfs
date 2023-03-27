@@ -52,5 +52,5 @@ jobs:
           aws-region: ${{ secrets.AWS_DEFAULT_REGION }}
 
       - name: Deploy to Lambda
-        run: aws lambda update-function-code --function-name smb-api --zip-file fileb://function.zip
+        run: aws lambda update-function-code --function-name ${{ secrets.LAMBDA_FUNCTION_NAME }} --zip-file fileb://function.zip
 
