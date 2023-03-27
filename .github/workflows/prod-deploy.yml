@@ -40,6 +40,14 @@ jobs:
     steps:
       - name: Check out repo
         uses: actions/checkout@v3
+        
+      - name: Setup Node environment
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: npm install
+        run: npm install    
 
       - name: Build a zip file
         run: zip -r function.zip .
