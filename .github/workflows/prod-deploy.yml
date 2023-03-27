@@ -7,7 +7,9 @@ on:
 jobs:
   update-dynamo-tables:
     runs-on: ubuntu-latest
-    if: ${{ contains(github.event.head_commit.modified, 'gtfs/') }}
+    if: git diff --name-only ${{ github.event.before }} ${{ github.event.after }} | grep -q "gtfs/"; then
+      echo "The file or directory was modified."
+    #if: ${{ contains(github.event.head_commit.modified, 'gtfs/') }}
     steps:
         - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
         - run: echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
@@ -37,6 +39,7 @@ jobs:
 
   deploy-lambda:
     runs-on: ubuntu-latest
+    if: false
     steps:
       - name: Check out repo
         uses: actions/checkout@v3
