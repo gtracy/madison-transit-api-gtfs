@@ -20,7 +20,7 @@ The source of truth for the GTFS files, and the location used for the download i
 The repo contains scripts that automate the process of importing the GTFS files and deploying them for use by the API. In the case of the trips and stops data, the import pushes the data into DynamoDB. In the case of the route data, it transforms the GTFS text file into a JSON object that is stored within the API code itself.
 
 All of these transformation and ingest jobs have scripts defined in package.json
-
+ 
 ```
 npm run calendar-import
 npm run trip-import
