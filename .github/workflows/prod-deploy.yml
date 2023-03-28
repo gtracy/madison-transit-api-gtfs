@@ -21,7 +21,7 @@ jobs:
           with:
             filters: |
               src:
-                - 'gogogogog/**'
+                - 'gtfs/**'
                 
         - name: Check for GTFS folder changes
           id: gtfs-changes
