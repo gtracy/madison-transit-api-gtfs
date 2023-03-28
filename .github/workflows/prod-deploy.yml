@@ -25,7 +25,7 @@ jobs:
   
   update-dynamo-tables:
     needs: check-for-gtfs-changes
-    if: ${{ steps.filter.outputs.gtfs }} == 'true'
+    if: ${{ needs.check-for-gtfs-changes.outputs.gtfs }} == 'true'
     runs-on: ubuntu-latest
     #if: git diff --name-only ${{ github.event.before }} ${{ github.event.after }} | grep "gtfs/"; then
     #  echo "The file or directory was modified."
