@@ -26,9 +26,9 @@ jobs:
         - name: Check for GTFS folder changes
           id: gtfs-changes
           run: |
-            status = "miss"
+            status="miss"
             if [ "${{ steps.filter-changes.outputs.src }}" = 'true' ]; then
-              status = "hit"
+              status="hit"
               echo "We have a GTFS change!"
             else
               echo "Nothing to see here... carry on."
