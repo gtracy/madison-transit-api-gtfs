@@ -70,6 +70,7 @@ jobs:
           run: NODE_ENV=prod npm run stop-import
 
   deploy-lambda:
+    needs: update-dynamo-tables
     runs-on: ubuntu-latest
     #if: false
     steps:
