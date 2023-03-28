@@ -11,6 +11,7 @@ jobs:
       echo "The file or directory was modified."
     #if: ${{ contains(github.event.head_commit.modified, 'gtfs/') }}
     steps:
+        - run: git diff --name-only ${{ github.event.before }} ${{ github.event.after}}
         - run: echo "🔎 commit modified ${{ github.event.head_commit.modified }} "
         - run: echo "🔎 commit event ${{ github.event.after }} "
         - run: echo "🔎 The name of your branch is ${{ github.ref }} "
@@ -33,10 +34,10 @@ jobs:
             aws-region: ${{ secrets.AWS_DEFAULT_REGION }}
 
         - name: import new TRIP data
-          run: NODE_ENV=prod npm run trip-import
+          #run: NODE_ENV=prod npm run trip-import
           
         - name: import new STOPS data
-          run: NODE_ENV=prod npm run stop-import
+          #run: NODE_ENV=prod npm run stop-import
 
   deploy-lambda:
     runs-on: ubuntu-latest
