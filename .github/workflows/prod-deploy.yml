@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
         - name: Check for GTFS changes
-        - uses: dorny/paths-filter@v2
+          uses: dorny/paths-filter@v2
           id: gtfs-changes
           with:
             filters: |
