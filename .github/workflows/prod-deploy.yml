@@ -27,7 +27,7 @@ jobs:
           id: gtfs-changes
           run: |
             status = "miss"
-            if[ "${{ steps.filter-changes.outputs.src }}" = 'true']; then
+            if [ "${{ steps.filter-changes.outputs.src }}" = 'true' ]; then
               status = "hit"
               echo "We have a GTFS change!"
             else
