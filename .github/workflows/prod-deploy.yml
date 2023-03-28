@@ -33,6 +33,7 @@ jobs:
             else
               echo "Nothing to see here... carry on."
             fi
+            echo "status=$status" >> $GITHUB_OUTPUT
               
   update-dynamo-tables:
     needs: check-for-gtfs-changes
