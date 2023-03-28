@@ -5,14 +5,28 @@ on:
     - 'github-actions'
 
 jobs:
-  update-dynamo-tables:
+  check-for-gtfs-changes:
     runs-on: ubuntu-latest
-    if: git diff --name-only ${{ github.event.before }} ${{ github.event.after }} | grep "gtfs/"; then
-      echo "The file or directory was modified."
+    steps:
+        - name: Check for GTFS changes
+        - uses: dorny/paths-filter@v2
+          id: gtfs-changes
+          with:
+            filters: |
+              src:
+                - 'gtfs/**'
+
+          # run only if some file in 'src' folder was changed
+        - if: steps.gtfs-changes.outputs.src == 'true'
+          run: echo "The GTFS folder has been updated! Push changes into Dynamo."
+  
+  update-dynamo-tables:
+    needs: check-for-gtfs-changes
+    runs-on: ubuntu-latest
+    #if: git diff --name-only ${{ github.event.before }} ${{ github.event.after }} | grep "gtfs/"; then
+    #  echo "The file or directory was modified."
     #if: ${{ contains(github.event.head_commit.modified, 'gtfs/') }}
     steps:
-        - run: echo "checking diff contents"
-        - run: git diff --name-only ${{ github.event.before }} ${{ github.event.after}} | grep "gtfs/"
         
         - name: Check out repo
           uses: actions/checkout@v3
