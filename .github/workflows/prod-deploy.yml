@@ -27,9 +27,11 @@ jobs:
           id: gtfs-changes
           run: |
             status = "miss"
-            if ${{ steps.filter-changes.outputs.src }} == 'true'
-            then
+            if[ "${{ steps.filter-changes.outputs.src }}" = 'true']; then
               status = "hit"
+              echo "We have a GTFS change!"
+            else
+              echo "Nothing to see here... carry on."
             fi
               
   update-dynamo-tables:
