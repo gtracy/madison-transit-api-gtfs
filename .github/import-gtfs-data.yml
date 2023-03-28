@@ -1,0 +1,60 @@
+name: Import GTFS Data
+on:
+  push:
+    branches: 
+      - main
+    paths:
+      - gtfs
+jobs:
+  setup-repo:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
+      - run: echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
+      
+      - name: Check out repo
+        uses: actions/checkout@v3
+      - run: echo "💡 The ${{ github.repository }} repository has been cloned to the runner."
+
+      - name: Setup Node environment
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+        
+      - name: npm install
+        run: npm install
+      - name: import CALENDAR
+        run: npm run calendar-import
+      - name: import ROUTES
+        run: npm run route-import
+
+      - name: Check for Changes
+        id: check_changes
+        run: |
+          if [ -n "$(git diff --exit-code)" ]; then
+            echo "Files have changed."
+            echo "COMMIT=true" >> $GITHUB_ENV
+          else
+            echo "No changes to commit."
+            echo "COMMIT=false" >> $GITHUB_ENV
+          fi
+
+      - name: stage the new changes
+        if: steps.check_changes.outputs.commit == 'true'
+        run: |
+          git config --global user.email "gtracy@gmail.com"
+          git config --global user.name "Greg Tracy (action)"
+          git add .
+          
+      - name: commit changes
+        if: env.COMMIT == 'true'
+        run: |
+          git commit -m "updated GTFS artifacts based on new Metro files"
+          
+      - name: push changes
+        if: env.COMMIT == 'true'
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: ${{ github.ref }}
+      

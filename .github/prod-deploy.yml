@@ -1,0 +1,99 @@
+name: Deploy to production
+on:
+  push:
+    branches:
+    - main
+
+jobs:
+  check-for-gtfs-changes:
+    runs-on: ubuntu-latest
+    permissions:
+      pull-requests: read
+    outputs:
+      status: ${{ steps.gtfs-changes.outputs.status }}
+    steps:
+        - name: Check out repo
+          uses: actions/checkout@v3
+    
+        - name: Filter the commit paths
+          uses: dorny/paths-filter@v2
+          id: filter-changes
+          with:
+            filters: |
+              src:
+                - 'gtfs/**'
+                
+        - name: Check for GTFS folder changes
+          id: gtfs-changes
+          run: |
+            status="miss"
+            if [ "${{ steps.filter-changes.outputs.src }}" = 'true' ]; then
+              status="hit"
+              echo "We have a GTFS change!"
+            else
+              echo "Nothing to see here... carry on."
+            fi
+            echo "status=$status" >> $GITHUB_OUTPUT
+              
+  update-dynamo-tables:
+    needs: check-for-gtfs-changes
+    runs-on: ubuntu-latest
+    if: ${{ needs.check-for-gtfs-changes.outputs.status == 'hit' }}
+    steps:
+        - name: Check filter
+          run: echo ${{ needs.check-for-gtfs-changes.outputs.status }}
+        
+        - name: Check out repo
+          uses: actions/checkout@v3
+
+        - name: Setup Node environment
+          uses: actions/setup-node@v3
+          with:
+            node-version: '18'
+
+        - name: npm install
+          run: npm install
+          
+        - name: set AWS creds
+          uses: aws-actions/configure-aws-credentials@v2
+          with:
+            aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+            aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+            aws-region: ${{ secrets.AWS_DEFAULT_REGION }}
+
+        - name: import new TRIP data
+          if: false
+          run: NODE_ENV=prod npm run trip-import
+          
+        - name: import new STOPS data
+          if: false
+          run: NODE_ENV=prod npm run stop-import
+
+  deploy-lambda:
+    needs: update-dynamo-tables
+    runs-on: ubuntu-latest
+    if: false
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@v3
+        
+      - name: Setup Node environment
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: npm install
+        run: npm install    
+
+      - name: Build a zip file
+        run: zip -r function.zip .
+
+      - name: set AWS creds
+        uses: aws-actions/configure-aws-credentials@v2
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ secrets.AWS_DEFAULT_REGION }}
+
+      - name: Deploy to Lambda
+        run: aws lambda update-function-code --function-name ${{ secrets.LAMBDA_FUNCTION_NAME }} --zip-file fileb://function.zip
