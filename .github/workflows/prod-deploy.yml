@@ -21,7 +21,7 @@ jobs:
           with:
             filters: |
               src:
-                - 'gogogog/**'
+                - 'gtfs/**'
                 
         - name: Check for GTFS folder changes
           id: gtfs-changes
@@ -71,7 +71,7 @@ jobs:
 
   deploy-lambda:
     runs-on: ubuntu-latest
-    if: false
+    #if: false
     steps:
       - name: Check out repo
         uses: actions/checkout@v3
