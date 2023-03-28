@@ -11,8 +11,9 @@ jobs:
       echo "The file or directory was modified."
     #if: ${{ contains(github.event.head_commit.modified, 'gtfs/') }}
     steps:
-        - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
-        - run: echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
+        - run: echo "🔎 commit modified ${{ github.event.head_commit.modified }} "
+        - run: echo "🔎 commit event ${{ github.event.after }} "
+        - run: echo "🔎 The name of your branch is ${{ github.ref }} "
         - name: Check out repo
           uses: actions/checkout@v3
 
@@ -32,10 +33,10 @@ jobs:
             aws-region: ${{ secrets.AWS_DEFAULT_REGION }}
 
         - name: import new TRIP data
-          run: npm run trip-import
+          run: NODE_ENV=prod npm run trip-import
           
         - name: import new STOPS data
-          run: npm run stop-import
+          run: NODE_ENV=prod npm run stop-import
 
   deploy-lambda:
     runs-on: ubuntu-latest
