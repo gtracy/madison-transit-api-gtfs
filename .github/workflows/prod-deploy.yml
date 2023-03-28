@@ -11,6 +11,9 @@ jobs:
       echo "The file or directory was modified."
     #if: ${{ contains(github.event.head_commit.modified, 'gtfs/') }}
     steps:
+        - run: echo "checking diff contents"
+        - run: git diff --name-only ${{ github.event.before }} ${{ github.event.after}} | grep "gtfs/"
+        
         - name: Check out repo
           uses: actions/checkout@v3
 
