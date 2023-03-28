@@ -9,28 +9,35 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       pull-requests: read
+    outputs:
+      status: ${{ steps.gtfs-changes.outputs.status }}
     steps:
         - name: Check out repo
           uses: actions/checkout@v3
     
         - name: Filter the commit paths
           uses: dorny/paths-filter@v2
-          id: gtfs-changes
+          id: filter-changes
           with:
             filters: |
               src:
                 - 'gogogogog/**'
                 
         - name: Check for GTFS folder changes
-          if: steps.gtfs-changes.outputs.src == 'false'
-          run: exit 1
+          id: gtfs-changes
+          run: |
+            status = "miss"
+            if ${{ steps.filter-changes.outputs.src }} == 'true'
+            then
+              status = "hit"
+            fi
+            
+            echo "status=$status" >> $GITHUB_OUTPUT
   
   update-dynamo-tables:
     needs: check-for-gtfs-changes
     runs-on: ubuntu-latest
-    #if: git diff --name-only ${{ github.event.before }} ${{ github.event.after }} | grep "gtfs/"; then
-    #  echo "The file or directory was modified."
-    #if: ${{ contains(github.event.head_commit.modified, 'gtfs/') }}
+    if: needs.check-for-gtfs-changes.outputs.status == "hit"
     steps:
         
         - name: Check out repo
