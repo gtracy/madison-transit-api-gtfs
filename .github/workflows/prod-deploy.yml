@@ -17,11 +17,13 @@ jobs:
           with:
             filters: |
               src:
-                - 'greg/**'
+                - 'gogogogog/**'
 
           # run only if some file in 'src' folder was changed
-        - if: steps.gtfs-changes.outputs.src == 'true'
-          run: echo "The GTFS folder has been updated! Push changes into Dynamo."
+        - if: ${{ steps.gtfs-changes.outputs.src }} == 'true'
+          run: |
+              echo ${{ steps.gtfs-changes.outputs.src }}
+              echo "The GTFS folder has been updated! Push changes into Dynamo."
   
   update-dynamo-tables:
     needs: check-for-gtfs-changes
