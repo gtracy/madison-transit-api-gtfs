@@ -46,4 +46,3 @@ As currently designed, the import functions will append new records to Dynamo so
     ```
 1. Commit code
 1. Push to Github
-
