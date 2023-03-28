@@ -37,7 +37,7 @@ jobs:
   update-dynamo-tables:
     needs: check-for-gtfs-changes
     runs-on: ubuntu-latest
-    if: needs.check-for-gtfs-changes.outputs.status == "hit"
+    if: needs.check-for-gtfs-changes.outputs.status == 'hit'
     steps:
         
         - name: Check out repo
