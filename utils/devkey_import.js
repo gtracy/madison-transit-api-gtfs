@@ -38,7 +38,7 @@ console.dir(config.getAWSConfig());
     
     // import the GTFS file into our new table
     try{
-        await gtfs.gtfsToDynamo(AWS," ",TABLE_NAME,params);
+        await gtfs.gtfsToDynamo(AWS,"./utils/dev_keys_sample.txt",TABLE_NAME,params);
     } catch(err) {
         console.log('import failed!');
         console.log(err);
