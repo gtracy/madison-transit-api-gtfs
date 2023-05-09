@@ -11,6 +11,7 @@
 //
 let gtfs = require('./gtfs');
 let config = require('../config');
+const Stops = require('../lib/stops');
 
 let AWS = require('aws-sdk');
 AWS.config.update(config.getAWSConfig())
@@ -35,14 +36,18 @@ console.dir(config.getAWSConfig());
             WriteCapacityUnits: 25
         }
     };
-    
-    // import the GTFS file into our new table
+
     try{
         let input_file = "gtfs/stops.txt";
         // test if user is parsing a non-default GTFS file
         if( process.argv[2] ) {
             input_file = process.argv[2];
-        }    
+        }
+        // export stops into a json object
+        let json_output = './lib/stops.json';    
+        await Stops.transformGTFSFileToJSON(input_file,json_output);
+
+        // push stop details into Dynamo
         await gtfs.gtfsToDynamo(AWS,input_file,TABLE_NAME,params);
     } catch(err) {
         console.log('import failed!');

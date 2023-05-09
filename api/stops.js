@@ -3,7 +3,7 @@
 const moment = require('moment-timezone');
 const devkey = require('./devkey');
 const utils = require('./utils');
-const Stop = require('../lib/stops');
+const Stops = require('../lib/stops');
 
 const config = require('../config');
 const logger = require('pino')(config.getLogConfig());
@@ -21,7 +21,7 @@ module.exports = async function(app) {
     // }
     app.get('/v1/getstoplocation', utils.validateRequest, utils.afterHours, devkey.validateDevKey, async (req,res) => {
         var json_result = {};
-        var gtfs_stop = new Stop();
+        var gtfs_stop = new Stops();
 
         // snag the API query details
         const stop_id = req.query.stopID;
