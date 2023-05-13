@@ -100,9 +100,16 @@ module.exports.gtfsToDynamo = async (AWS,gtfs_file,dynamo_table,table_params) =>
             [dynamo_table]: putReqs
             }
         }
-        
-        await dynamoClient.batchWrite(req).promise();
-        console.log('  batch of ' + batch.length + ' written to dynamo');
+
+        try {
+            await dynamoClient.batchWrite(req).promise();
+            console.log('  batch of ' + batch.length + ' written to dynamo');
+        } catch(error) {
+            console.log('Dynamo write failed - ' + error);
+            console.dir(putReqs[0].PutRequest.Item);
+            console.dir(putReqs[1].PutRequest.Item);
+            throw error;
+        }
     }
 
 }
