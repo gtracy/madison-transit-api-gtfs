@@ -1,12 +1,14 @@
 'use strict';
 
 const moment = require('moment-timezone');
+const fs = require('fs');
 const devkey = require('./devkey');
 const utils = require('./utils');
 const gtfs_stop = require('../lib/stops');
 
 const config = require('../config');
 const logger = require('pino')(config.getLogConfig());
+
 
 
 module.exports = async function(app) {
@@ -50,12 +52,22 @@ module.exports = async function(app) {
         res.json(json_result);
     });
 
-    app.get('/v1/getstops',  (req,res) => {
-        res.json({
-            status : 0,
-            description : "this endpoint has been deprecated"
-        });
+    app.get('/v1/getstops', devkey.validateDevKey, async (req,res) => {
+        var json_result = {};
+
+        json_result.status = "0";
+        json_result.timestamp = moment().tz("America/Chicago").format("h:mmA");
+
+        // the stop data is static so we grab from a json file
+        // to simplify the implementation
+        const data = fs.readFileSync('./lib/stops.json', 'utf8');
+        const stop_json = JSON.parse(data);
+        json_result.stops = stop_json;
+
+        logger.debug(json_result,'/v1/getstops ');
+        res.json(json_result);
     });
+
 
     app.get('/v1/getnearbystops',  (req,res) => {
         res.json({
@@ -63,6 +75,5 @@ module.exports = async function(app) {
             description : "this endpoint has been deprecated"
         });
     });
-
 
 }

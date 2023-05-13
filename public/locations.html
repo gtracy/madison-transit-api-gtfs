@@ -195,7 +195,7 @@
  <p class="deprecated">this enpoint is deprecated</p>
  <div id="spec">
  <h3>Overview</h3>
- The getstops method will return the geo locations for all stops of a specified route.
+ The getstops method will return the labels and geo locations for all stops in the system.
  <h3>URL</h3>
  https://api.smsmybus.com/v1/getstops
  <h3>Fields</h3>
@@ -210,45 +210,34 @@
   <td class="center">String (required)</td>
   <td>API access key</td>
  </tr>
- <tr class="striped">
-  <td class="center">routeID</td>
-  <td class="center">String</td>
-  <td>A two-digit value describing a valid route in the Metro system.</td>
- </tr>
- <tr>
-  <td class="center">destination</td>
-  <td class="center">String</td>
-  <td>A value describing a valid route endpoint in the Metro system. When a destination is included in the query, the results will be limited to the stops that are headed in that direction.</td>
- </tr>
  </table>
  <h3>Examples</h3>
  Retrieve all stops for route 3:<p> </p>
- <span style="font-weight:bold;margin-left:24px;">https://api.smsmybus.com/v1/getstops?key=xxx&routeID=03</span><p> </p>
- Retrieve all stops for route 3 headed toward ETP:<p> </p>
- <span style="font-weight:bold;margin-left:24px;">https://api.smsmybus.com/v1/getstops?key=xxx&routeID=03&destination=ETP</span><p> </p>
+ <span style="font-weight:bold;margin-left:24px;">https://api.smsmybus.com/v1/getstops?key=xxx</span><p> </p>
  <h3>Response</h3>
  The response length is dependent on the particular request parameters. If the status field is 0, the response
- will be grouped by route, listing the details of each stop on that route.
+ will list the details of all stops in the system.
  <p> </p>
  <p>No assumptions should be made about the order of the stops in the response.</p>
 <code class="prettyprint lang-javascript">
 {
     "status" : "0",
     "timestamp" : "12:38pm",
-    "routeID" : "03",
     "stops" : [
         {
           "stopID" : "1391",
+          "stop_code" : "1391",
           "intersection" : "Atwood & Ohio",
           "latitude" : "43.0937715",
           "longitude" : "-89.3467281",
           "destination" : "ETP",
         },
         {
-          "stopID" : "1961",
-          "intersection" : "Atwood & Rusk",
-          "latitude" : "43.0924936",
-          "longitude" : "-89.3528187",
+          "stopID" : "43",
+          "stop_code" : "0043",
+          "intersection" : "W Dayton & N Lake",
+          "latitude":"43.070811",
+          "longitude":"-89.397884"
           "destination" : "ETP",
         },
         ...
