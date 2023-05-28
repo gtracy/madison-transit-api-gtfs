@@ -6,77 +6,9 @@ General Transit Feed Specification Real-Time Reference maintained at:,https://de
 
 Extended data elements listed below:,Usage descriptions.
 
-stops.txt:agency_id,Coordinating agency for bus stop location.
-
-stops.txt:stop_jurisdiction,Governing jurisdiction of bus stop location-including travel path of vehicle and access area for passengers.
-CMAD,City of Madison
-CFIT,City of Fitchburg
-CMID,City of Middleton
-CMON,City of Monona
-CSUN,City of Sun Prairie
-CVER,City of Verona
-VMAP,Village of Maple Bluff
-VMCF,Village of McFarland
-VSHO,Village of Shorewood Hills
-TBLO,Town of Blooming Grove
-TBUR,Town of Burke
-TMAD,Town of Madison
-TMID,Town of Middleton
-UWIS,University of Wisconsin
-MSTM,Metro Transit System-City of Madison
-PRIV,Location not under any governing jurisdiction
-
-stops.txt:relative_position,Orientation of stop location along travel path of vehicle.
-1,stop is located after/farside named cross location
-2,stop is located next to/adjacent named cross location
-3,stop is located before/nearside named cross location
-4,stop is located across from/opposite named cross location
-5,stop is located along a dedicated drive aisle
-
-stops.txt:cardinal_direction,Orientation of vehicle along travel path when at stop location. Not a reference to an actual trip's destination (i.e. East Transfer Point).
-0,vehicle generally pointed northbound when stopped
-90,vehicle generally pointed eastbound when stopped
-180,vehicle generally pointed southbound when stopped
-270,vehicle generally pointed westbound when stopped
-[blank],vehicle pointed in various directions when stopped
-
-stops.txt:primary_street,Roadway name used by travel path of vehicle.
-
-stops.txt:address_range,Block address range to sort roadway names used by travel path of vehicle.
-
-stops.txt:cross_location,Location name crossed by travel path of vehicle.
-
-routes.txt:service_id,Calendar version of route (i.e. ## would correspond to usage in calendar.txt or calendar_dates.txt ##_WKD).
-
-routes.txt:route_service_name,Abbreviated pairing of the two opposite route destinations (i.e. Trips operate towards either one route destination - East Transfer Point, or the other - West Transfer Point).
-
-trips.txt:route_short_name,Field duplicated from routes.txt file. Matched to route_id key field.
-
-trips.txt:direction_name,Abbreviated route direction name (similar to paired value in routes.txt:route_service_name field). Matched to direction_id key field.
-
-trips.txt:shape_code,Field duplicated from shapes.txt file. Matched to shape_id key field.
-
-trips.txt:trip_sort,Trip scheduled departure time in seconds past midnight format (43200 SPM equaling 12 noon).
-
-trips.txt:trip_type,Text character flag to identify specific trip characteristics.
-D,Trip generally operates on all service dates - including weekday/weekend/holiday service dates.
-H,Trip generally operates on all service dates - except Holiday service dates.
-S,Trip generally operates on Weekend and Holiday service dates only.
-W,Trip generally operates on Weekday service dates only.
-F,Trip only operates on Friday Standard service dates (on a combined Standard weekday schedule - trip not operate on Monday-Thursday service dates).
-R,Trip only operates on Recess service dates.
-
-stop_times.txt:timepoint,Value for departure_time is a published schedule time and should generally be accurate (i.e. vehicle will wait at stop before departing if early).
-
-stop_times.txt:stop_times_url,Value for the URL of a text-based web page that displays the most recent real time arrival estimates for this stop location in the specific direction of the route. Not a reference to the specific trip (i.e. values are duplicated for similar trips in the same direction of the route for the same stop).
-
 calendar.txt:service_name,Descriptive service name. Matched to service_id key field.
 
 fare_attributes.txt:agency_id,Key field carried over from agency.txt file. Transfer duration validity is enforced at the time of boarding the last vehicle using the fare - not generally controlled through the time of actually exiting the system.
-
-fare_rules.txt:route_short_name,Field duplicated from routes.txt file. Matched to route_id key field.
-
-shapes.txt:shape_code,Abbreviated shape name. Matched to shape_id key field.
 
 feed_info.text:feed_version,Optional string specifically containing a date time value for when data was updated using yyyymmddhhnn format.
 yyyy,four digit year
@@ -84,6 +16,12 @@ mm,two digit month
 dd,two digit day
 hh,two digit hour
 nn,two digit minutes
+
+routes.txt:service_id,Calendar version of route (i.e. ### would correspond to usage in calendar.txt or calendar_dates.txt ###_WKD).
+
+routes.txt:route_service_name,Abbreviated pairing of the two opposite route destinations (i.e. Trips operate towards either one route destination - EAST TOWNE - or the other - WEST TOWNE).
+
+shapes.txt:shape_code,Abbreviated shape name. Matched to shape_id key field.
 
 stop_features.txt:feature_type,Hierarchical value of an amenity located at a bus stop
 1000,Shelter
@@ -116,3 +54,54 @@ stop_features.txt:feature_type,Hierarchical value of an amenity located at a bus
 5103,External jurisdiction light
 5104,Public institution light
 5105,Other entity light
+
+stops.txt:agency_id,Coordinating agency for bus stop location.
+
+stops.txt:stop_jurisdiction,Governing jurisdiction of bus stop location-including travel path of vehicle and access area for passengers.
+CMAD,City of Madison
+CFIT,City of Fitchburg
+CMID,City of Middleton
+CMON,City of Monona
+CSUN,City of Sun Prairie
+CVER,City of Verona
+VMAP,Village of Maple Bluff
+VMCF,Village of McFarland
+VSHO,Village of Shorewood Hills
+TBLO,Town of Blooming Grove
+TBUR,Town of Burke
+TMID,Town of Middleton
+UWIS,University of Wisconsin
+MSTM,Metro Transit System-City of Madison
+PRIV,Location not under any governing jurisdiction
+
+stops.txt:relative_position,Orientation of stop location along travel path of vehicle.
+1,stop is located after/farside named cross location
+2,stop is located next to/adjacent named cross location
+3,stop is located before/nearside named cross location
+4,stop is located across from/opposite named cross location
+5,stop is located along a dedicated drive aisle
+
+stops.txt:cardinal_direction,Orientation of vehicle along travel path when at stop location. Not a reference to an actual trip's destination (i.e. East Transfer Point).
+0,vehicle generally pointed northbound when stopped
+90,vehicle generally pointed eastbound when stopped
+180,vehicle generally pointed southbound when stopped
+270,vehicle generally pointed westbound when stopped
+[blank],vehicle pointed in various directions when stopped
+
+stops.txt:primary_street,Roadway name used by travel path of vehicle.
+
+stops.txt:address_range,Block address range to sort roadway names used by travel path of vehicle.
+
+stops.txt:cross_location,Location name crossed by travel path of vehicle.
+
+stop_times.txt:timepoint,Value for departure_time is a published schedule time and should generally be accurate (i.e. vehicle will wait at stop before departing if early).
+
+trips.txt:route_short_name,Field duplicated from routes.txt file. Matched to route_id key field.
+
+trips.txt:shape_code,Field duplicated from shapes.txt file. Matched to shape_id key field.
+
+trips.txt:trip_type,Text character field to identify where a route name is combined with a specific branch number.
+
+trips.txt:trip_sort,Trip scheduled departure time in seconds past midnight format (43200 SPM equaling 12 noon).
+
+trips.txt:block_transfer_id,The last stop_id of the arriving trip_id and the first stop_id of the departing trip_id are either the same or physically close and the trip_ids are consecutive and the trip_ids operate on the same service_id - in which case a bus passenger may stay in the same vehicle when transferring between trip_ids.
