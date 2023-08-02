@@ -31,8 +31,8 @@ module.exports = {
         }
 
         return({
-            level: level,
-
+            useLevel: level,
+            autoLogging: false
         });
     },
 
@@ -45,7 +45,7 @@ module.exports = {
             }
         } else {
             return {
-                region : 'us-east-2',
+                region : 'local',
                 endpoint : 'http://localhost:8000'
             }
         }
