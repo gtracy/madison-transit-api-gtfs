@@ -67,6 +67,9 @@ module.exports.gtfsToDynamo = async (AWS,gtfs_file,dynamo_table,table_params) =>
             })
             .on('data', async function (row) {
                 //console.log('A row arrived: ');
+
+                // ttl is set to 12 months from now
+                row.ttl = Math.floor((Date.now() + 12 * 30 * 24 * 60 * 60 * 1000) / 1000);
                 write_bucket.push(row);
 
                 // if it is valid, push it into our write bucket
