@@ -75,10 +75,10 @@ MSTM,Metro Transit System-City of Madison
 PRIV,Location not under any governing jurisdiction
 
 stops.txt:relative_position,Orientation of stop location along travel path of vehicle.
-1,stop is located after/farside named cross location
-2,stop is located next to/adjacent named cross location
-3,stop is located before/nearside named cross location
-4,stop is located across from/opposite named cross location
+1,stop is located after named cross location
+2,stop is located adjacent named cross location
+3,stop is located before named cross location
+4,stop is located opposite named cross location
 5,stop is located along a dedicated drive aisle
 
 stops.txt:cardinal_direction,Orientation of vehicle along travel path when at stop location. Not a reference to an actual trip's destination (i.e. East Transfer Point).
