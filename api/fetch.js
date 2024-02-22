@@ -30,14 +30,17 @@ module.exports.fetch_trips = async (stop_id, route_id) => {
         // if the request is asking for a route and 
         // that route does not exist just bail out.
         if( !route ) {
-            logger.debug('unable to find requested route '+route_id);
+            logger.error('unable to find requested route '+route_id);
             return [];
         }
     }
 
     try {
         let startTime = performance.now();
-        const response = await got(METRO_TRIP_ENDPOINT,{responseType:'buffer'});
+        const response = await got(METRO_TRIP_ENDPOINT,{
+            responseType:'buffer',
+            timeout: {request: 5000} // Timeout in milliseconds
+        });
         let feed = GtfsRealtimeBindings.transit_realtime.FeedMessage.decode(response.body);
         let endTime = performance.now();
         logger.info({fetch_time:(endTime-startTime)},`Fetch+parse took ${endTime - startTime} milliseconds`);

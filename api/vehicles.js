@@ -21,7 +21,24 @@ module.exports = async function(app) {
 
         // snag the API query details
         const route_id = req.query.routeID;
-        const gtfs_route_id = Routes.fetchBy_human_id(route_id).route_id;
+        if( !route_id ) {
+            res.json({
+                status: "-1",
+                description: "missing routeID in request (?routeID=)"
+            });
+            return;
+        }
+
+        const route = Routes.fetchBy_human_id(route_id);
+        let gtfs_route_id = undefined;
+        if( !route ) {
+            // this could be user error, but more likely a lookup
+            // problem so flagging the error.
+            logger.error('unable to locate the specified route');
+        } else {
+            gtfs_route_id = route.route_id;
+            logger.info('search for vehicles on route '+gtfs_route_id);
+        }
 
         // inspect results and build the payload
         json_result.status = "0";
