@@ -1,49 +1,6 @@
 stop_id,stop_code,stop_name,stop_desc,stop_lat,stop_lon,agency_id,jurisdiction_id,location_type,parent_station,relative_position,cardinal_direction,wheelchair_boarding,primary_street,address_range,cross_location
-435,0435,W Johnson at N Lake,This stop (#0435) is eastbound on the 699 block of W Johnson after N Lake,43.071921,-89.397094,MMT,CMAD,0,,1,90,1,W Johnson,699,N Lake
-670,0670,University at N Lake,This stop (#0670) is westbound on the 700 block of University after N Lake,43.073336,-89.397994,MMT,CMAD,0,,1,270,1,University,700,N Lake
-1107,1107,E Washington at S Second,This stop (#1107) is eastbound on the 1999 block of E Washington before S Second,43.09369,-89.35699,MMT,CMAD,0,,3,90,1,E Washington,1999,S Second
-1164,1164,E Washington at Aberg,This stop (#1164) is westbound on the 3098 block of E Washington after Aberg,43.106465,-89.340021,MMT,CMAD,0,,1,270,1,E Washington,3098,Aberg
-1233,1233,E Washington at S Sixth,This stop (#1233) is eastbound on the 2401 block of E Washington after S Sixth,43.098458,-89.350651,MMT,CMAD,0,,1,90,1,E Washington,2401,S Sixth
-1323,1323,E Washington at S Webster,This stop (#1323) is eastbound on the 201 block of E Washington after S Webster,43.076331,-89.381475,MMT,CMAD,0,,1,90,1,E Washington,201,S Webster
-1382,1382,E Washington at N Second,This stop (#1382) is westbound on the 1998 block of E Washington after N Second,43.093851,-89.357484,MMT,CMAD,0,,1,270,1,E Washington,1998,N Second
-1412,1412,E Washington at Yahara,This stop (#1412) is westbound on the 1850 block of E Washington adjacent Yahara River,43.090111,-89.3626,MMT,CMAD,0,,2,270,1,E Washington,1850,Yahara
-1513,1513,E Washington at Yahara,This stop (#1513) is eastbound on the 1851 block of E Washington adjacent Yahara River,43.089771,-89.362415,MMT,CMAD,0,,2,90,1,E Washington,1851,Yahara
-1618,1618,E Washington at N Webster,This stop (#1618) is westbound on the 198 block of E Washington after N Webster,43.076009,-89.382488,MMT,CMAD,0,,1,270,1,E Washington,198,N Webster
-1757,1757,E Washington at Aberg,This stop (#1757) is eastbound on the 3099 block of E Washington before Aberg,43.106375,-89.339477,MMT,CMAD,0,,3,90,1,E Washington,3099,Aberg
-1846,1846,E Washington at N Sixth,This stop (#1846) is westbound on the 2398 block of E Washington after N Sixth,43.098298,-89.351552,MMT,CMAD,0,,1,270,1,E Washington,2398,N Sixth
-2249,2249,S Whitney at South Hill,This stop (#2249) is northbound on the 299 block of S Whitney after South Hill,43.06409,-89.471242,MMT,CMAD,0,,1,0,1,S Whitney,299,South Hill
-2266,2266,University at N Blackhawk,This stop (#2266) is westbound on the 3500 block of University after N Blackhawk,43.07544,-89.447041,MMT,VSHO,0,,1,270,1,University,3500,N Blackhawk
-2282,2282,Sheboygan at N Whitney,This stop (#2282) is westbound on the 5098 block of Sheboygan before N Whitney,43.073197,-89.467211,MMT,CMAD,0,,3,270,1,Sheboygan,5098,N Whitney
-2392,2392,University at Capital,This stop (#2392) is southbound on the 5601 block of University before Capital,43.08442,-89.477948,MMT,CMAD,0,,3,180,1,University,5601,Capital
-2397,2397,Sheboygan at N Whitney,This stop (#2397) is eastbound on the 5099 block of Sheboygan after N Whitney,43.072937,-89.467125,MMT,CMAD,0,,1,90,1,Sheboygan,5099,N Whitney
-2567,F267,N Rosa at Old Middleton,This flag stop (#F267) is northbound on the 699 block of N Rosa before Old Middleton,43.07476,-89.477842,MTS,CMAD,0,,3,0,1,N Rosa,699,Old Middleton
-2595,2595,University at Shorewood,This stop (#2595) is eastbound on the 3301 block of University before Shorewood,43.075065,-89.444016,MMT,CMAD,0,,3,90,1,University,3301,Shorewood
-2684,2684,S Whitney at South Hill,This stop (#2684) is southbound on the 300 block of S Whitney after South Hill,43.063786,-89.472032,MMT,CMAD,0,,1,180,1,S Whitney,300,South Hill
-2755,2755,University at N Blackhawk,This stop (#2755) is eastbound on the 3501 block of University before N Blackhawk,43.075091,-89.446856,MMT,CMAD,0,,3,90,1,University,3501,N Blackhawk
-6129,6129,Mineral Point at Yellowstone,This stop (#6129) is eastbound on the 6499 block of Mineral Point after S Yellowstone,43.060626,-89.491531,MMT,CMAD,0,,1,90,1,Mineral Point,6499,Yellowstone
-6205,6205,Allen at Century,This stop (#6205) is northbound on the 2601 block of Allen before Century,43.103486,-89.486077,MMT,CMID,0,,3,0,0,Allen,2601,Century
-6349,6349,Mineral Point at D'Onofrio,This stop (#6349) is eastbound on the 7499 block of Mineral Point after D'Onofrio,43.060416,-89.512266,MMT,CMAD,0,,1,90,1,Mineral Point,7499,D'Onofrio
-6516,6516,Mineral Point at Yellowstone,This stop (#6516) is westbound on the 6500 block of Mineral Point after S Yellowstone,43.060966,-89.492358,MMT,CMAD,0,,1,270,1,Mineral Point,6500,Yellowstone
-6627,6627,Century at Park,This stop (#6627) is eastbound on the 7001 block of Century before Park,43.108993,-89.501953,MMT,CMID,0,,3,90,1,Century,7001,Park
-6984,6984,Mineral Point at D'Onofrio,This stop (#6984) is westbound on the 7500 block of Mineral Point after D'Onofrio,43.060765,-89.513093,MMT,CMAD,0,,1,270,1,Mineral Point,7500,D'Onofrio
-7752,F752,S Sprecher at Dominion,This flag stop (#F752) is southbound on the 500 block of S Sprecher after Dominion,43.09133,-89.266963,MTS,CMAD,0,,1,180,0,S Sprecher,500,Dominion
-9133,F933,E Washington at Reindahl,This flag stop (#F933) is eastbound on the 3499 block of E Washington before Reindahl,43.114104,-89.328573,MTS,CMAD,0,,3,90,1,E Washington,3499,Reindahl
-9135,9135,E Washington at Lexington,This stop (#9135) is eastbound on the 3245 block of E Washington after Lexington,43.111081,-89.332975,MMT,CMAD,0,,1,90,1,E Washington,3245,Lexington
-9172,9172,E Washington at Lexington,This stop (#9172) is westbound on the 3300 block of E Washington after Lexington,43.110679,-89.334198,MMT,CMAD,0,,1,270,1,E Washington,3300,Lexington
-9200,9200,Anderson at Madison College,This stop (#9200) is westbound on the 3550 block of Anderson adjacent Madison College,43.121077,-89.326291,MMT,CMAD,0,,2,270,1,Anderson,3550,Madison College
-9201,9201,Anderson at Madison College,This stop (#9201) is eastbound on the 3551 block of Anderson opposite Madison College,43.120826,-89.326378,MMT,CMAD,0,,4,90,1,Anderson,3551,Madison College
-9344,F944,E Washington at Reindahl,This flag stop (#F944) is westbound on the 3498 block of E Washington after Reindahl,43.114292,-89.329055,MTS,CMAD,0,,1,270,1,E Washington,3498,Reindahl
-9491,9491,E Washington at Lien,This stop (#9491) is eastbound on the 3901 block of E Washington after Lien,43.121383,-89.317433,MMT,CMAD,0,,1,90,1,E Washington,3901,Lien
-9551,9551,E Washington at Macarthur,This stop (#9551) is eastbound on the 3701 block of E Washington after MacArthur,43.11743,-89.323306,MMT,CMAD,0,,1,90,1,E Washington,3701,MacArthur
-9675,9675,Anderson at Wright,This stop (#9675) is eastbound on the 3401 block of Anderson after Wright,43.120032,-89.330072,MMT,CMAD,0,,1,90,1,Anderson,3401,Wright
-9874,9874,E Washington at Macarthur,This stop (#9874) is westbound on the 3700 block of E Washington before MacArthur,43.117655,-89.323788,MMT,CMAD,0,,3,270,1,E Washington,3700,MacArthur
-9984,9984,E Washington at Lien,This stop (#9984) is westbound on the 3898 block of E Washington after Lien,43.12125,-89.318323,MMT,CMAD,0,,1,270,1,E Washington,3898,Lien
-12274,W274,Edgehill at Lake Mendota,This flag stop (#W274) is southbound on the 3498 block of Edgehill before Lake Mendota,43.083031,-89.451451,MTS,VSHO,0,,3,180,0,Edgehill,3498,Lake Mendota
-12281,W281,Edgehill at Edgehill,This flag stop (#W281) is eastbound on the 1598 block of Edgehill before Edgehill,43.083739,-89.449044,MTS,VSHO,0,,3,90,0,Edgehill,1598,Edgehill
-12283,W283,Edgehill at Oxford,This flag stop (#W283) is eastbound on the 1300 block of Edgehill before Oxford,43.081931,-89.445895,MTS,VSHO,0,,3,90,0,Edgehill,1300,Oxford
-17750,L750,S Sprecher at Kilpatrick,This flag stop (#L750) is southbound on the 798 block of S Sprecher before Kilpatrick,43.085842,-89.266976,MTS,CMAD,0,,3,180,0,S Sprecher,798,Kilpatrick
 141,0141,W Washington at S Fairchild,This EVENT/DETOUR ONLY stop (#0141) is eastbound on the 201 block of W Washington before of S Fairchild,43.073074,-89.386255,MMT,CMAD,0,,3,90,1,W Washington,201,S Fairchild
-341,0341,N Park at W Johnson,This EVENT/DETOUR ONLY stop (#0341) is northbound on the 301 block of N Park after W Johnson,43.072352,-89.400476,MMT,CMAD,0,,1,0,1,N Park,301,W Johnson
+341,0341,N Park at W Johnson,This DROP OFF/DETOUR ONLY stop (#0341) is northbound on the 301 block of N Park after W Johnson,43.072352,-89.400476,MMT,CMAD,0,,1,0,1,N Park,301,W Johnson
 1110,1110,E Dayton at Wisconsin,This EVENT/DETOUR ONLY stop (#1110) is westbound on the 2 block of E Dayton before of Wisconsin,43.076428,-89.385920,MMT,CMAD,0,,3,270,1,E Dayton,2,Wisconsin
 1155,1155,S Webster at E Main,This EVENT/DETOUR ONLY stop (#1155) is northbound on the 99 block of S Webster after of E Main,43.075579,-89.381192,MMT,CMAD,0,,1,0,1,S Webster,99,E Main
 4000,SoTP,South Transfer,South Transfer is located at 2430 S Park - just north of W Badger,43.038957,-89.394651,MMT,MTSM,1,,5,,1,S Park,2430,South Transfer
@@ -90,7 +47,7 @@ stop_id,stop_code,stop_name,stop_desc,stop_lat,stop_lon,agency_id,jurisdiction_i
 203,0203,Rimrock at E Rusk,This stop (#0203) is northbound on the 2149 block of Rimrock after E Rusk,43.043214,-89.376979,MMT,CMAD,0,,1,0,1,Rimrock,2149,E Rusk
 217,0217,S Park at W Washington,This stop (#0217) is northbound on the 399 block of S Park after W Washington,43.063668,-89.400528,MMT,CMAD,0,,1,0,1,S Park,399,W Washington
 222,0222,Fisher at Bram,This stop (#0222) is southbound on the 1900 block of Fisher after Bram,43.045474,-89.391946,MMT,CMAD,0,,1,180,1,Fisher,1900,Bram
-226,0226,Regent at La Marisposa,This stop (#0226) is westbound on the 700 block of Regent before La Marisposa,43.067821,-89.39749,MMT,CMAD,0,,3,270,1,Regent,700,La Marisposa
+226,0226,Regent at La Mariposa,This stop (#0226) is westbound on the 700 block of Regent before La Mariposa,43.067821,-89.39749,MMT,CMAD,0,,3,270,1,Regent,700,La Mariposa
 234,0234,University at N Mills,This stop (#0234) is westbound on the 1098 block of University before N Mills,43.073427,-89.403883,MMT,CMAD,0,,3,270,1,University,1098,N Mills
 241,0241,Monroe at S Breese,This stop (#0241) is eastbound on the 1615 block of Monroe opposite S Breese,43.066919,-89.413883,MMT,CMAD,0,,4,90,1,Monroe,1615,S Breese
 243,0243,John Nolen at Rimrock,This stop (#0243) is northbound on the 698 block of John Nolen after Rimrock,43.047242,-89.374681,MMT,CMAD,0,,1,0,1,John Nolen,698,Rimrock
@@ -98,7 +55,7 @@ stop_id,stop_code,stop_name,stop_desc,stop_lat,stop_lon,agency_id,jurisdiction_i
 252,0252,State at W Gorham,This stop (#0252) is westbound on the 398 block of State before W Gorham,43.07491,-89.391303,MMT,CMAD,0,,3,270,1,State,398,W Gorham
 269,0269,N Brooks at W Johnson,This stop (#0269) is northbound on the 301 block of N Brooks after W Johnson,43.072388,-89.402303,MMT,CMAD,0,,1,0,1,N Brooks,301,W Johnson
 271,0271,Regent at S Park,This stop (#0271) is eastbound on the 899 block of Regent after S Park,43.067544,-89.40049,MMT,CMAD,0,,1,90,1,Regent,899,S Park
-273,0273,Regent at La Marisposa,This stop (#0273) is eastbound on the 701 block of Regent after La Marisposa,43.067436,-89.397367,MMT,CMAD,0,,1,90,1,Regent,701,La Marisposa
+273,0273,Regent at La Mariposa,This stop (#0273) is eastbound on the 701 block of Regent after La Mariposa,43.067436,-89.397367,MMT,CMAD,0,,1,90,1,Regent,701,La Mariposa
 274,0274,W Washington at N Broom,This stop (#0274) is westbound on the 400 block of W Washington after N Broom,43.071248,-89.389243,MMT,CMAD,0,,1,270,1,W Washington,400,N Broom
 286,0286,Drake at S Mills,This stop (#0286) is westbound on the 1100 block of Drake after S Mills,43.062173,-89.404417,MMT,CMAD,0,,1,270,0,Drake,1100,S Mills
 287,0287,W Badger at Colonial Heights,This stop (#0287) is eastbound on the 633 block of W Badger opposite Colonial Heights,43.038339,-89.390839,MMT,CMAD,0,,4,90,0,W Badger,633,Colonial Heights
@@ -483,6 +440,7 @@ stop_id,stop_code,stop_name,stop_desc,stop_lat,stop_lon,agency_id,jurisdiction_i
 2576,2576,University Bay at Marshall,This stop (#2576) is southbound on the 800 block of University Bay before Marshall,43.0746,-89.433906,MMT,VSHO,0,,3,180,1,University Bay,800,Marshall
 2590,2590,S Midvale at Mineral Point,This stop (#2590) is southbound on the 400 block of S Midvale after Mineral Point,43.06056,-89.451356,MMT,CMAD,0,,1,180,1,S Midvale,400,Mineral Point
 2591,2591,University at Shorewood,This stop (#2591) is eastbound on the 3299 block of University after Shorewood,43.075074,-89.443263,MMT,CMAD,0,,1,90,1,University,3299,Shorewood
+2600,2600,University Row at U W Health,This stop (#2600) is southbound on the 798 block of University Row adjacent U W Health,43.076213,-89.469497,MMT,CMAD,0,,2,180,0,University Row,798,U W Health
 2605,2605,University at Walnut,This stop (#2605) is eastbound on the 2217 block of University after Walnut,43.072273,-89.424733,MMT,CMAD,0,,1,90,1,University,2217,Walnut
 2608,2608,Monroe at Spooner,This stop (#2608) is westbound on the 1800 block of Monroe after Spooner,43.065308,-89.416759,MMT,CMAD,0,,1,270,1,Monroe,1800,Spooner
 2615,2615,Tokay at Charles,This stop (#2615) is eastbound on the 4621 block of Tokay before Charles,43.053451,-89.455055,MMT,CMAD,0,,3,90,1,Tokay,4621,Charles
@@ -560,6 +518,7 @@ stop_id,stop_code,stop_name,stop_desc,stop_lat,stop_lon,agency_id,jurisdiction_i
 3153,3153,Owl Creek at Voges,This stop (#3153) is northbound on the 4001 block of Owl Creek before Voges,43.040575,-89.28935,MMT,CMAD,0,,3,0,0,Owl Creek,4001,Voges
 3155,3155,Rimrock at Anderberg,This stop (#3155) is northbound on the 3099 block of Rimrock after Anderberg,43.028417,-89.382306,MMT,CFIT,0,,1,0,0,Rimrock,3099,Anderberg
 3163,3163,South Towne at Industrial,This stop (#3163) is northbound on the 5601 block of South Towne before Industrial,43.040035,-89.354352,MMT,CMON,0,,3,0,1,South Towne,5601,Industrial
+3195,3195,Dutch Mill at Park And Ride,This stop (#3195) is eastbound on the 1 block of Dutch Mill adjacent Park And Ride,43.047429,-89.304367,MMT,CMAD,0,,2,90,1,Dutch Mill,1,Park And Ride
 3207,3207,Pheasant Ridge at E Badger,This stop (#3207) is northbound on the 2501 block of Pheasant Ridge before E Badger,43.037147,-89.384534,MMT,CFIT,0,,3,0,1,Pheasant Ridge,2501,E Badger
 3222,3222,Rimrock at Maloney,This stop (#3222) is northbound on the 2999 block of Rimrock after Maloney,43.031309,-89.381281,MMT,CFIT,0,,1,0,1,Rimrock,2999,Maloney
 3226,3226,Rimrock at E Badger,This stop (#3226) is southbound on the 2400 block of Rimrock after E Badger,43.038058,-89.37929,MMT,CFIT,0,,1,180,1,Rimrock,2400,E Badger
@@ -1236,7 +1195,7 @@ stop_id,stop_code,stop_name,stop_desc,stop_lat,stop_lon,agency_id,jurisdiction_i
 8779,8779,Raymond at McKenna,This stop (#8779) is eastbound on the 6699 block of Raymond after McKenna,43.031626,-89.49656,MMT,CMAD,0,,1,90,1,Raymond,6699,McKenna
 8796,8796,S Whitney at Bartlett,This stop (#8796) is southbound on the 1800 block of S Whitney after Bartlett,43.033596,-89.477328,MMT,CMAD,0,,1,180,1,S Whitney,1800,Bartlett
 8802,8802,Maple Grove at Westin,This stop (#8802) is southbound on the 3300 block of Maple Grove after Westin,43.012324,-89.49908,MMT,CMAD,0,,1,180,1,Maple Grove,3300,Westin
-8816,8816,Schroeder at Highway Ramp,This stop (#8816) is westbound on the 5600 block of Schroeder after Highway Ramp,43.046497,-89.475882,MMT,CMAD,0,,1,270,0,Schroeder,5600,Highway Ramp
+8816,8816,Schroeder at Highway Ramp,This stop (#8816) is westbound on the 5600 block of Schroeder after Highway Ramp,43.046497,-89.475882,MMT,CMAD,0,,1,270,1,Schroeder,5600,Highway Ramp
 8830,8830,Muir Field at Silverton,This stop (#8830) is southbound on the 3098 block of Muir Field before Silverton,43.018414,-89.508659,MMT,CMAD,0,,3,180,1,Muir Field,3098,Silverton
 8862,8862,Schroeder at White Oaks,This stop (#8862) is westbound on the 6000 block of Schroeder before White Oaks,43.046458,-89.484112,MMT,CMAD,0,,3,270,0,Schroeder,6000,White Oaks
 8866,8866,Mid Town at Waldorf,This stop (#8866) is westbound on the 8100 block of Mid Town after Waldorf,43.031552,-89.526811,MMT,CMAD,0,,1,270,1,Mid Town,8100,Waldorf

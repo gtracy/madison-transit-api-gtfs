@@ -8,7 +8,7 @@ const {performance} = require('perf_hooks');
 //const GTFS_API_URL_BASE = "https://api.smsmybus.com/v1/";
 const GTFS_API_URL_BASE = "http://localhost:3300/v1/";
 const OLD_API_URL = "https://api.smsmybus.com/v1/getarrivals";
-const DEV_KEYS = ["nomar","wisc81jw","willycoop","taylorhall-wisc","rwf34e9a","b24jk9a4","mfoolskiosk"];
+const DEV_KEYS = ["mookie"];
 
 // record the results
 console.log('api,execution,key,stopID,status,routeCount');
@@ -51,20 +51,6 @@ console.log('api,execution,key,stopID,status,routeCount');
                 console.log(`node,getstoplocation,${endTime - startTime},${devkey},${stopID},${response.body.status}`);
             }
             
-            // call the old python implementation
-            // note that thie old implementation is dated and does not support all of 
-            // the stop IDs found in the up to date GTFS file. ignore these errors.`
-            // req_url = OLD_API_URL + "?key=" + devkey + "&stopID=" + stopID;
-            // startTime = performance.now();
-            // response = await got(req_url,{responseType:'json'});
-            // if( response.body.status < 0 ) {
-            //     // this API version should never, ever fail for these stopID
-            //     console.log('old,0,'+devkey+','+stopID+',-1,0');
-            // } else {
-            //     endTime = performance.now();
-            //     console.log(`old,${endTime - startTime},${devkey},${stopID},${response.body.status},${response.body.stop.route.length}`);
-            // }
-
         }
     } catch (err) {
         console.dir(err);
@@ -76,7 +62,7 @@ console.log('api,execution,key,stopID,status,routeCount');
 async function parseStopsFile() {
 
     return new Promise( (resolve,reject) => {
-        const stopsFile = "../gtfs/stops.txt";
+        const stopsFile = "./gtfs/stops.txt";
         let stops = [];
 
         // read the file like a CSV file and only extract the stop_id
