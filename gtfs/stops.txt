@@ -1,4 +1,5 @@
 stop_id,stop_code,stop_name,stop_desc,stop_lat,stop_lon,agency_id,jurisdiction_id,location_type,parent_station,relative_position,cardinal_direction,wheelchair_boarding,primary_street,address_range,cross_location
+6883,6883,Mineral Point at S Gammon,This stop (#6883) is eastbound on the 6999 block of Mineral Point after S Gammon,43.060539,-89.502182,MMT,CMAD,0,,1,90,1,Mineral Point,6999,S Gammon
 141,0141,W Washington at S Fairchild,This EVENT/DETOUR ONLY stop (#0141) is eastbound on the 201 block of W Washington before of S Fairchild,43.073074,-89.386255,MMT,CMAD,0,,3,90,1,W Washington,201,S Fairchild
 341,0341,N Park at W Johnson,This DROP OFF/DETOUR ONLY stop (#0341) is northbound on the 301 block of N Park after W Johnson,43.072352,-89.400476,MMT,CMAD,0,,1,0,1,N Park,301,W Johnson
 1110,1110,E Dayton at Wisconsin,This EVENT/DETOUR ONLY stop (#1110) is westbound on the 2 block of E Dayton before of Wisconsin,43.076428,-89.385920,MMT,CMAD,0,,3,270,1,E Dayton,2,Wisconsin
@@ -176,6 +177,7 @@ stop_id,stop_code,stop_name,stop_desc,stop_lat,stop_lon,agency_id,jurisdiction_i
 1116,1116,Fordem at Lakewood,This stop (#1116) is southbound on the 1898 block of Fordem after Lakewood,43.096657,-89.363804,MMT,CMAD,0,,1,180,1,Fordem,1898,Lakewood
 1121,1121,E Johnson at N Livingston,This stop (#1121) is eastbound on the 799 block of E Johnson before N Livingston,43.082937,-89.378175,MMT,CMAD,0,,3,90,1,E Johnson,799,N Livingston
 1122,1122,N Sherman at Oxford,This stop (#1122) is southbound on the 1000 block of N Sherman before Oxford,43.11014,-89.363978,MMT,CMAD,0,,3,180,1,N Sherman,1000,Oxford
+1129,1129,Sherman at Marston,This stop (#1129) is eastbound on the 1327 block of Sherman after Marston,43.092812,-89.371949,MMT,CMAD,0,,1,90,0,Sherman,1327,Marston
 1131,1131,E Johnson at N Third,This stop (#1131) is eastbound on the 2101 block of E Johnson after N Third,43.097012,-89.358407,MMT,CMAD,0,,1,90,1,E Johnson,2101,N Third
 1137,1137,Milwaukee at Corry,This stop (#1137) is eastbound on the 2701 block of Milwaukee after Corry,43.099888,-89.34466,MMT,CMAD,0,,1,90,1,Milwaukee,2701,Corry
 1138,1138,E Gorham at N Blair,This stop (#1138) is westbound on the 598 block of E Gorham after N Blair,43.081202,-89.382769,MMT,CMAD,0,,1,270,1,E Gorham,598,N Blair
@@ -573,7 +575,7 @@ stop_id,stop_code,stop_name,stop_desc,stop_lat,stop_lon,agency_id,jurisdiction_i
 4129,4129,Nakoma at Waban,This stop (#4129) is eastbound on the 4199 block of Nakoma after Waban,43.041188,-89.44714,MMT,CMAD,0,,1,90,0,Nakoma,4199,Waban
 4132,4132,Fitchrona at Nesbitt,This stop (#4132) is southbound on the 2801 block of Fitchrona before Nesbitt,43.007318,-89.484645,MMT,CFIT,0,,3,180,1,Fitchrona,2801,Nesbitt
 4137,4137,E Cheryl at Crinkle Root,This stop (#4137) is eastbound on the 5199 block of E Cheryl after Crinkle Root,43.006722,-89.3994,MMT,CFIT,0,,1,90,0,E Cheryl,5199,Crinkle Root
-4139,4139,Beltline S at Grandview,This stop (#4139) is eastbound on the 3399 block of Beltline S after Grandview,43.035057,-89.4329,MMT,CMAD,0,,1,90,1,Beltline S,3399,Grandview
+4139,4139,Beltline S at Grandview,This stop (#4139) is eastbound on the 3399 block of Beltline S after Grandview,43.035057,-89.4329,MMT,CMAD,0,,1,90,0,Beltline S,3399,Grandview
 4146,4146,Fish Hatchery at High Ridge,This stop (#4146) is southbound on the 3298 block of Fish Hatchery before High Ridge,43.021378,-89.417652,MMT,CFIT,0,,3,180,1,Fish Hatchery,3298,High Ridge
 4147,4147,Anton at Williamsburg,This stop (#4147) is northbound on the 5101 block of Anton before Williamsburg,43.024288,-89.470486,MMT,CFIT,0,,3,0,1,Anton,5101,Williamsburg
 4160,4160,E Verona at Maple Grove,This stop (#4160) is westbound on the 998 block of E Verona after Maple Grove,42.994627,-89.512341,MMT,CVER,0,,1,270,1,E Verona,998,Maple Grove
@@ -615,7 +617,7 @@ stop_id,stop_code,stop_name,stop_desc,stop_lat,stop_lon,agency_id,jurisdiction_i
 4385,4385,E Cheryl at Fahey,This stop (#4385) is eastbound on the 5351 block of E Cheryl before Fahey,43.004324,-89.412621,MMT,CFIT,0,,3,90,1,E Cheryl,5351,Fahey
 4401,4401,Northern Lights at Epic Staff C,This stop (#4401) is southbound on the 2601 block of Northern Lights adjacent Epic Staff C,42.996855,-89.563863,MMT,PRIV,0,,2,180,1,Northern Lights,2601,Epic Staff C
 4406,4406,E Cheryl at Fahey,This stop (#4406) is westbound on the 5348 block of E Cheryl before Fahey,43.004691,-89.411733,MMT,CFIT,0,,3,270,1,E Cheryl,5348,Fahey
-4412,4412,Beltline S at Grandview,This stop (#4412) is westbound on the 3398 block of Beltline S before Grandview,43.035263,-89.43311,MMT,CMAD,0,,3,270,1,Beltline S,3398,Grandview
+4412,4412,Beltline S at Grandview,This stop (#4412) is westbound on the 3398 block of Beltline S before Grandview,43.035263,-89.43311,MMT,CMAD,0,,3,270,0,Beltline S,3398,Grandview
 4430,4430,Beltline S at Whenona,This stop (#4430) is westbound on the 4298 block of Beltline S before Whenona,43.034858,-89.448248,MMT,CMAD,0,,3,270,1,Beltline S,4298,Whenona
 4432,4432,Lovell at Allied,This stop (#4432) is westbound on the 4800 block of Lovell after Allied,43.02695,-89.460089,MMT,CMAD,0,,1,270,1,Lovell,4800,Allied
 4435,4435,Lacy at Central Park,This stop (#4435) is eastbound on the 4999 block of Lacy after Central Park,43.009136,-89.388225,MMT,CFIT,0,,1,90,1,Lacy,4999,Central Park
@@ -925,7 +927,6 @@ stop_id,stop_code,stop_name,stop_desc,stop_lat,stop_lon,agency_id,jurisdiction_i
 6867,6867,Heartland at Old Sauk,This stop (#6867) is northbound on the 701 block of Heartland after Old Sauk,43.075236,-89.532691,MMT,CMAD,0,,1,0,1,Heartland,701,Old Sauk
 6873,6873,Old Sauk at Widgeon,This stop (#6873) is eastbound on the 7401 block of Old Sauk before Widgeon,43.074982,-89.512914,MMT,CMAD,0,,3,90,1,Old Sauk,7401,Widgeon
 6878,6878,South Ridge at Highway Q,This stop (#6878) is westbound on the 5300 block of South Ridge after Highway Q,43.113117,-89.47198,MMT,CMID,0,,1,270,1,South Ridge,5300,Highway Q
-6883,6883,Mineral Point at S Gammon,This stop (#6883) is eastbound on the 6999 block of Mineral Point after S Gammon,43.060539,-89.502182,MMT,CMAD,0,,1,90,1,Mineral Point,6999,S Gammon
 6887,6887,Park at Hubbard,This stop (#6887) is northbound on the 1799 block of Park after Hubbard,43.095483,-89.501617,MMT,CMID,0,,1,0,1,Park,1799,Hubbard
 6891,6891,University at Mayflower,This stop (#6891) is eastbound on the 6799 block of University after Mayflower,43.096845,-89.498507,MMT,CMID,0,,1,90,1,University,6799,Mayflower
 6894,6894,Allen at Marshall Park,This stop (#6894) is southbound on the 2046 block of Allen opposite Marshall Park,43.093745,-89.485932,MMT,CMID,0,,4,180,1,Allen,2046,Marshall Park
@@ -988,7 +989,7 @@ stop_id,stop_code,stop_name,stop_desc,stop_lat,stop_lon,agency_id,jurisdiction_i
 7296,7296,Atwood at Margaret,This stop (#7296) is southbound on the 3701 block of Atwood before Margaret,43.087494,-89.327412,MMT,CMAD,0,,3,180,1,Atwood,3701,Margaret
 7302,7302,Pflaum at Daniels,This stop (#7302) is westbound on the 4900 block of Pflaum before Daniels,43.062526,-89.297454,MMT,CMAD,0,,3,270,1,Pflaum,4900,Daniels
 7306,7306,Dempsey at Rockwell,This stop (#7306) is southbound on the 748 block of Dempsey before Rockwell,43.08796,-89.316484,MMT,CMAD,0,,3,180,1,Dempsey,748,Rockwell
-7319,7319,S Sprecher at Wyalusing,This stop (#7319) is northbound on the 801 block of S Sprecher before Wyalusing,43.087704,-89.266552,MMT,CMAD,0,,3,0,1,S Sprecher,801,Wyalusing
+7319,7319,S Sprecher at Wyalusing,This stop (#7319) is northbound on the 801 block of S Sprecher before Wyalusing,43.087704,-89.266552,MMT,CMAD,0,,3,0,0,S Sprecher,801,Wyalusing
 7320,7320,Cottontail at Dell,This stop (#7320) is southbound on the 6000 block of Cottontail after Dell,43.075414,-89.276567,MMT,CMAD,0,,1,180,0,Cottontail,6000,Dell
 7324,7324,E Buckeye at Vondron,This stop (#7324) is westbound on the 5198 block of E Buckeye after Vondron,43.073523,-89.291879,MMT,CMAD,0,,1,270,1,E Buckeye,5198,Vondron
 7326,7326,Wyalusing at Summertown,This stop (#7326) is southbound on the 228 block of Wyalusing before Summertown,43.096893,-89.261999,MMT,CMAD,0,,3,180,0,Wyalusing,228,Summertown
@@ -1074,7 +1075,7 @@ stop_id,stop_code,stop_name,stop_desc,stop_lat,stop_lon,agency_id,jurisdiction_i
 7745,7745,Atwood at Margaret,This stop (#7745) is northbound on the 3700 block of Atwood before Margaret,43.087458,-89.327029,MMT,CMAD,0,,3,0,1,Atwood,3700,Margaret
 7748,7748,Cottage Grove at Ellen,This stop (#7748) is westbound on the 5300 block of Cottage Grove before Ellen,43.084578,-89.289684,MMT,CMAD,0,,3,270,1,Cottage Grove,5300,Ellen
 7782,7782,Dempsey at Pinney,This stop (#7782) is southbound on the 798 block of Dempsey before Pinney,43.08608,-89.31645,MMT,CMAD,0,,3,180,1,Dempsey,798,Pinney
-7790,7790,S Sprecher at Wyalusing,This stop (#7790) is southbound on the 800 block of S Sprecher after Wyalusing,43.087552,-89.266984,MMT,CMAD,0,,1,180,1,S Sprecher,800,Wyalusing
+7790,7790,S Sprecher at Wyalusing,This stop (#7790) is southbound on the 800 block of S Sprecher after Wyalusing,43.087552,-89.266984,MMT,CMAD,0,,1,180,0,S Sprecher,800,Wyalusing
 7823,7823,Buckeye at Davies,This stop (#7823) is eastbound on the 4301 block of Buckeye after Davies,43.0767,-89.319896,MMT,CMAD,0,,1,90,1,Buckeye,4301,Davies
 7825,7825,Cottage Grove at Inwood,This stop (#7825) is eastbound on the 5101 block of Cottage Grove after Inwood,43.084196,-89.292895,MMT,CMAD,0,,1,90,1,Cottage Grove,5101,Inwood
 7829,7829,Dempsey at Rockwell,This stop (#7829) is northbound on the 751 block of Dempsey before Rockwell,43.087691,-89.316188,MMT,CMAD,0,,3,0,1,Dempsey,751,Rockwell

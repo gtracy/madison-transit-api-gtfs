@@ -47,6 +47,9 @@ stop_features.txt:feature_type,Hierarchical value of an amenity located at a bus
 4115,Other entity printed schedule display
 4200,Real time arrival display
 4201,Transit agency real time arrival display
+4202,Local government real time arrival display
+4203,External jursidiction real time arrival display
+4204,Public institution real time arrival display
 4205,Other entity real time arrival display
 5100,Shelter light
 5101,Transit agency shelter light
