@@ -1,30 +1,4 @@
 service_id,service_name,monday,tuesday,wednesday,thursday,friday,saturday,sunday,start_date,end_date
-107_D24,December 24,0,0,0,0,0,0,1,20231224,20231224
-107_D24:W,Weekend Recess December 24,0,0,0,0,0,0,1,20231224,20231224
-107_HSA,Holiday Saturday,0,0,0,0,0,0,0,20231203,20240302
-107_HSA:M,Holiday Saturday Recess Weekday Modified,0,0,0,0,0,0,0,20231203,20240302
-107_HSA:R,Holiday Saturday Recess Weekend,0,0,0,0,0,0,0,20231203,20240302
-107_HSU,Holiday Sunday,0,0,0,0,0,0,0,20231203,20240302
-107_HSU:M,Holiday Sunday Recess Weekday Modified,0,0,0,0,0,0,0,20231203,20240302
-107_HSU:R,Holiday Sunday Recess Weekend,0,0,0,0,0,0,0,20231203,20240302
-107_SAT,Saturday,0,0,0,0,0,1,0,20231203,20240302
-107_SAT:L,Latenight Saturday,0,0,0,0,0,1,0,20240121,20240302
-107_SAT:R,Recess Saturday,0,0,0,0,0,1,0,20231222,20240120
-107_SAT:S,Standard Saturday,0,0,0,0,0,1,0,20240121,20240302
-107_SUN,Sunday,0,0,0,0,0,0,1,20231203,20240302
-107_SUN:L,Latenight Sunday,0,0,0,0,0,0,1,20240121,20240302
-107_SUN:R,Recess Sunday,0,0,0,0,0,0,1,20231222,20240120
-107_SUN:S,Standard Sunday,0,0,0,0,0,0,1,20240121,20240302
-107_WKD,Weekday,1,1,1,1,1,0,0,20231203,20240302
-107_WKD:L#6,Latenight Mon-Thu,1,1,1,1,0,0,0,20240121,20240302
-107_WKD:L=6,Latenight Fri only,0,0,0,0,1,0,0,20240121,20240302
-107_WKD:R,Recess Weekday,1,1,1,1,1,0,0,20231222,20240120
-107_WKD:S,Standard Weekday,1,1,1,1,1,0,0,20240121,20240302
-107_WKD:S#6,Standard Mon-Thu,1,1,1,1,0,0,0,20240121,20240302
-107_WKD:S=6,Standard Fri only,0,0,0,0,1,0,0,20240121,20240302
-107_WKD:A,AM Supplemental Weekday,1,1,1,1,1,0,0,20240103,20240302
-107_WKD:E,Early Supplemental Mon Only,1,0,0,0,0,0,0,20240103,20240302
-107_WKD:P,PM Supplemental Tue-Fri,0,1,1,1,1,0,0,20240103,20240302
 108_D24,December 24,0,1,0,0,0,0,0,20241224,20241224
 108_D24:W,Weekend Recess December 24,0,1,0,0,0,0,0,20241224,20241224
 108_HSA,Holiday Saturday,0,0,0,0,0,0,0,20240303,20240511
@@ -51,3 +25,29 @@ service_id,service_name,monday,tuesday,wednesday,thursday,friday,saturday,sunday
 108_WKD:A,AM Supplemental Weekday,1,1,1,1,1,0,0,20240303,20240511
 108_WKD:E,Early Supplemental Mon Only,1,0,0,0,0,0,0,20240303,20240511
 108_WKD:P,PM Supplemental Tue-Fri,0,1,1,1,1,0,0,20240303,20240511
+109_D24,December 24,0,1,0,0,0,0,0,20241224,20241224
+109_D24:W,Weekend Recess December 24,0,1,0,0,0,0,0,20241224,20241224
+109_HSA,Holiday Saturday,0,0,0,0,0,0,0,20240512,20240817
+109_HSA:M,Holiday Saturday Recess Weekday Modified,0,0,0,0,0,0,0,20240512,20240817
+109_HSA:R,Holiday Saturday Recess Weekend,0,0,0,0,0,0,0,20240512,20240817
+109_HSU,Holiday Sunday,0,0,0,0,0,0,0,20240512,20240817
+109_HSU:M,Holiday Sunday Recess Weekday Modified,0,0,0,0,0,0,0,20240512,20240817
+109_HSU:R,Holiday Sunday Recess Weekend,0,0,0,0,0,0,0,20240512,20240817
+109_SAT,Saturday,0,0,0,0,0,1,0,20240512,20240817
+109_SAT:L,Latenight Saturday,0,0,0,0,0,0,0,20240512,20240817
+109_SAT:R,Recess Saturday,0,0,0,0,0,1,0,20240512,20240817
+109_SAT:S,Standard Saturday,0,0,0,0,0,0,0,20240512,20240817
+109_SUN,Sunday,0,0,0,0,0,0,1,20240512,20240817
+109_SUN:L,Latenight Sunday,0,0,0,0,0,0,0,20240512,20240817
+109_SUN:R,Recess Sunday,0,0,0,0,0,0,1,20240512,20240817
+109_SUN:S,Standard Sunday,0,0,0,0,0,0,0,20240512,20240817
+109_WKD,Weekday,1,1,1,1,1,0,0,20240512,20240817
+109_WKD:L#6,Latenight Mon-Thu,0,0,0,0,0,0,0,20240512,20240817
+109_WKD:L=6,Latenight Fri only,0,0,0,0,0,0,0,20240512,20240817
+109_WKD:R,Recess Weekday,1,1,1,1,1,0,0,20240512,20240817
+109_WKD:S,Standard Weekday,0,0,0,0,0,0,0,20240512,20240817
+109_WKD:S#6,Standard Mon-Thu,0,0,0,0,0,0,0,20240512,20240817
+109_WKD:S=6,Standard Fri only,0,0,0,0,0,0,0,20240512,20240817
+109_WKD:A,AM Supplemental Weekday,1,1,1,1,1,0,0,20240512,20240606
+109_WKD:E,Early Supplemental Mon Only,1,0,0,0,0,0,0,20240512,20240606
+109_WKD:P,PM Supplemental Tue-Fri,0,1,1,1,1,0,0,20240512,20240606
