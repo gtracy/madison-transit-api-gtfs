@@ -31,7 +31,7 @@ module.exports = {
         }
 
         return({
-            useLevel: level,
+            level: level,
             autoLogging: false
         });
     },
