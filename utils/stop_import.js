@@ -26,10 +26,10 @@ console.dir(config.getAWSConfig());
     var params = {
         TableName : TABLE_NAME,
         KeySchema: [       
-            { AttributeName: "stop_id", KeyType: "HASH"},
+            { AttributeName: "stop_code", KeyType: "HASH"},
         ],
         AttributeDefinitions: [       
-            { AttributeName: "stop_id", AttributeType: "S" },
+            { AttributeName: "stop_code", AttributeType: "S" },
         ],
         ProvisionedThroughput: {       
             ReadCapacityUnits: 10, 
