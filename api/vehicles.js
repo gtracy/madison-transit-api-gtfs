@@ -19,6 +19,13 @@ module.exports = async function(app) {
         var json_result = {};
         var gtfs_trips = new Trips();
 
+        // disable this endpoint temporarily until we implement protocol buffers
+        res.json({
+            status: "-1",
+            description: "this endpoint is temporarily disabled"
+        });
+        return;
+
         // snag the API query details
         const route_id = req.query.routeID;
         if( !route_id ) {

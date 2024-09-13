@@ -10,8 +10,8 @@ const logger = require('pino')(config.getLogConfig());
 const routes = require('../lib/routes');
 const utils = require('./utils');
 
-const METRO_TRIP_ENDPOINT = 'http://transitdata.cityofmadison.com/TripUpdate/TripUpdates.pb';
-const METRO_VEHICLE_ENDPOINT = 'http://transitdata.cityofmadison.com/Vehicle/VehiclePositions.json';
+const METRO_TRIP_ENDPOINT = 'https://metromap.cityofmadison.com/gtfsrt/trips';
+const METRO_VEHICLE_ENDPOINT = 'https://metromap.cityofmadison.com/gtfsrt/vehicles';
 
 //
 // returns a list of trip details, where every trip describes the
