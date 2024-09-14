@@ -17,6 +17,9 @@ const METRO_VEHICLE_ENDPOINT = 'https://metromap.cityofmadison.com/gtfsrt/vehicl
 // returns a list of trip details, where every trip describes the
 // details of every bus passing through the specified stop_id
 // 
+// stop_id ** in this context ** stop_id refers to the GTFS identifier
+//         for the requested stop - not the human readable identifier
+//         provided through the API request
 // route_id is not required. when used, the trip details are
 // filtered to only include the respective route.
 //

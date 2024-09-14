@@ -8,6 +8,7 @@ const fetch = require('./fetch');
 const devkey = require('./devkey');
 const utils = require('./utils');
 const Routes = require('../lib/routes');
+const Stops = require('../lib/stops');
 const Trips = require('../lib/trips');
 const logger = require('pino')(config.getLogConfig());
 
@@ -20,13 +21,27 @@ module.exports = async function(app) {
         let route = undefined;
 
         // snag the API query details
-        const stop_id = req.query.stopID;
+        const stop_code = req.query.stopID;
         const route_id = req.query.routeID;
+
+        // the API accepts the stop IDs you see on street signs 
+        // and system documentation. the GTFS spec, however, operates
+        // on a different IDs. do that transformation here.
+        let stop = await Stops.fetchByCode(stop_code);
+        if( !stop ) {
+            json_result.status = "-1";
+            json_result.message = "invalid stopID in the API request";
+            logger.error(unique_trip_id_list,"invalid stop code in the API request");
+            logger.debug(json_result,'/v1/getarrivals ');
+            res.json(json_result);
+            return;
+        }
+        const stop_id = stop.stop_id;
 
         // inspect results and build the payload
         json_result.status = "0";
         json_result.timestamp = moment().tz("America/Chicago").format("h:mmA");
-        json_result.stop = {'stopID' : stop_id,'route':[]};
+        json_result.stop = {'stopID' : stop_code,'route':[]};
         json_result.cached = false;
 
         // go grab the real-time Metro data

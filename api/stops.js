@@ -17,7 +17,6 @@ module.exports = async function(app) {
     //     "status" : "0",
     //     "timestamp" : "12:38pm",
     //     "stopID" : "1391",
-    //     "stop_code" : "1391",
     //     "intersection" : "Atwood & Ohio",
     //     "latitude" : "43.0937715",
     //     "longitude" : "-89.3467281",
@@ -25,22 +24,26 @@ module.exports = async function(app) {
     app.get('/v1/getstoplocation', utils.validateRequest, devkey.validateDevKey, async (req,res) => {
         var json_result = {};
 
-        function removeLeadingZeros(str) {
-            return str.replace(/^0+/, '');
-        }          
+        function padStringWithZeros(str) {
+            const paddedStr = str.padStart(4, '0');
+            return paddedStr;
+        }
 
         // snag the API query details
-        const stop_id = removeLeadingZeros(req.query.stopID);
+        // the legacy API contract uses "stop ID" terminology, but
+        // the internal workings of GTFS and the data layer use
+        // "stop code". make that translation here to avoid confusion
+        // ... also make sure the ID is always a four-digit string
+        const stop_code = padStringWithZeros(req.query.stopID);
 
         json_result.status = "0";
         json_result.timestamp = moment().tz("America/Chicago").format("h:mmA");
-        json_result.stopID = stop_id;
+        json_result.stopID = stop_code;
 
         // go grab the stop data
-        const stop_data = await gtfs_stop.fetchById(stop_id);
+        const stop_data = await gtfs_stop.fetchByCode(stop_code);
         if( stop_data ) {
             // inspect results and build the payload
-            json_result.stop_code = stop_data.stop_code;
             json_result.intersection = stop_data.stop_name;
             json_result.latitude = parseFloat(stop_data.stop_lat);
             json_result.longitude = parseFloat(stop_data.stop_lon);
