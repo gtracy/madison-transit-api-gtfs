@@ -38,7 +38,7 @@
     "perf_hooks": "0.0.1",
     "pino": "^7.6.2",
     "pino-http": "^6.5.0",
-    "pug": "^3.0.2",
+    "pug": "^3.0.3",
     "serve-favicon": "^2.5.0",
     "underscore": "^1.13.1",
     "uuid": "^8.3.2"
