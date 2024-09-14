@@ -9,11 +9,13 @@ const queue = require('../aws/queue');
 module.exports.validateRequest = (req,res,next) => {
 
     if( !req.query.key ) {
+        logger.debug('missing dev key in request '+req.query.key);
         res.json({
             status: "-1",
             description: "missing developer key in request (?key=)"
         });
     } else if( !req.query.stopID ) {
+        logger.debug('missing stopID in request '+req.query.key);
         res.json({
             status: "-1",
             description: "missing stopID in request (?stopID=)"

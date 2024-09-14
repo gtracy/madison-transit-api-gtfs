@@ -7,54 +7,59 @@ const {performance} = require('perf_hooks');
 
 //const GTFS_API_URL_BASE = "https://api.smsmybus.com/v1/";
 const GTFS_API_URL_BASE = "http://localhost:3300/v1/";
-const OLD_API_URL = "https://api.smsmybus.com/v1/getarrivals";
 const DEV_KEYS = ["mookie"];
 
 // record the results
-console.log('api,execution,key,stopID,status,routeCount');
+console.log('api,execution,key,stopCode,status,routeCount');
 (async () => {
-    let stop_ids = [];
+    let stop_codes = [];
+    let location_errors = 0;
+    let arrival_errors = 0;
 
     try {
-        stop_ids = await parseStopsFile();
-        console.log(stop_ids.length);
-
-        for( let i=0; i<stop_ids.length; i++ ) {
+        stop_codes = await parseStopsFile();
+        for( let i=0; i<stop_codes.length; i++ ) {
             let req_url,startTime,response,endTime;
             let node_time, old_time;
 
-            // randmoly select a devkey and stopid
+            // randmoly select a devkey and stopCode
             const devkey = DEV_KEYS[Math.floor(Math.random()*DEV_KEYS.length)];
-            const stopID = stop_ids[i];//STOP_IDS[Math.floor(Math.random()*STOP_IDS.length)];
+            const stopCode = stop_codes[Math.floor(Math.random()*stop_codes.length)];
 
             // call the new node implementation - getarrivals
-            req_url = GTFS_API_URL_BASE + "getarrivals" + "?key=" + devkey + "&stopID=" + stopID;
+            req_url = GTFS_API_URL_BASE + "getarrivals" + "?key=" + devkey + "&stopID=" + stopCode;
             startTime = performance.now();
             response = await got(req_url,{responseType:'json'});
             if( response.body.status < 0 ) {
-                // this API version should never, ever fail for these stopID
-                console.log('node,0,'+devkey+','+stopID+',-1,0');
+                // this API version should never, ever fail for these stopCode
+                console.log('node,getarrivals,'+devkey+','+stopCode+',-1,0');
+                arrival_errors++;
+                console.dir(response.body);
             } else {
                 endTime = performance.now();
-                console.log(`node,getarrivals,${endTime - startTime},${devkey},${stopID},${response.body.status},${response.body.stop.route.length}`);
+                console.log(`node,getarrivals,${endTime - startTime},${devkey},${stopCode},${response.body.status},${response.body.stop.route.length}`);
             }
 
             // call the new node implementation - getstoplocation
-            req_url = GTFS_API_URL_BASE + "getstoplocation" + "?key=" + devkey + "&stopID=" + stopID;
+            req_url = GTFS_API_URL_BASE + "getstoplocation" + "?key=" + devkey + "&stopID=" + stopCode;
             startTime = performance.now();
             response = await got(req_url,{responseType:'json'});
-            if( response.body.status < 0 ) {
-                // this API version should never, ever fail for these stopID
-                console.log('node,0,'+devkey+','+stopID+',-1,0');
+            if( response.body.status < 0 || response.body.stopID !== stopCode ) {
+                // this API version should never, ever fail for these stopCode
+                console.log('node,getstoplocation,'+devkey+','+stopCode+',-1,0');
+                location_errors++;
+                console.dir(response.body);
             } else {
                 endTime = performance.now();
-                console.log(`node,getstoplocation,${endTime - startTime},${devkey},${stopID},${response.body.status}`);
+                console.log(`node,getstoplocation,${endTime - startTime},${devkey},${stopCode},${response.body.status}`);
             }
-            
         }
     } catch (err) {
         console.dir(err);
     }
+    console.log('\nResults: '+stop_codes.length+' tests run');
+    console.log('getarrivals error count: '+arrival_errors);
+    console.log('getlocation error count: '+location_errors);
 
 })();
 
@@ -79,7 +84,7 @@ async function parseStopsFile() {
                 console.dir(err);
             })
             .on('data', async function (row) {
-                stops.push(row.stop_id);
+                stops.push(row.stop_code);
             });
     });
 }
