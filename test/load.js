@@ -53,7 +53,24 @@ console.log('api,execution,key,stopCode,status,routeCount');
                 endTime = performance.now();
                 console.log(`node,getstoplocation,${endTime - startTime},${devkey},${stopCode},${response.body.status}`);
             }
+            //if(i>4)break;
         }
+
+        // now test a fake stopid and make sure the server won't crash
+        const devkey = DEV_KEYS[Math.floor(Math.random()*DEV_KEYS.length)];
+        const stopCode = '9999';
+
+        // call the new node implementation - getarrivals
+        let req_url = GTFS_API_URL_BASE + "getarrivals" + "?key=" + devkey + "&stopID=" + stopCode;
+        let response = await got(req_url,{responseType:'json'});
+        if( response.body.status < 0 ) {
+            console.log('API correctly failed for stop '+stopCode);
+            console.dir(response.body);
+        } else {
+            arrival_errors++;
+            console.log('Stop '+stopCode+' should never succeed');
+        }
+
     } catch (err) {
         console.dir(err);
     }

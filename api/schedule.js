@@ -31,7 +31,7 @@ module.exports = async function(app) {
         if( !stop ) {
             json_result.status = "-1";
             json_result.message = "invalid stopID in the API request";
-            logger.error(unique_trip_id_list,"invalid stop code in the API request");
+            logger.error("invalid stop code in the API request");
             logger.debug(json_result,'/v1/getarrivals ');
             res.json(json_result);
             return;
