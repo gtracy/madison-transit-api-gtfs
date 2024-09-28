@@ -26,5 +26,3 @@ routes,route_url,es,https://www.cityofmadison.com/es/metro/rutas-horarios/ruta-8
 routes,route_url,es,https://www.cityofmadison.com/es/metro/rutas-horarios/ruta-81,,,http://www.cityofmadison.com/metro/routes-schedules/route-81
 routes,route_url,es,https://www.cityofmadison.com/es/metro/rutas-horarios/ruta-82,,,http://www.cityofmadison.com/metro/routes-schedules/route-82
 routes,route_url,es,https://www.cityofmadison.com/es/metro/rutas-horarios/ruta-84,,,http://www.cityofmadison.com/metro/routes-schedules/route-84
-agency,agency_url,es,https://www.cityofmadison.com/es/metro/rutas-horarios/servicio-escolar-suplementario,,,http://www.cityofmadison.com/metro/routes-schedules/supplemental-school-service
-routes,route_url,es,https://www.cityofmadison.com/es/metro/rutas-horarios/servicio-escolar-suplementario,,,http://www.cityofmadison.com/metro/routes-schedules/supplemental-school-service
