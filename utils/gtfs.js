@@ -16,11 +16,11 @@ module.exports.gtfsToDynamo = async (AWS,gtfs_file,dynamo_table,table_params) =>
     let ddb = new AWS.DynamoDB({apiVersion: '2012-08-10'});
     let dynamoClient = new AWS.DynamoDB.DocumentClient({apiVersion: '2012-08-10'});
         
-    const batch_size = 25;
+    const batch_size = 10;
     let batch_num = 1;
     let write_bucket = [];
     let promises = [];
-    const concurrentRequests = 25;
+    const concurrentRequests = 10;
 
         
     console.log("\ningest the GTFS Trips file into DynamoDB.");
@@ -38,7 +38,7 @@ module.exports.gtfsToDynamo = async (AWS,gtfs_file,dynamo_table,table_params) =>
         } else {
             console.log("Created table. Table description JSON:", JSON.stringify(data, null, 2));
             console.log("... take a quick break, and give AWS a chance to create the table ...");
-            await new Promise(r => setTimeout(r, 5000));
+            await new Promise(r => setTimeout(r, 15000));
         }
 
         console.log(`\n... reading GTFS data from ${gtfs_file}`);
@@ -46,6 +46,7 @@ module.exports.gtfsToDynamo = async (AWS,gtfs_file,dynamo_table,table_params) =>
 
         let inputStream = Fs.createReadStream(gtfs_file, 'utf8');
         let csvStream = new CsvReadableStream({ skipHeader: true, asObject: true, trim: true });
+        let write_count = 0;
         inputStream
             .pipe(csvStream)
             .on('end', async function () {
@@ -59,6 +60,7 @@ module.exports.gtfsToDynamo = async (AWS,gtfs_file,dynamo_table,table_params) =>
                     console.log('... found sme remnents. saving these now.');
                     await saveToDynamoDB(write_bucket);
                 }
+                await new Promise(r => setTimeout(r, 5000));
                 console.log('No more rows!');
             })
             .on('error', (err) => {
