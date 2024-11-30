@@ -2,6 +2,7 @@ table_name,field_name,language,translation,record_id,record_sub_id,field_value
 agency,agency_url,es,http://www.cityofmadison.com/es/metro/,,,http://www.mymetrobus.com/
 agency,agency_fare_url,es,https://www.cityofmadison.com/es/metro/tarifas,,,http://www.cityofmadison.com/metro/fares/
 agency,bike_policy_url,es,https://www.cityofmadison.com/es/metro/como-viajar/rejillas-para-bicicletas,,,http://www.cityofmadison.com/metro/how-to-ride/bike-racks/
+routes,route_url,es,https://www.cityofmadison.com/es/metro/rutas-horarios/,,,http://www.cityofmadison.com/metro/routes-schedules/
 routes,route_url,es,https://www.cityofmadison.com/es/metro/rutas-horarios/ruta-a,,,http://www.cityofmadison.com/metro/routes-schedules/route-a
 routes,route_url,es,https://www.cityofmadison.com/es/metro/rutas-horarios/ruta-b,,,http://www.cityofmadison.com/metro/routes-schedules/route-b
 routes,route_url,es,https://www.cityofmadison.com/es/metro/rutas-horarios/ruta-c,,,http://www.cityofmadison.com/metro/routes-schedules/route-c
