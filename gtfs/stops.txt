@@ -9,7 +9,7 @@ stop_id,stop_code,stop_name,stop_desc,stop_lat,stop_lon,zone_id,stop_url,locatio
 1230,0512,W Washington at N Bassett,This stop (#0512) is westbound on the 500 block of W Washington after N Bassett,43.069986,-89.391021,1,,0,,,1,1,CMAD,1,270,W Washington,500,N Bassett
 1231,5125,N Sherman at Logan,This stop (#5125) is northbound on the 1499 block of N Sherman before Logan,43.116255,-89.363627,1,,0,,,1,1,CMAD,3,0,N Sherman,1499,Logan
 1235,5142,Troy at Forster,This stop (#5142) is westbound on the 1400 block of Troy before Forster,43.133799,-89.373212,1,,0,,,1,1,CMAD,3,270,Troy,1400,Forster
-1236,5143,Packers at International,This stop (#5143) is northbound on the 2201 block of Packers after International,43.121847,-89.354913,1,,0,,,1,1,CMAD,1,0,Packers,2201,International
+1236,5143,Packers at International,This stop (#5143) is northbound on the 2201 block of Packers after International,43.121883,-89.354777,1,,0,,,1,1,CMAD,1,0,Packers,2201,International
 1237,5149,Northport at Troy,This stop (#5149) is eastbound on the 1499 block of Northport before Troy,43.133843,-89.371235,1,,0,,,1,1,CMAD,3,90,Northport,1499,Troy
 1239,5162,N Sherman at Northport,This stop (#5162) is southbound on the 2900 block of N Sherman after Northport,43.130277,-89.363664,1,,0,,,1,1,CMAD,1,180,N Sherman,2900,Northport
 1240,5164,Northport at Dryden,This stop (#5164) is westbound on the 1900 block of Northport before Dryden,43.129128,-89.358711,1,,0,,,1,1,CMAD,3,270,Northport,1900,Dryden
@@ -62,7 +62,7 @@ stop_id,stop_code,stop_name,stop_desc,stop_lat,stop_lon,zone_id,stop_url,locatio
 1307,5663,Northport at Barby,This stop (#5663) is eastbound on the 1001 block of Northport before Barby,43.137124,-89.380833,1,,0,,,1,1,CMAD,3,90,Northport,1001,Barby
 1309,5683,N Sherman at Trailsway,This stop (#5683) is northbound on the 2601 block of N Sherman before Trailsway,43.126059,-89.363445,1,,0,,,1,1,CMAD,3,0,N Sherman,2601,Trailsway
 1312,5715,Northport at Kennedy,This stop (#5715) is eastbound on the 599 block of Northport before Kennedy,43.139714,-89.38832,1,,0,,,1,1,CMAD,3,90,Northport,599,Kennedy
-1314,0573,Linden at Henry,This stop (#0573) is eastbound on the 1499 block of Linden before Henry,43.07503,-89.410339,1,,0,,,1,1,UWIS,3,90,Linden,1499,Henry
+1314,0573,Linden at Henry,This stop (#0573) is eastbound on the 1498 block of Linden after Henry,43.07503,-89.410339,1,,0,,,1,1,UWIS,1,90,Linden,1498,Henry
 1315,5733,Packers at Schlimgen,This stop (#5733) is northbound on the 1799 block of Packers before Schlimgen,43.118633,-89.354829,1,,0,,,1,1,CMAD,3,0,Packers,1799,Schlimgen
 1316,5748,N Sherman at Schlimgen,This stop (#5748) is southbound on the 1800 block of N Sherman before Schlimgen,43.11904,-89.363884,1,,0,,,1,1,CMAD,3,180,N Sherman,1800,Schlimgen
 1318,5777,Packers at Elka,This stop (#5777) is northbound on the 2599 block of Packers before Elka,43.125634,-89.354921,1,,0,,,1,1,CMAD,3,0,Packers,2599,Elka
@@ -138,7 +138,7 @@ stop_id,stop_code,stop_name,stop_desc,stop_lat,stop_lon,zone_id,stop_url,locatio
 1448,6365,Junction at City Center West,This stop (#6365) is northbound on the 535 block of Junction after City Center West,43.072171,-89.525082,1,,0,,,1,1,CMAD,1,0,Junction,535,City Center West
 1449,6368,Junction at Prairie Towne,This stop (#6368) is southbound on the 266 block of Junction opposite Prairie Towne,43.065348,-89.52585,1,,0,,,1,1,CMAD,4,180,Junction,266,Prairie Towne
 1452,6382,Odana at Grand Canyon,This stop (#6382) is westbound on the 6700 block of Odana after Grand Canyon,43.056746,-89.496969,1,,0,,,1,1,CMAD,1,270,Odana,6700,Grand Canyon
-1453,F685,Old Sauk at Junction,This flag stop (#F685) is eastbound on the 8299 block of Old Sauk after Junction,43.074703,-89.527246,1,,0,,,0,0,CMAD,1,90,Old Sauk,8299,Junction
+1453,F685,Old Sauk at Junction,This flag stop (#F685) is eastbound on the 8299 block of Old Sauk after Junction,43.074703,-89.526506,1,,0,,,0,0,CMAD,1,90,Old Sauk,8299,Junction
 1455,6388,Century at Park,This stop (#6388) is westbound on the 6998 block of Century before Park,43.108948,-89.501496,1,,0,,,1,1,CMID,3,270,Century,6998,Park
 1457,6394,Parmenter at Lee,This stop (#6394) is southbound on the 2398 block of Parmenter after Lee,43.100929,-89.511565,1,,0,,,1,1,CMID,1,180,Parmenter,2398,Lee
 1458,6395,Branch at University,This stop (#6395) is northbound on the 2001 block of Branch after University,43.096704,-89.495246,1,,0,,,1,1,CMID,1,0,Branch,2001,University
@@ -391,7 +391,7 @@ stop_id,stop_code,stop_name,stop_desc,stop_lat,stop_lon,zone_id,stop_url,locatio
 1870,F740,S Thompson at Grafton,This flag stop (#F740) is southbound on the 1504 block of S Thompson before Grafton,43.076889,-89.28286,1,,0,,,1,0,CMAD,3,180,S Thompson,1504,Grafton
 1871,7842,Milwaukee at Portland,This stop (#7842) is westbound on the 4398 block of Milwaukee after Portland,43.098768,-89.308033,1,,0,,,1,1,CMAD,1,270,Milwaukee,4398,Portland
 1872,L781,Vondron at Dolores,This flag stop (#L781) is northbound on the 2001 block of Vondron before Dolores,43.070166,-89.291317,1,,0,,,1,0,CMAD,3,0,Vondron,2001,Dolores
-1873,7867,Wyalusing at Summertown,This stop (#7867) is northbound on the 221 block of Wyalusing after Summertown,43.096571,-89.26195,1,,0,,,0,1,CMAD,1,0,Wyalusing,221,Summertown
+1873,7867,Wyalusing at Summertown,This stop (#7867) is northbound on the 221 block of Wyalusing after Summertown,43.096875,-89.261628,1,,0,,,0,1,CMAD,1,0,Wyalusing,221,Summertown
 1874,7888,Atwood at Walter,This stop (#7888) is southbound on the 3500 block of Atwood after Walter,43.089178,-89.32925,1,,0,,,1,1,CMAD,1,180,Atwood,3500,Walter
 1875,7892,Milwaukee at N Thompson,This stop (#7892) is westbound on the 5398 block of Milwaukee after N Thompson,43.099109,-89.289298,1,,0,,,1,1,CMAD,1,270,Milwaukee,5398,N Thompson
 1876,F785,S Thompson at Forge,This flag stop (#F785) is eastbound on the 2201 block of S Thompson before Forge,43.066255,-89.284054,1,,0,,,0,0,CMAD,3,90,S Thompson,2201,Forge
@@ -446,7 +446,7 @@ stop_id,stop_code,stop_name,stop_desc,stop_lat,stop_lon,zone_id,stop_url,locatio
 1945,8268,Woods at Mid Town,This stop (#8268) is southbound on the 1900 block of Woods after Mid Town,43.030929,-89.553002,1,,0,,,1,1,CMAD,1,180,Woods,1900,Mid Town
 1946,8273,Mid Town at Woods,This stop (#8273) is eastbound on the 9599 block of Mid Town after Woods,43.031099,-89.552472,1,,0,,,1,1,CMAD,1,90,Mid Town,9599,Woods
 1947,8274,S Whitney at Gilbert,This stop (#8274) is westbound on the 1000 block of S Whitney after Gilbert,43.044277,-89.474227,1,,0,,,1,1,CMAD,1,270,S Whitney,1000,Gilbert
-1948,0828,E Rusk at Rimrock,This stop (#0828) is westbound on the 398 block of E Rusk after Rimrock,43.04272,-89.377851,1,,0,,,1,1,CMAD,1,270,E Rusk,398,Rimrock
+1948,0828,E Rusk at Rimrock,This stop (#0828) is westbound on the 398 block of E Rusk after Rimrock,43.04282,-89.377831,1,,0,,,1,1,CMAD,1,270,E Rusk,398,Rimrock
 1949,8281,McKenna at Raymond,This stop (#8281) is northbound on the 1999 block of McKenna after Raymond,43.032127,-89.49677,1,,0,,,1,1,CMAD,1,0,McKenna,1999,Raymond
 1950,8285,Raymond at Lewon,This stop (#8285) is eastbound on the 5199 block of Raymond after Lewon,43.031666,-89.468604,1,,0,,,1,1,CMAD,1,90,Raymond,5199,Lewon
 1951,8297,S Whitney at Raymond,This stop (#8297) is northbound on the 1999 block of S Whitney after Raymond,43.03228,-89.476537,1,,0,,,1,1,CMAD,1,0,S Whitney,1999,Raymond
@@ -616,7 +616,7 @@ stop_id,stop_code,stop_name,stop_desc,stop_lat,stop_lon,zone_id,stop_url,locatio
 2237,9642,Wright at Straubel,This stop (#9642) is southbound on the 1598 block of Wright before Straubel,43.117167,-89.330718,1,,0,,,1,1,CMAD,3,180,Wright,1598,Straubel
 2238,9645,N Thompson at Oak Valley,This stop (#9645) is northbound on the 1201 block of N Thompson after Oak Valley,43.116154,-89.296343,1,,0,,,1,1,CMAD,1,0,N Thompson,1201,Oak Valley
 2239,9651,Eastpark at U W Health,This stop (#9651) is eastbound on the 4651 block of Eastpark opposite U W Health,43.153513,-89.301094,1,,0,,,1,1,CMAD,4,90,Eastpark,4651,U W Health
-2240,F952,E Washington at Portage,This flag stop (#F952) is westbound on the 4000 block of E Washington after Portage,43.104151,-89.300749,1,,0,,,1,0,CMAD,1,270,E Washington,4000,Portage
+2240,F962,Swanton at N Thompson,This flag stop (#F962) is southbound on the 398 block of Swanton after N Thompson,43.104151,-89.300749,1,,0,,,1,0,CMAD,1,180,Swanton,398,N Thompson
 2242,0967,W Washington at S Bedford,This stop (#0967) is eastbound on the 599 block of W Washington after S Bedford,43.068957,-89.392096,1,,0,,,1,1,CMAD,1,90,W Washington,599,S Bedford
 2243,9670,Melody at Stuart,This stop (#9670) is westbound on the 4198 block of Melody after Stuart,43.130763,-89.312835,1,,0,,,1,1,CMAD,1,270,Melody,4198,Stuart
 2248,9701,High Crossing at E Springs,This stop (#9701) is eastbound on the 4801 block of High Crossing after E Springs,43.131985,-89.297648,1,,0,,,1,1,CMAD,1,90,High Crossing,4801,E Springs
@@ -766,11 +766,11 @@ stop_id,stop_code,stop_name,stop_desc,stop_lat,stop_lon,zone_id,stop_url,locatio
 379,M827,McKee at S High Point,This flag stop (#M827) is eastbound on the 7799 block of McKee after S High Point,43.015803,-89.518067,1,,0,,,1,0,CMAD,1,90,McKee,7799,S High Point
 381,M830,S High Point at Stratton,This flag stop (#M830) is southbound on the 2998 block of S High Point before Stratton,43.018908,-89.518935,1,,0,,,0,0,CMAD,3,180,S High Point,2998,Stratton
 382,M832,S High Point at Raymond,This flag stop (#M832) is southbound on the 2700 block of S High Point after Raymond,43.025435,-89.518068,1,,0,,,0,0,CMAD,1,180,S High Point,2700,Raymond
-383,M833,Manchester at Tiller,This flag stop (#M833) is northbound on the 3799 block of Manchester after Tiller,43.010292,-89.498807,1,,0,,,0,0,CMAD,1,0,Manchester,3799,Tiller
+383,M833,Manchester at Tiller,This flag stop (#M833) is northbound on the 3799 block of Manchester after Tiller,43.008308,-89.492946,1,,0,,,0,0,CMAD,1,0,Manchester,3799,Tiller
 385,M835,East Pass at Tanglewood,This flag stop (#M835) is northbound on the 7101 block of East Pass before Tanglewood,43.012285,-89.504593,1,,0,,,0,0,CMAD,3,0,East Pass,7101,Tanglewood
 386,M836,Gladstone at Tucson,This flag stop (#M836) is westbound on the 7298 block of Gladstone before Tucson,43.023587,-89.511305,1,,0,,,0,0,CMAD,3,270,Gladstone,7298,Tucson
 389,M842,Country Grove at Westbourne,This flag stop (#M842) is southbound on the 3698 block of Country Grove before Westbourne,43.011285,-89.5133,1,,0,,,0,0,CMAD,3,180,Country Grove,3698,Westbourne
-390,M843,Fairhaven at Dolphin,This flag stop (#M843) is eastbound on the 6601 block of Fairhaven before Dolphin,43.003793,-89.498874,1,,0,,,0,0,CMAD,3,90,Fairhaven,6601,Dolphin
+390,M843,Fairhaven at Dolphin,This flag stop (#M843) is eastbound on the 6601 block of Fairhaven before Dolphin,43.003543,-89.497554,1,,0,,,0,0,CMAD,3,90,Fairhaven,6601,Dolphin
 391,M844,Maple Grove at Carnwood,This flag stop (#M844) is southbound on the 2998 block of Maple Grove before Carnwood,43.020255,-89.498916,1,,0,,,0,0,CMAD,3,180,Maple Grove,2998,Carnwood
 392,M845,Canterbury at Waltham,This flag stop (#M845) is northbound on the 2501 block of Canterbury before Waltham,43.025481,-89.502956,1,,0,,,0,0,CMAD,3,0,Canterbury,2501,Waltham
 394,M847,Canterbury at Pilgrim,This flag stop (#M847) is northbound on the 2301 block of Canterbury before Pilgrim,43.028158,-89.502885,1,,0,,,0,0,CMAD,3,0,Canterbury,2301,Pilgrim
@@ -873,8 +873,8 @@ stop_id,stop_code,stop_name,stop_desc,stop_lat,stop_lon,zone_id,stop_url,locatio
 590,1975,Milwaukee at S Marquette,This stop (#1975) is eastbound on the 2899 block of Milwaukee before S Marquette,43.099814,-89.34177,1,,0,,,1,1,CMAD,3,90,Milwaukee,2899,S Marquette
 594,1996,E Gorham at N Livingston,This stop (#1996) is westbound on the 800 block of E Gorham before N Livingston,43.084003,-89.378804,1,,0,,,1,1,CMAD,3,270,E Gorham,800,N Livingston
 595,2007,Observatory at Walnut,This stop (#2007) is eastbound on the 2299 block of Observatory after Walnut,43.076436,-89.424388,1,,0,,,1,1,UWIS,1,90,Observatory,2299,Walnut
-596,2014,Lake Mendota at Lot R,This stop (#2014) is southbound on the 2601 block of Lake Mendota adjacent Lot R,43.089239,-89.43376,1,,0,,,1,1,UWIS,2,180,Lake Mendota,2601,Lot R
-597,2018,Eagle Heights at Lot E,This stop (#2018) is westbound on the 300 block of Eagle Heights adjacent Lot E,43.086293,-89.435043,1,,0,,,1,1,UWIS,2,270,Eagle Heights,300,Lot E
+596,2014,Lake Mendota at Lot R,This stop (#2014) is southbound on the 2601 block of Lake Mendota adjacent Lot R,43.089239,-89.43376,1,,0,,,0,1,UWIS,2,180,Lake Mendota,2601,Lot R
+597,2018,Eagle Heights at Lot E,This stop (#2018) is westbound on the 300 block of Eagle Heights adjacent Lot E,43.086293,-89.435043,1,,0,,,0,1,UWIS,2,270,Eagle Heights,300,Lot E
 598,2023,Marsh at Highland,This stop (#2023) is eastbound on the 898 block of Marsh after Highland,43.0788,-89.429795,1,,0,,,1,1,UWIS,1,90,Marsh,898,Highland
 599,2026,Eagle Heights at Lot F,This stop (#2026) is westbound on the 400 block of Eagle Heights adjacent Lot F,43.086248,-89.436661,1,,0,,,1,1,UWIS,2,270,Eagle Heights,400,Lot F
 600,2027,University Bay at Lot 60,This stop (#2027) is northbound on the 1413 block of University Bay adjacent Lot 60,43.080259,-89.428067,1,,0,,,1,1,UWIS,2,0,University Bay,1413,Lot 60
@@ -1205,11 +1205,11 @@ stop_id,stop_code,stop_name,stop_desc,stop_lat,stop_lon,zone_id,stop_url,locatio
 1119,F454,S Whitney at Kroncke,This flag stop (#F454) is southbound on the 2298 block of S Whitney before Kroncke,43.027876,-89.475596,1,,0,,,1,0,CMAD,3,180,S Whitney,2298,Kroncke
 1121,F463,Allied at Thurston,This flag stop (#F463) is northbound on the 2101 block of Allied before Thurston,43.031167,-89.458882,1,,0,,,1,0,CMAD,3,0,Allied,2101,Thurston
 1122,4684,McKee at Fish Hatchery,This stop (#4684) is westbound on the 5500 block of McKee after Fish Hatchery,43.015703,-89.425188,1,,0,,,1,1,CFIT,1,270,McKee,5500,Fish Hatchery
-1124,4688,Beltline S at Underpass,This stop (#4688) is westbound on the 4398 block of Beltline S adjacent Underpass,43.035895,-89.452401,1,,0,,,1,1,CMAD,2,270,Beltline S,4398,Underpass
+1124,4688,Beltline S at Underpass,This stop (#4688) is westbound on the 4398 block of Beltline S adjacent Underpass,43.035943,-89.452355,1,,0,,,1,1,CMAD,2,270,Beltline S,4398,Underpass
 1125,0469,W Washington at Southwest,This stop (#0469) is eastbound on the 651 block of W Washington adjacent Southwest,43.067543,-89.394121,1,,0,,,1,1,CMAD,2,90,W Washington,651,Southwest
 1127,0470,N Bassett at W Dayton,This stop (#0470) is southbound on the 200 block of N Bassett before W Dayton,43.071625,-89.39286,1,,0,,,1,1,CMAD,3,180,N Bassett,200,W Dayton
 1129,4707,Fish Hatchery at Caddis,This stop (#4707) is northbound on the 3499 block of Fish Hatchery after Caddis,43.019436,-89.418898,1,,0,,,1,1,CFIT,1,0,Fish Hatchery,3499,Caddis
-1133,4719,Beltline S at Underpass,This stop (#4719) is eastbound on the 4399 block of Beltline S opposite Underpass,43.035896,-89.452407,1,,0,,,1,1,CMAD,4,90,Beltline S,4399,Underpass
+1133,4719,Beltline S at Underpass,This stop (#4719) is eastbound on the 4399 block of Beltline S opposite Underpass,43.035578,-89.451587,1,,0,,,1,1,CMAD,4,90,Beltline S,4399,Underpass
 1134,4722,E Cheryl at Big Bluestem,This stop (#4722) is westbound on the 5250 block of E Cheryl after Big Bluestem,43.007054,-89.40368,1,,0,,,0,1,CFIT,1,270,E Cheryl,5250,Big Bluestem
 1136,0473,W Washington at S Bassett,This stop (#0473) is eastbound on the 499 block of W Washington after S Bassett,43.070228,-89.390293,1,,0,,,1,1,CMAD,1,90,W Washington,499,S Bassett
 1137,4732,W Verona at N Main,This stop (#4732) is westbound on the 100 block of W Verona after N Main,42.990501,-89.534012,1,,0,,,1,1,CVER,1,270,W Verona,100,N Main
@@ -1312,7 +1312,7 @@ stop_id,stop_code,stop_name,stop_desc,stop_lat,stop_lon,zone_id,stop_url,locatio
 2467,2312,S Whitney at Tokay,This stop (#2312) is southbound on the 600 block of S Whitney after Tokay,43.053346,-89.47374,1,,0,,,1,1,CMAD,1,180,S Whitney,600,Tokay
 2468,F249,Eau Claire at Sheboygan,This flag stop (#F249) is northbound on the 501 block of Eau Claire after Sheboygan,43.073225,-89.464039,1,,0,,,1,0,CMAD,1,0,Eau Claire,501,Sheboygan
 2469,2467,University at University Bay,This stop (#2467) is eastbound on the 2699 block of University after University Bay,43.073204,-89.433449,1,,0,,,1,1,CMAD,1,90,University,2699,University Bay
-2470,2493,Glenway at Monroe,This stop (#2493) is northbound on the 799 block of Glenway after Monroe,43.053177,-89.435457,1,,0,,,0,1,CMAD,1,0,Glenway,799,Monroe
+2470,F293,Glenway at Monroe,This flag stop (#F293) is northbound on the 799 block of Glenway after Monroe,43.053177,-89.435457,1,,0,,,0,0,CMAD,1,0,Glenway,799,Monroe
 2471,2511,Mineral Point at S Whitney,This stop (#2511) is eastbound on the 5399 block of Mineral Point after S Whitney,43.060715,-89.471634,1,,0,,,1,1,CMAD,1,90,Mineral Point,5399,S Whitney
 2472,2549,S Whitney at Tokay,This stop (#2549) is northbound on the 601 block of S Whitney before Tokay,43.053481,-89.473234,1,,0,,,1,1,CMAD,3,0,S Whitney,601,Tokay
 2473,0269,N Brooks at W Johnson,This stop (#0269) is northbound on the 301 block of N Brooks after W Johnson,43.072388,-89.402303,1,,0,,,1,1,CMAD,1,0,N Brooks,301,W Johnson
@@ -1325,7 +1325,7 @@ stop_id,stop_code,stop_name,stop_desc,stop_lat,stop_lon,zone_id,stop_url,locatio
 2480,2951,Highland at Regent,This stop (#2951) is northbound on the 1 block of Highland after Regent,43.068361,-89.428486,1,,0,,,1,1,CMAD,1,0,Highland,1,Regent
 2481,2959,University Bay at Highland,This stop (#2959) is northbound on the 901 block of University Bay before Highland,43.075773,-89.43393,1,,0,,,1,1,UWIS,3,0,University Bay,901,Highland
 2482,F286,Capital at University,This flag stop (#F286) is westbound on the 1698 block of Capital after University,43.084232,-89.478047,1,,0,,,1,0,CMAD,1,270,Capital,1698,University
-2483,3142,Lacy at Brassica,This stop (#3142) is westbound on the 4898 block of Lacy before Brassica,43.011536,-89.373883,1,,0,,,1,1,CFIT,3,270,Lacy,4898,Brassica
+2483,3142,Lacy at Brassica,This stop (#3142) is westbound on the 4898 block of Lacy before Brassica,43.011432,-89.373868,1,,0,,,1,1,CFIT,3,270,Lacy,4898,Brassica
 2484,3226,Rimrock at E Badger,This stop (#3226) is southbound on the 2400 block of Rimrock after E Badger,43.038058,-89.37929,1,,0,,,1,1,CFIT,1,180,Rimrock,2400,E Badger
 2485,3237,Novation at Ski,This stop (#3237) is eastbound on the 2799 block of Novation after Ski,43.031543,-89.385389,1,,0,,,1,1,CFIT,1,90,Novation,2799,Ski
 2486,3305,Meinders at Crested Owl,This stop (#3305) is eastbound on the 5009 block of Meinders before Crested Owl,43.035425,-89.296109,1,,0,,,1,1,CMAD,3,90,Meinders,5009,Crested Owl
@@ -1588,8 +1588,8 @@ stop_id,stop_code,stop_name,stop_desc,stop_lat,stop_lon,zone_id,stop_url,locatio
 2844,10071,East Campus Southbound,East Campus Southbound platform is westbound on the 798 block of University  Avenue - side station is on the east side of the East Campus Mall intersection,43.073354,-89.398846,2,,0,,,1,2,MTSM,3,270,University,798,E Campus
 2845,10077,State Westbound,State Westbound platform is westbound on the 398 block of State Street - side station is on the east side of the West Gorham Street intersection,43.07491,-89.391488,2,,0,,,1,2,MTSM,3,270,State,398,W Gorham
 2846,10078,State Eastbound,State Eastbound platform is eastbound on the 299 block of State Street - side station is on the east side of the West Johnson Street intersection,43.074668,-89.389575,2,,0,,,1,2,MTSM,1,90,State,299,W Johnson
-2847,10081,Capitol Square Westbound,Capitol Square Westbound platform is westbound on the 2 block of East Mifflin Street - side station is on the east side of the Wisconsin Avenue intersection,43.075625,-89.385216,2,,0,,,1,2,MTSM,3,270,E Mifflin,2,Wisconsin
-2848,10082,Capital Square Eastbound,Capitol Square Eastbound platform is eastbound on the 1 block of West Main Street - side station is on the west side of the Martin Luther King Junior intersection,43.073753,-89.383119,2,,0,,,1,2,MTSM,3,90,W Main,1,M L K Jr
+2847,10081,Capitol Square Westbound,Capitol Square Westbound platform is westbound on the 2 block of East Mifflin Street - side station is on the east side of the Wisconsin Avenue intersection,43.075741,-89.385056,2,,0,,,1,2,MTSM,3,270,E Mifflin,2,Wisconsin
+2848,10082,Capitol Square Eastbound,Capitol Square Eastbound platform is eastbound on the 1 block of West Main Street - side station is on the west side of the Martin Luther King Junior intersection,43.073547,-89.383415,2,,0,,,1,2,MTSM,3,90,W Main,1,M L K Jr
 2849,10085,Blair Westbound,Blair Westbound platform is located at the 500 block of East Washington Avenue - center station is on the west side of the Blair Street intersection,43.078354,-89.379017,2,,0,110084,,1,2,MTSM,1,270,E Washington,498,N Blair
 2850,10086,Blair Eastbound,Blair Eastbound platform is located at the 500 block of East Washington Avenue - center station is on the west side of the Blair Street intersection,43.078407,-89.378795,2,,0,110084,,1,2,MTSM,3,90,E Washington,499,S Blair
 2851,10089,Paterson Westbound,Paterson Westbound platform is located at the 900 block of East Washington Avenue - center station is on the west side of the Paterson Street intersection,43.08213,-89.373681,2,,0,110088,,1,2,MTSM,1,270,E Washington,898,N Paterson
@@ -1653,10 +1653,10 @@ stop_id,stop_code,stop_name,stop_desc,stop_lat,stop_lon,zone_id,stop_url,locatio
 2909,10137,East Springs Westbound,East Springs Westbound platform is westbound on the 4798 block of East Washington Avenue - side station is on the west side of the East Springs Drive intersection,43.131489,-89.303617,2,,0,,,1,2,MTSM,1,270,E Washington,4798,E Springs
 2910,10138,East Springs Eastbound,East Springs Eastbound platform is eastbound on the 4790 block of East Washington Avenue - side station is on the west side of the East Springs Drive intersection,43.131399,-89.302913,2,,0,,,1,2,MTSM,3,90,E Washington,4799,E Springs
 2911,9579,Cremer at O'Keeffe,This stop (#9579) is northbound on the 1701 block of Cremer before O'Keeffe,43.156978,-89.267148,1,,0,,,1,1,CSUN,3,0,Cremer,1701,O'Keeffe
-2487,0341,N Park at W Johnson,This DROP OFF/DETOUR ONLY stop (#0341) is northbound on the 301 block of N Park after W Johnson,43.072352,-89.400476,1,,0,,,1,1,CMAD,1,0,N Park,301,W Johnson
+1274,0538,N Park at University,This EVENT/DETOUR ONLY stop (#0538) is southbound on the 398 block of N Park after University,43.072701,-89.400846,1,,0,,,1,1,CMAD,1,180,N Park,301,University
+2487,0341,N Park at W Johnson,This EVENT/DETOUR ONLY stop (#0341) is northbound on the 301 block of N Park after W Johnson,43.072352,-89.400476,1,,0,,,1,1,CMAD,1,0,N Park,301,W Johnson
 100141,0141,W Washington at S Fairchild,This EVENT/DETOUR ONLY stop (#0141) is eastbound on the 201 block of W Washington before of S Fairchild,43.073074,-89.386255,1,,0,,,1,1,CMAD,3,90,W Washington,201,S Fairchild
 101110,1110,E Dayton at Wisconsin,This EVENT/DETOUR ONLY stop (#1110) is westbound on the 2 block of E Dayton before of Wisconsin,43.076428,-89.38592,1,,0,,,1,1,CMAD,3,270,E Dayton,2,Wisconsin
-101155,1155,S Webster at E Main,This EVENT/DETOUR ONLY stop (#1155) is northbound on the 99 block of S Webster after of E Main,43.075579,-89.381192,1,,0,,,1,1,CMAD,1,0,S Webster,99,E Main
 104000,SoTP,South Transfer,South Transfer is located at 2430 S Park - just north of W Badger,43.038957,-89.394651,1,,1,,,1,0,MTSM,5,,S Park,2430,South Transfer
 110012,10012,High Point,High Point Station is located at the 7800 block of Mineral Point Road - center platform is on the east side of the South High Point Road intersection,43.060547,-89.517215,2,,1,,,1,0,MTSM,5,,Mineral Point,7800,S High Point
 110016,10016,Westfield,Westfield Station is located at the 7300 block of Mineral Point Road - center platform is on the east side of the South Westfield Road intersection,43.060652,-89.50752,2,,1,,,1,0,MTSM,5,,Mineral Point,7300,S Westfield
