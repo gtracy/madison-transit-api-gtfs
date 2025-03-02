@@ -1,3 +1,5 @@
+Project was sunsetted and came offline on March 1st, 2025.
+
 # Madison Transit API
 GTFS implementation for a Madison Transit API
 
